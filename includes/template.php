@@ -13,7 +13,9 @@ if (!defined('SITE_BOOTSTRAP')) {
     <meta name="description" content="<?= htmlspecialchars($t['meta_description'], ENT_QUOTES, 'UTF-8') ?>">
     <meta name="keywords" content="<?= htmlspecialchars($t['meta_keywords'], ENT_QUOTES, 'UTF-8') ?>">
     <meta name="author" content="Prof. univ. dr. Sebastian V. Bodu">
-    <meta name="theme-color" content="#0c1118">
+    <meta name="theme-color" content="#f3ead9">
+    <meta name="robots" content="index, follow">
+    <meta name="google-site-verification" content="2ne_mFDmEK8H5LesW-0uQZ7KLLhulX7OpsrFm_IHSIM">
     <link rel="canonical" href="<?= htmlspecialchars($canonical, ENT_QUOTES, 'UTF-8') ?>">
     <link rel="alternate" hreflang="ro" href="<?= htmlspecialchars($hreflangRo, ENT_QUOTES, 'UTF-8') ?>">
     <link rel="alternate" hreflang="en" href="<?= htmlspecialchars($hreflangEn, ENT_QUOTES, 'UTF-8') ?>">
@@ -28,7 +30,7 @@ if (!defined('SITE_BOOTSTRAP')) {
     <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="preload" as="image" href="sebastianbodu.jpg">
     <link rel="stylesheet" href="assets/css/site.css?v=<?= (int) $assetVersion ?>">
     <script type="application/ld+json">
@@ -69,8 +71,13 @@ if (!defined('SITE_BOOTSTRAP')) {
 </head>
 <body>
     <a class="skip-link" href="#continut"><?= htmlspecialchars($t['skip'], ENT_QUOTES, 'UTF-8') ?></a>
-    <div class="grain" aria-hidden="true"></div>
     <audio id="bgMusic" loop preload="none"><source src="background-law.mp3" type="audio/mpeg"></audio>
+    <div class="topbar" aria-hidden="true"></div>
+    <p class="letterhead">
+        <span><?= htmlspecialchars($t['letter_1'], ENT_QUOTES, 'UTF-8') ?></span>
+        <span><?= htmlspecialchars($t['letter_2'], ENT_QUOTES, 'UTF-8') ?></span>
+        <span><?= htmlspecialchars($t['letter_3'], ENT_QUOTES, 'UTF-8') ?></span>
+    </p>
 
     <header class="site-header" id="top">
         <div class="shell header-inner">
