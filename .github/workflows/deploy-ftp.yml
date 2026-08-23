@@ -1,0 +1,16 @@
+name: Deploy FTP avocatbodu.ro
+
+on:
+  push:
+    branches:
+      - cursor/redesign-comercial-juridic-bef2
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Sync redesigned site over FTP
+        run: python3 .github/scripts/ftp_sync.py
