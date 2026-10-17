@@ -273,6 +273,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['trimite_contact'])) {
         </div>
     </div>
 
+    
+    <section class="py-12 px-6 max-w-7xl mx-auto border-t border-white/5">
+        <h2 class="font-serif text-2xl text-gold uppercase tracking-widest text-center mb-8">Articole & Ghiduri</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <a href="/articole/arbitraj-comercial-ccir.php" class="glass-card p-6 hover:border-gold/60 transition">
+                <h3 class="font-serif text-gold mb-2">Arbitraj Comercial CCIR</h3>
+                <p class="text-gray-400 text-sm">Ghid despre arbitrajul la Curtea de Arbitraj Comercial Internațional.</p>
+            </a>
+            <a href="/articole/drept-societar-ghid.php" class="glass-card p-6 hover:border-gold/60 transition">
+                <h3 class="font-serif text-gold mb-2">Drept Societar</h3>
+                <p class="text-gray-400 text-sm">Ghid practic pentru companii și antreprenori.</p>
+            </a>
+            <a href="/articole/intrebari-frecvente.php" class="glass-card p-6 hover:border-gold/60 transition">
+                <h3 class="font-serif text-gold mb-2">Întrebări Frecvente</h3>
+                <p class="text-gray-400 text-sm">Răspunsuri la cele mai comune întrebări.</p>
+            </a>
+        </div>
+    </section>
+
     <footer class="py-8 bg-black text-center text-[8px] text-gray-600 uppercase tracking-widest border-t border-gold/10">
         &copy; <?php echo date("Y"); ?> Cabinet de Avocat Prof. Univ. Dr. Sebastian V. Bodu. | avocatbodu.ro
     </footer>
