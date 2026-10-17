@@ -46,9 +46,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['trimite_contact'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Avocat Drept Societar și Comercial București | Prof. univ. dr. Sebastian V. Bodu</title>
-    <meta name="description" content="Cabinet de avocat Prof. univ. dr. Sebastian V. Bodu în București. Specializat în drept societar, drept comercial, fiscal, bancar, criminalitate economică și arbitraj. Membru Baroul București din 1996, profesor ASE, autor de tratate.">
-    <meta name="keywords" content="avocat București, avocat drept societar, avocat drept comercial, Sebastian Bodu, cabinet avocat afaceri, Baroul București, tratat drept societar, consultant juridic">
+    <title>Avocat Drept Societar, Comercial și Arbitru CCIR București | Prof. univ. dr. Sebastian V. Bodu</title>
+    <meta name="description" content="Cabinet de avocat Prof. univ. dr. Sebastian V. Bodu în București. Specializat în drept societar, comercial, fiscal și arbitraj. Arbitru la Curtea de Arbitraj Comercial Internațional CCIR. Membru Baroul București din 1996, profesor ASE.">
+    <meta name="keywords" content="avocat București, avocat drept societar, avocat drept comercial, arbitru CCIR, Sebastian Bodu, cabinet avocat afaceri, Curtea de Arbitraj Comercial Internațional, Baroul București, tratat drept societar">
     <meta name="robots" content="index, follow, max-image-preview:large">
     <meta name="author" content="Prof. univ. dr. Sebastian V. Bodu">
     <link rel="canonical" href="https://avocatbodu.ro/">
@@ -56,8 +56,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['trimite_contact'])) {
     <link rel="alternate" hreflang="en" href="https://avocatbodu.ro/en.php">
     <link rel="alternate" hreflang="x-default" href="https://avocatbodu.ro/">
     <!-- Open Graph -->
-    <meta property="og:title" content="Avocat Drept Societar București | Prof. Dr. Sebastian V. Bodu">
-    <meta property="og:description" content="Expert în dreptul afacerilor: societar, comercial, fiscal și arbitraj. Cabinet individual, București.">
+    <meta property="og:title" content="Avocat Drept Societar și Arbitru CCIR București | Prof. Dr. Sebastian V. Bodu">
+    <meta property="og:description" content="Expert în dreptul afacerilor și arbitru la Curtea de Arbitraj Comercial Internațional CCIR. Cabinet individual, București.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://avocatbodu.ro/">
     <meta property="og:image" content="https://avocatbodu.ro/sebastianbodu.jpg">
@@ -66,8 +66,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['trimite_contact'])) {
     <meta property="og:site_name" content="Avocat Sebastian Bodu">
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Avocat Drept Societar și Comercial | Sebastian V. Bodu">
-    <meta name="twitter:description" content="Cabinet de avocat specializat în dreptul afacerilor din București.">
+    <meta name="twitter:title" content="Avocat Drept Societar și Arbitru CCIR | Sebastian V. Bodu">
+    <meta name="twitter:description" content="Avocat specializat în drept societar, comercial și arbitru la CCIR, București.">
     <meta name="twitter:image" content="https://avocatbodu.ro/sebastianbodu.jpg">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -111,7 +111,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['trimite_contact'])) {
           "name": "Sebastian V. Bodu",
           "honorificPrefix": "Prof. univ. dr.",
           "jobTitle": "Avocat, Profesor Universitar",
-          "description": "Avocat definitiv al Baroului București din 1996, specializat în drept societar, comercial, fiscal, bancar și arbitraj. Profesor universitar la ASE București și conducător de doctorat.",
+          "description": "Avocat definitiv al Baroului București din 1996, specializat în drept societar, comercial, fiscal, bancar și arbitraj. Arbitru la Curtea de Arbitraj Comercial Internațional CCIR. Profesor universitar la ASE București și conducător de doctorat.",
           "url": "https://avocatbodu.ro/",
           "image": "https://avocatbodu.ro/sebastianbodu.jpg",
           "telephone": "+40722509759",
@@ -123,7 +123,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['trimite_contact'])) {
             "addressRegion": "Sector 2",
             "addressCountry": "RO"
           },
-          "knowsAbout": ["Drept societar", "Drept comercial", "Drept fiscal", "Drept bancar", "Arbitraj comercial", "Criminalitate economică"],
+          "knowsAbout": ["Drept societar", "Drept comercial", "Drept fiscal", "Drept bancar", "Arbitraj comercial", "Criminalitate economică", "Arbitru CCIR"],
           "memberOf": {
             "@type": "Organization",
             "name": "Baroul București"
@@ -182,7 +182,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['trimite_contact'])) {
         <div data-aos="zoom-out" data-aos-duration="2000" class="relative z-10">
             <p class="text-gold text-[10px] tracking-[0.5em] uppercase mb-4 opacity-80">Rigurozitate • Excelență • Doctrină</p>
             <h1 class="font-serif text-4xl md:text-6xl font-bold mb-4 tracking-tight leading-tight">Prof. Univ. Dr. <span class="logo-shine">Sebastian V. Bodu</span></h1>
-            <h2 class="text-xs md:text-lg text-gray-400 mb-10 tracking-[0.2em] font-light uppercase">Avocat • MBA • PhD • Habil. | Drept Societar & Comercial București</h2>
+            <h2 class="text-xs md:text-lg text-gray-400 mb-10 tracking-[0.2em] font-light uppercase">Avocat • Arbitru CCIR • MBA • PhD • Habil. | Drept Societar & Comercial București</h2>
             <a href="#contact" class="inline-block border border-gold text-gold py-3 px-10 transition-all hover:bg-gold hover:text-black uppercase tracking-widest text-[10px] font-bold">Consultanță de Elită</a>
         </div>
     </section>

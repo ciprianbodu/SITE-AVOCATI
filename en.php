@@ -46,9 +46,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['trimite_contact'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Corporate & Commercial Law Attorney Bucharest | Prof. Dr. Sebastian V. Bodu</title>
-    <meta name="description" content="Law office of Prof. Dr. Sebastian V. Bodu in Bucharest. Specialized in corporate law, commercial law, tax, banking, economic offenses and arbitration. Bucharest Bar member since 1996, ASE professor, author of treatises.">
-    <meta name="keywords" content="lawyer Bucharest, corporate law attorney, commercial law Romania, Sebastian Bodu, business lawyer Bucharest, Bucharest Bar">
+    <title>Corporate & Commercial Law Attorney and CCIR Arbitrator Bucharest | Prof. Dr. Sebastian V. Bodu</title>
+    <meta name="description" content="Law office of Prof. Dr. Sebastian V. Bodu in Bucharest. Specialized in corporate, commercial, tax law and arbitration. Arbitrator at the CCIR Court of International Commercial Arbitration. Bucharest Bar member since 1996, ASE professor.">
+    <meta name="keywords" content="lawyer Bucharest, corporate law attorney, commercial law Romania, CCIR arbitrator, Sebastian Bodu, business lawyer Bucharest, Court of International Commercial Arbitration, Bucharest Bar">
     <meta name="robots" content="index, follow, max-image-preview:large">
     <meta name="author" content="Prof. Dr. Sebastian V. Bodu">
     <link rel="canonical" href="https://avocatbodu.ro/en.php">
@@ -56,8 +56,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['trimite_contact'])) {
     <link rel="alternate" hreflang="ro" href="https://avocatbodu.ro/">
     <link rel="alternate" hreflang="x-default" href="https://avocatbodu.ro/">
     <!-- Open Graph -->
-    <meta property="og:title" content="Corporate Law Attorney Bucharest | Prof. Dr. Sebastian V. Bodu">
-    <meta property="og:description" content="Expert in business law: corporate, commercial, tax and arbitration. Individual practice, Bucharest.">
+    <meta property="og:title" content="Corporate Law Attorney and CCIR Arbitrator Bucharest | Prof. Dr. Sebastian V. Bodu">
+    <meta property="og:description" content="Expert in business law and arbitrator at the CCIR Court of International Commercial Arbitration. Individual practice, Bucharest.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://avocatbodu.ro/en.php">
     <meta property="og:image" content="https://avocatbodu.ro/sebastianbodu.jpg">
@@ -66,8 +66,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['trimite_contact'])) {
     <meta property="og:site_name" content="Attorney Sebastian Bodu">
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Corporate & Commercial Law Attorney | Sebastian V. Bodu">
-    <meta name="twitter:description" content="Specialized business law office in Bucharest.">
+    <meta name="twitter:title" content="Corporate & Commercial Law Attorney and CCIR Arbitrator | Sebastian V. Bodu">
+    <meta name="twitter:description" content="Business law attorney and CCIR arbitrator in Bucharest.">
     <meta name="twitter:image" content="https://avocatbodu.ro/sebastianbodu.jpg">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -111,7 +111,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['trimite_contact'])) {
           "name": "Sebastian V. Bodu",
           "honorificPrefix": "Prof. Dr.",
           "jobTitle": "Attorney at Law, University Professor",
-          "description": "Definitive member of the Bucharest Bar since 1996, specialized in corporate, commercial, tax, banking law and arbitration. Professor at Bucharest University of Economic Studies.",
+          "description": "Definitive member of the Bucharest Bar since 1996, specialized in corporate, commercial, tax, banking law and arbitration. Arbitrator at the CCIR Court of International Commercial Arbitration. Professor at Bucharest University of Economic Studies.",
           "url": "https://avocatbodu.ro/en.php",
           "image": "https://avocatbodu.ro/sebastianbodu.jpg",
           "telephone": "+40722509759",
@@ -123,7 +123,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['trimite_contact'])) {
             "addressRegion": "Sector 2",
             "addressCountry": "RO"
           },
-          "knowsAbout": ["Corporate Law", "Commercial Law", "Tax Law", "Banking Law", "Commercial Arbitration", "White-collar Crime"],
+          "knowsAbout": ["Corporate Law", "Commercial Law", "Tax Law", "Banking Law", "Commercial Arbitration", "White-collar Crime", "CCIR Arbitrator"],
           "memberOf": {
             "@type": "Organization",
             "name": "Bucharest Bar"
@@ -182,7 +182,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['trimite_contact'])) {
         <div data-aos="zoom-out" data-aos-duration="2000" class="relative z-10">
             <p class="text-gold text-[10px] tracking-[0.5em] uppercase mb-4 opacity-80">Legal Rigor • Excellence • Doctrine</p>
             <h1 class="font-serif text-4xl md:text-6xl font-bold mb-4 tracking-tight leading-tight">Prof. Dr. <span class="logo-shine">Sebastian V. Bodu</span></h1>
-            <h2 class="text-xs md:text-lg text-gray-400 mb-10 tracking-[0.2em] font-light uppercase">Attorney at Law • MBA • PhD • Habil. | Corporate & Commercial Law Bucharest</h2>
+            <h2 class="text-xs md:text-lg text-gray-400 mb-10 tracking-[0.2em] font-light uppercase">Attorney at Law • CCIR Arbitrator • MBA • PhD • Habil. | Corporate & Commercial Law Bucharest</h2>
             <a href="#contact" class="inline-block border border-gold text-gold py-3 px-10 transition-all hover:bg-gold hover:text-black uppercase tracking-widest text-[10px] font-bold">Elite Consultation</a>
         </div>
     </section>
