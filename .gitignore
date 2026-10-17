@@ -1,0 +1,8 @@
+# Config with sensitive credentials
+config.php
+
+# IDE / system
+.vscode/
+*.log
+.DS_Store
+Thumbs.db

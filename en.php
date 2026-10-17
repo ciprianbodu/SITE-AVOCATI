@@ -20,17 +20,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['trimite_contact'])) {
     $nume = strip_tags($_POST['nume']);
     $email_client = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
     $mesaj_client = strip_tags($_POST['mesaj']);
+    $cfg = require __DIR__ . '/config.php';
     $mail = new PHPMailer(true);
     try {
         $mail->isSMTP();
-        $mail->Host       = 'mail.avocatbodu.ro'; 
+        $mail->Host       = $cfg['smtp_host']; 
         $mail->SMTPAuth   = true;
-        $mail->Username   = 'sebastian@avocatbodu.ro'; 
-        $mail->Password   = 'jing22IT!'; 
+        $mail->Username   = $cfg['smtp_user']; 
+        $mail->Password   = $cfg['smtp_pass']; 
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-        $mail->Port       = 465;
-        $mail->setFrom('sebastian@avocatbodu.ro', 'Law Office Bodu');
-        $mail->addAddress('sebastian@avocatbodu.ro'); 
+        $mail->Port       = $cfg['smtp_port'];
+        $mail->setFrom($cfg['from_email'], $cfg['from_name']);
+        $mail->addAddress($cfg['to_email']); 
         $mail->addReplyTo($email_client, $nume);
         $mail->isHTML(true);
         $mail->Subject = "New Inquiry: $nume";
