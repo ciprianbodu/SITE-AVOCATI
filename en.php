@@ -275,7 +275,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['trimite_contact'])) {
 
     
     <section class="py-12 px-6 max-w-7xl mx-auto border-t border-white/5">
-        <h2 class="font-serif text-2xl text-gold uppercase tracking-widest text-center mb-8">Articles & Guides</h2>
+        <h2 class="font-serif text-2xl text-gold uppercase tracking-widest text-center mb-4">Published Articles</h2>
+        <p class="text-center text-gray-400 text-sm mb-8"><a href="/articole/" class="gold hover:underline">View all articles →</a></p>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <a href="/articole/arbitraj-comercial-ccir.php" class="glass-card p-6 hover:border-gold/60 transition">
                 <h3 class="font-serif text-gold mb-2">Commercial Arbitration CCIR</h3>

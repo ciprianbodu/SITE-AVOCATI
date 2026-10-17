@@ -19,7 +19,7 @@ include '../partials/header.php'; // we'll create a simple shared header or inli
     <style>body { background:#000; color:#fff; } .gold { color:#D4AF37; }</style>
 </head>
 <body class="font-sans p-6 max-w-4xl mx-auto">
-    <nav class="mb-8"><a href="/" class="gold hover:underline">← Înapoi la pagina principală</a></nav>
+    <nav class="mb-8 flex gap-4"><a href="/" class="gold hover:underline">← Acasă</a> <a href="/articole/" class="gold hover:underline">Articole</a></nav>
     <h1 class="text-3xl font-serif gold mb-6">Arbitraj Comercial la Curtea de Arbitraj Comercial Internațional (CCIR)</h1>
     <p class="mb-4 text-gray-300">Arbitrajul comercial este o metodă alternativă de soluționare a litigiilor dintre companii, mai rapidă și confidențială decât instanțele de judecată.</p>
     

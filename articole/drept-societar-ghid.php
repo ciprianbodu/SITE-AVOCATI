@@ -16,7 +16,7 @@ $keywords = "drept societar, avocat drept societar București, guvernanță corp
     <style>body { background:#000; color:#fff; } .gold { color:#D4AF37; }</style>
 </head>
 <body class="font-sans p-6 max-w-4xl mx-auto">
-    <nav class="mb-8"><a href="/" class="gold hover:underline">← Înapoi la pagina principală</a></nav>
+    <nav class="mb-8 flex gap-4"><a href="/" class="gold hover:underline">← Acasă</a> <a href="/articole/" class="gold hover:underline">Articole</a></nav>
     <h1 class="text-3xl font-serif gold mb-6">Drept Societar: Ghid pentru Companii și Antreprenori</h1>
     <p class="mb-4 text-gray-300">Dreptul societar reglementează înființarea, funcționarea și încetarea societăților comerciale, relațiile dintre asociați și organele de conducere.</p>
 
