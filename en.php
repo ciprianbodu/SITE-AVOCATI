@@ -194,6 +194,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['trimite_contact'])) {
                 <div class="text-gray-300 leading-relaxed text-justify space-y-4 text-base md:text-lg font-light">
                     <p><strong>Prof. Dr. Sebastian V. Bodu</strong> has been a definitive member of the Bucharest Bar since 1996, amassing extensive <strong>experience</strong> in business law, coupled with a prestigious academic career.</p>
                     <p>He currently serves as a <strong>Full Professor</strong> at the Bucharest University of Economic Studies (ASE), leading courses in <em>Corporate</em> and <em>Commercial Law</em>. He is also a <strong>PhD Supervisor</strong> (Habilitated) in Law.</p>
+                    <p>He is an <strong>arbitrator</strong> at the <strong>Court of International Commercial Arbitration attached to the Chamber of Commerce and Industry of Romania (CCIR)</strong>, handling complex commercial disputes.</p>
                 </div>
             </div>
             <div class="w-full md:w-1/3 flex justify-center" data-aos="fade-left">

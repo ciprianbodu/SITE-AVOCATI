@@ -194,6 +194,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['trimite_contact'])) {
                 <div class="text-gray-300 leading-relaxed text-justify space-y-4 text-base md:text-lg font-light">
                     <p>Domnul <strong>Prof. univ. dr. Sebastian V. Bodu</strong> este membru definitiv al Baroului București din 1996, acumulând o <strong>experiență</strong> vastă în avocatura de afaceri, dublată de o carieră didactică de prestigiu.</p>
                     <p>În prezent, ocupă funcția de <strong>Profesor Universitar</strong> în cadrul Academiei de Studii Economice din București (ASE), fiind titularul disciplinelor de <em>Drept Societar</em> și <em>Drept Comercial</em>. Este totodată <strong>conducător de doctorat</strong> (Habilitat) în drept.</p>
+                    <p>Este <strong>arbitru</strong> la <strong>Curtea de Arbitraj Comercial Internațional de pe lângă Camera de Comerț și Industrie a României (CCIR)</strong>, cu activitate în soluționarea litigiilor comerciale complexe.</p>
                 </div>
             </div>
             <div class="w-full md:w-1/3 flex justify-center" data-aos="fade-left">
