@@ -260,27 +260,39 @@ if (!$validContact) {
                 <p class="kicker">Publicistică</p>
                 <h2>Articole publicate</h2>
                 <div class="ornament" aria-hidden="true"><i></i><span></span><i></i></div>
-                <p class="deck">Analize și studii în drept societar, comercial și arbitraj, publicate pe JURIDICE.ro și pe acest site.</p>
+                <p class="deck">Analize și studii în drept societar, comercial și arbitraj.</p>
             </div>
-            <div class="pub-grid">
-                <a class="pub-card" href="/articole/" data-aos="fade-up">
-                    <small>Toate articolele</small>
-                    <h3>Vezi lista completă</h3>
-                    <p>Articole locale + JURIDICE.ro</p>
-                    <span class="more">Deschide →</span>
-                </a>
-                <a class="pub-card" href="https://www.juridice.ro/author/sebastian-bodu" target="_blank" rel="noopener noreferrer" data-aos="fade-up" data-aos-delay="60">
-                    <small>JURIDICE.ro</small>
-                    <h3>Articole pe JURIDICE.ro</h3>
-                    <p>Studii de drept societar și comercial</p>
-                    <span class="more">Citește →</span>
-                </a>
-                <a class="pub-card" href="/articole/arbitraj-comercial-ccir.php" data-aos="fade-up" data-aos-delay="120">
+
+            <div class="pub-grid" data-aos="fade-up">
+                <a class="pub-card" href="/articole/arbitraj-comercial-ccir.php">
                     <small>Pe site</small>
-                    <h3>Arbitraj Comercial CCIR</h3>
-                    <p>Ghid practic</p>
+                    <h3>Arbitraj Comercial la Curtea de Arbitraj CCIR</h3>
+                    <p>Ghid complet — avantaje, procedură, când se recomandă</p>
                     <span class="more">Citește →</span>
                 </a>
+                <a class="pub-card" href="/articole/drept-societar-ghid.php">
+                    <small>Pe site</small>
+                    <h3>Drept Societar: Ghid pentru companii</h3>
+                    <p>Guvernanță, asociați, fuziuni, litigii corporative</p>
+                    <span class="more">Citește →</span>
+                </a>
+                <a class="pub-card" href="/articole/intrebari-frecvente.php">
+                    <small>Pe site</small>
+                    <h3>Întrebări frecvente</h3>
+                    <p>Răspunsuri despre domenii de practică și contact</p>
+                    <span class="more">Citește →</span>
+                </a>
+            </div>
+
+            <div class="mt-10" data-aos="fade-up">
+                <h3 class="text-gold text-lg mb-4">Publicate pe JURIDICE.ro</h3>
+                <ul class="space-y-2 text-sm text-gray-300">
+                    <li><a href="https://www.juridice.ro/806273/societati-comerciale-titlurile-de-participare-drepturile-societare-atasate-drepturi-conventionale.html" target="_blank" rel="noopener" class="hover:text-gold">Societăți comerciale. Titlurile de participare. Drepturile societare atașate</a> <span class="text-gray-500">(2025)</span></li>
+                    <li><a href="https://www.juridice.ro/765501/societate-comerciala-vointa-sociala.html" target="_blank" rel="noopener" class="hover:text-gold">Societate comercială. Voința socială</a> <span class="text-gray-500">(2024)</span></li>
+                    <li><a href="https://www.juridice.ro/714659/plafonarea-folosirii-numerarului-si-a-casei-probleme-de-constitutionalitate-ce-a-fost-si-ce-a-ramas-din-legea-nr-70-2015-dupa-modificarile-si-revenirile-aduse-prin-art-lxiv-din-legea-nr-296-2023.html" target="_blank" rel="noopener" class="hover:text-gold">Plafonarea folosirii numerarului și a casei</a> <span class="text-gray-500">(2023)</span></li>
+                    <li><a href="https://www.juridice.ro/654901/arbitrabilitatea-litigiilor-in-materia-societatilor-comerciale-aspecte-corelative-de-drept-material-si-procesual.html" target="_blank" rel="noopener" class="hover:text-gold">Arbitrabilitatea litigiilor în materia societăților comerciale</a> <span class="text-gray-500">(2019)</span></li>
+                    <li><a href="https://www.juridice.ro/author/sebastian-bodu" target="_blank" rel="noopener" class="text-gold font-semibold">→ Toate articolele pe JURIDICE.ro</a></li>
+                </ul>
             </div>
         </div>
     </section>
