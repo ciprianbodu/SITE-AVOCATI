@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+Disallow: /PHPMailer/
+Disallow: /mail-config.php
+Disallow: /partials/
+Disallow: /public_html/
+Disallow: /.git/
+Disallow: /.vscode/
+
+Sitemap: https://www.mitescu.ro/sitemap.xml
