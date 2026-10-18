@@ -85,6 +85,7 @@ if (!$validContact) {
                     <a href="#profil">Cabinet</a>
                     <a href="#experienta">Practică</a>
                     <a href="#carti">Publicații</a>
+                    <a href="#articole">Articole</a>
                     <a href="#contact" class="btn btn-gold">Consultanță</a>
                 </div>
                 <button id="menuToggle" class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobileMenu" data-breakpoint="900" aria-label="Meniu">
@@ -101,6 +102,7 @@ if (!$validContact) {
         <a href="#profil" class="mobile-nav">Cabinet</a>
         <a href="#experienta" class="mobile-nav">Practică</a>
         <a href="#carti" class="mobile-nav">Publicații</a>
+        <a href="#articole" class="mobile-nav">Articole</a>
         <a href="#contact" class="mobile-nav">Consultanță</a>
         <div class="lang">
             <span class="is-active">RO</span>
@@ -246,6 +248,38 @@ if (!$validContact) {
                     <h3>Colecția completă</h3>
                     <p>Toate lucrările autorului</p>
                     <span class="more">Vezi tot →</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    
+    <section id="articole" class="section section-mid">
+        <div class="wrap">
+            <div class="section-head section-head--center" data-aos="fade-up">
+                <p class="kicker">Publicistică</p>
+                <h2>Articole publicate</h2>
+                <div class="ornament" aria-hidden="true"><i></i><span></span><i></i></div>
+                <p class="deck">Analize și studii în drept societar, comercial și arbitraj, publicate pe JURIDICE.ro și pe acest site.</p>
+            </div>
+            <div class="pub-grid">
+                <a class="pub-card" href="/articole/" data-aos="fade-up">
+                    <small>Toate articolele</small>
+                    <h3>Vezi lista completă</h3>
+                    <p>Articole locale + JURIDICE.ro</p>
+                    <span class="more">Deschide →</span>
+                </a>
+                <a class="pub-card" href="https://www.juridice.ro/author/sebastian-bodu" target="_blank" rel="noopener noreferrer" data-aos="fade-up" data-aos-delay="60">
+                    <small>JURIDICE.ro</small>
+                    <h3>Articole pe JURIDICE.ro</h3>
+                    <p>Studii de drept societar și comercial</p>
+                    <span class="more">Citește →</span>
+                </a>
+                <a class="pub-card" href="/articole/arbitraj-comercial-ccir.php" data-aos="fade-up" data-aos-delay="120">
+                    <small>Pe site</small>
+                    <h3>Arbitraj Comercial CCIR</h3>
+                    <p>Ghid practic</p>
+                    <span class="more">Citește →</span>
                 </a>
             </div>
         </div>
