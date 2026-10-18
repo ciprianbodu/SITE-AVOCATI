@@ -66,7 +66,7 @@ if (!$validContact) {
             <div class="wrap topbar__inner">
                 <p class="topbar__meta">Bucharest Bar · Business law · Since 1996</p>
                 <div class="lang">
-                    <a href="index.php">RO</a>
+                    <a href="/">RO</a>
                     <span aria-hidden="true">|</span>
                     <span class="is-active">EN</span>
                 </div>
@@ -74,7 +74,7 @@ if (!$validContact) {
         </div>
         <nav class="nav" aria-label="Main navigation">
             <div class="wrap nav__inner">
-                <a href="#" class="brand">
+                <a href="/en.php" class="brand">
                     <span class="brand__rule" aria-hidden="true"></span>
                     <span class="brand__text">
                         <span class="brand__mark">Bodu</span>
@@ -103,7 +103,7 @@ if (!$validContact) {
         <a href="#carti" class="mobile-nav">Publications</a>
         <a href="#contact" class="mobile-nav">Consultation</a>
         <div class="lang">
-            <a href="index.php">RO</a>
+            <a href="/">RO</a>
             <span aria-hidden="true">|</span>
             <span class="is-active">EN</span>
         </div>
@@ -247,6 +247,12 @@ if (!$validContact) {
                     <p>All works by the author</p>
                     <span class="more">View all →</span>
                 </a>
+                <a class="pub-card" href="https://www.juridice.ro/author/sebastian-bodu" target="_blank" rel="noopener noreferrer" data-aos="fade-up" data-aos-delay="180">
+                    <small>JURIDICE.ro</small>
+                    <h3>Published articles</h3>
+                    <p>Company law, corporate will, membership rights</p>
+                    <span class="more">Read on JURIDICE →</span>
+                </a>
             </div>
         </div>
     </section>
@@ -287,6 +293,15 @@ if (!$validContact) {
                             <div>
                                 <small>Email</small>
                                 <a href="mailto:bodu.sebastian@gmail.com">bodu.sebastian@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-row">
+                            <div class="contact-ico">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
+                            </div>
+                            <div>
+                                <small>Phone</small>
+                                <a href="tel:<?= htmlspecialchars(SITE_PHONE, ENT_QUOTES, 'UTF-8') ?>"><?= htmlspecialchars(SITE_PHONE_DISPLAY, ENT_QUOTES, 'UTF-8') ?></a>
                             </div>
                         </div>
                         <div class="contact-row">

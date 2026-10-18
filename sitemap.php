@@ -11,9 +11,13 @@ echo '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
 <?php foreach (sitemapUrls() as $u): ?>
     <url>
         <loc><?= htmlspecialchars($u['loc'], ENT_QUOTES, 'UTF-8') ?></loc>
+        <?php if (!empty($u['hreflang_ro'])): ?>
         <xhtml:link rel="alternate" hreflang="ro" href="<?= htmlspecialchars($u['hreflang_ro'], ENT_QUOTES, 'UTF-8') ?>"/>
+        <?php endif; ?>
+        <?php if (!empty($u['hreflang_en'])): ?>
         <xhtml:link rel="alternate" hreflang="en" href="<?= htmlspecialchars($u['hreflang_en'], ENT_QUOTES, 'UTF-8') ?>"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="<?= htmlspecialchars(SITE_URL . '/', ENT_QUOTES, 'UTF-8') ?>"/>
+        <?php endif; ?>
+        <xhtml:link rel="alternate" hreflang="x-default" href="<?= htmlspecialchars($u['hreflang_default'] ?? SITE_URL . '/', ENT_QUOTES, 'UTF-8') ?>"/>
         <lastmod><?= htmlspecialchars($u['lastmod'], ENT_QUOTES, 'UTF-8') ?></lastmod>
         <changefreq>weekly</changefreq>
         <priority><?= htmlspecialchars($u['priority'], ENT_QUOTES, 'UTF-8') ?></priority>

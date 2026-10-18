@@ -1,3 +1,11 @@
 User-agent: *
 Allow: /
+Disallow: /PHPmailer/
+Disallow: /includes/
+Disallow: /ping-search-engines.php
+Disallow: /webmaster-config.php
+Disallow: /config.php
+Disallow: /config.example.php
+Disallow: /sftp.json
+
 Sitemap: https://avocatbodu.ro/sitemap.xml

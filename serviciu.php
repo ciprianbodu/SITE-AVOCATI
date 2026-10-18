@@ -11,9 +11,7 @@ if (!$item) {
     $lang = 'en';
 }
 if (!$item) {
-    header('HTTP/1.1 404 Not Found');
-    header('Content-Type: text/html; charset=UTF-8');
-    echo '<!DOCTYPE html><html lang="ro"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Pagină inexistentă</title></head><body><main><h1>Pagina nu există</h1><p><a href="/">Înapoi la cabinet</a></p></main></body></html>';
+    require __DIR__ . '/404.php';
     exit;
 }
 
@@ -131,6 +129,9 @@ $t = $lang === 'en' ? [
                     <a href="<?= $esc($home) ?>#profil"><?= $esc($t['nav_firm']) ?></a>
                     <a href="<?= $esc($home) ?>#experienta"><?= $esc($t['nav_practice']) ?></a>
                     <a href="<?= $esc($home) ?>#carti"><?= $esc($t['nav_pub']) ?></a>
+                    <?php if ($lang === 'ro'): ?>
+                    <a href="/articole/">Articole</a>
+                    <?php endif; ?>
                     <a href="<?= $esc($contact) ?>" class="btn btn-gold"><?= $esc($t['nav_cta']) ?></a>
                 </div>
                 <button id="menuToggle" class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobileMenu" data-breakpoint="900" aria-label="<?= $esc($t['menu']) ?>">
@@ -146,6 +147,9 @@ $t = $lang === 'en' ? [
         <a href="<?= $esc($home) ?>#profil" class="mobile-nav"><?= $esc($t['nav_firm']) ?></a>
         <a href="<?= $esc($home) ?>#experienta" class="mobile-nav"><?= $esc($t['nav_practice']) ?></a>
         <a href="<?= $esc($home) ?>#carti" class="mobile-nav"><?= $esc($t['nav_pub']) ?></a>
+        <?php if ($lang === 'ro'): ?>
+        <a href="/articole/" class="mobile-nav">Articole</a>
+        <?php endif; ?>
         <a href="<?= $esc($contact) ?>" class="mobile-nav"><?= $esc($t['nav_cta']) ?></a>
     </dialog>
 
@@ -192,7 +196,7 @@ $t = $lang === 'en' ? [
                 <p class="footer__brand">Bodu</p>
                 <p class="footer__sub"><?= $esc($t['footer']) ?></p>
             </div>
-            <p>&copy; <?= date('Y') ?> avocatbodu.ro · <?= $esc($t['rights']) ?></p>
+            <p><?php if ($lang === 'ro'): ?><a href="/articole/">Articole</a> · <?php endif; ?>&copy; <?= date('Y') ?> avocatbodu.ro · <?= $esc($t['rights']) ?></p>
         </div>
     </footer>
 </body>

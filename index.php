@@ -68,13 +68,13 @@ if (!$validContact) {
                 <div class="lang">
                     <span class="is-active">RO</span>
                     <span aria-hidden="true">|</span>
-                    <a href="en.php">EN</a>
+                    <a href="/en.php">EN</a>
                 </div>
             </div>
         </div>
         <nav class="nav" aria-label="Navigare principală">
             <div class="wrap nav__inner">
-                <a href="#" class="brand">
+                <a href="/" class="brand">
                     <span class="brand__rule" aria-hidden="true"></span>
                     <span class="brand__text">
                         <span class="brand__mark">Bodu</span>
@@ -85,6 +85,7 @@ if (!$validContact) {
                     <a href="#profil">Cabinet</a>
                     <a href="#experienta">Practică</a>
                     <a href="#carti">Publicații</a>
+                    <a href="/articole/">Articole</a>
                     <a href="#contact" class="btn btn-gold">Consultanță</a>
                 </div>
                 <button id="menuToggle" class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobileMenu" data-breakpoint="900" aria-label="Meniu">
@@ -101,11 +102,12 @@ if (!$validContact) {
         <a href="#profil" class="mobile-nav">Cabinet</a>
         <a href="#experienta" class="mobile-nav">Practică</a>
         <a href="#carti" class="mobile-nav">Publicații</a>
+        <a href="/articole/" class="mobile-nav">Articole</a>
         <a href="#contact" class="mobile-nav">Consultanță</a>
         <div class="lang">
             <span class="is-active">RO</span>
             <span aria-hidden="true">|</span>
-            <a href="en.php">EN</a>
+            <a href="/en.php">EN</a>
         </div>
     </dialog>
 
@@ -247,6 +249,12 @@ if (!$validContact) {
                     <p>Toate lucrările autorului</p>
                     <span class="more">Vezi tot →</span>
                 </a>
+                <a class="pub-card" href="/articole/" data-aos="fade-up" data-aos-delay="180">
+                    <small>avocatbodu.ro</small>
+                    <h3>Ghiduri pe site</h3>
+                    <p>Drept societar și arbitraj comercial la CCIR</p>
+                    <span class="more">Citește aici →</span>
+                </a>
             </div>
         </div>
     </section>
@@ -287,6 +295,15 @@ if (!$validContact) {
                             <div>
                                 <small>Email</small>
                                 <a href="mailto:bodu.sebastian@gmail.com">bodu.sebastian@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-row">
+                            <div class="contact-ico">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
+                            </div>
+                            <div>
+                                <small>Telefon</small>
+                                <a href="tel:<?= htmlspecialchars(SITE_PHONE, ENT_QUOTES, 'UTF-8') ?>"><?= htmlspecialchars(SITE_PHONE_DISPLAY, ENT_QUOTES, 'UTF-8') ?></a>
                             </div>
                         </div>
                         <div class="contact-row">
@@ -339,6 +356,7 @@ if (!$validContact) {
                     <?php foreach (practiceCatalog() as $slug => $item): ?>
                     <a href="/<?= htmlspecialchars($slug, ENT_QUOTES, 'UTF-8') ?>"><?= htmlspecialchars($item['ro']['name'], ENT_QUOTES, 'UTF-8') ?></a>
                     <?php endforeach; ?>
+                    <a href="/articole/">Articole</a>
                 </nav>
                 <p>&copy; <?= date('Y') ?> avocatbodu.ro · Toate drepturile rezervate</p>
             </div>

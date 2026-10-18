@@ -15,9 +15,15 @@ Options -Indexes
 
     RewriteRule ^sitemap\.xml$ sitemap.php [L]
 
+    RewriteRule ^articole$ /articole/ [R=301,L]
+
     RewriteRule ^(drept-societar|drept-comercial|drept-fiscal|criminalitate-economica|drept-bancar|arbitraj-comercial)/?$ serviciu.php?d=$1 [L,QSA]
     RewriteRule ^(corporate-law|commercial-law|tax-law|economic-offences|banking-law|commercial-arbitration)/?$ serviciu.php?d=$1 [L,QSA]
+
+    RewriteRule ^(includes|PHPmailer)/ - [F,L]
 </IfModule>
+
+ErrorDocument 404 /404.php
 
 <IfModule mod_deflate.c>
     AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json image/svg+xml application/ld+json
@@ -44,7 +50,7 @@ Options -Indexes
     Header set X-Frame-Options "SAMEORIGIN"
 </IfModule>
 
-<FilesMatch "^(sftp\.json|config\.php)$">
+<FilesMatch "^(sftp\.json|config\.php|config\.example\.php|webmaster-config\.php)$">
     <IfModule mod_authz_core.c>
         Require all denied
     </IfModule>
