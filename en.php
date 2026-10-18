@@ -1,314 +1,349 @@
 <?php
-// --- LOGICA PHP PENTRU FUNDAL ALEATORIU ---
-$backgrounds = [
-    'https://images.pexels.com/photos/5668772/pexels-photo-5668772.jpeg',
-    'https://images.pexels.com/photos/3771097/pexels-photo-3771097.jpeg',
-    'https://images.pexels.com/photos/606541/pexels-photo-606541.jpeg',
-    'https://images.pexels.com/photos/159832/justice-law-case-hearing-159832.jpeg',
-    'https://images.pexels.com/photos/8112199/pexels-photo-8112199.jpeg'
-];
-$randomBg = $backgrounds[array_rand($backgrounds)];
+require __DIR__ . '/seo.php';
+require __DIR__ . '/includes/head-assets.php';
+require_once __DIR__ . '/includes/practices.php';
+$seo = seoData('en');
 
-// --- PHP MAIL LOGIC ---
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 $statusMessage = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['trimite_contact'])) {
+$formValues = [];
+foreach (['nume', 'email', 'mesaj'] as $field) {
+    $formValues[$field] = is_string($_POST[$field] ?? null) ? trim($_POST[$field]) : '';
+}
+$validContact = $formValues['nume'] !== '' && strlen($formValues['nume']) <= 640
+    && !preg_match('/[\r\n]/', $formValues['nume'])
+    && strlen($formValues['email']) <= 254 && filter_var($formValues['email'], FILTER_VALIDATE_EMAIL)
+    && $formValues['mesaj'] !== '' && strlen($formValues['mesaj']) <= 40000;
+if (!$validContact) {
+    $statusMessage = 'error';
+} else {
     require 'PHPmailer/Exception.php';
     require 'PHPmailer/PHPMailer.php';
     require 'PHPmailer/SMTP.php';
-    $nume = strip_tags($_POST['nume']);
-    $email_client = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
-    $mesaj_client = strip_tags($_POST['mesaj']);
+    $nume = strip_tags($formValues['nume']);
+    $email_client = $formValues['email'];
+    $mesaj_client = strip_tags($formValues['mesaj']);
     $cfg = require __DIR__ . '/config.php';
     $mail = new PHPMailer(true);
     try {
         $mail->isSMTP();
-        $mail->Host       = $cfg['smtp_host']; 
+        $mail->CharSet = PHPMailer::CHARSET_UTF8;
+        $mail->Host       = $cfg['smtp_host'];
         $mail->SMTPAuth   = true;
-        $mail->Username   = $cfg['smtp_user']; 
-        $mail->Password   = $cfg['smtp_pass']; 
+        $mail->Username   = $cfg['smtp_user'];
+        $mail->Password   = $cfg['smtp_pass'];
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
         $mail->Port       = $cfg['smtp_port'];
-        $mail->setFrom($cfg['from_email'], $cfg['from_name']);
-        $mail->addAddress($cfg['to_email']); 
+        $mail->setFrom($cfg['from_email'], 'Law Office Bodu');
+        $mail->addAddress($cfg['to_email']);
         $mail->addReplyTo($email_client, $nume);
         $mail->isHTML(true);
         $mail->Subject = "New Inquiry: $nume";
-        $mail->Body    = "<h3>New inquiry from avocatbodu.ro (EN)</h3><p><strong>Name:</strong> $nume</p><p><strong>Email:</strong> $email_client</p><p><strong>Message:</strong><br>" . nl2br($mesaj_client) . "</p>";
+        $mail->Body    = "<h3>New inquiry from avocatbodu.ro (EN)</h3><p><strong>Name:</strong> " . htmlspecialchars($nume, ENT_QUOTES, 'UTF-8') . "</p><p><strong>Email:</strong> " . htmlspecialchars($email_client, ENT_QUOTES, 'UTF-8') . "</p><p><strong>Message:</strong><br>" . nl2br(htmlspecialchars($mesaj_client, ENT_QUOTES, 'UTF-8')) . "</p>";
         $mail->send();
         $statusMessage = "success";
     } catch (Exception $e) { $statusMessage = "error"; }
 }
+}
 ?>
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="no-js">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Corporate & Commercial Law Attorney and CCIR Arbitrator Bucharest | Prof. Dr. Sebastian V. Bodu</title>
-    <meta name="description" content="Law office of Prof. Dr. Sebastian V. Bodu in Bucharest. Specialized in corporate, commercial, tax law and arbitration. Arbitrator at the CCIR Court of International Commercial Arbitration. Bucharest Bar member since 1996, ASE professor.">
-    <meta name="keywords" content="lawyer Bucharest, corporate law attorney, commercial law Romania, CCIR arbitrator, Sebastian Bodu, business lawyer Bucharest, Court of International Commercial Arbitration, Bucharest Bar">
-    <meta name="robots" content="index, follow, max-image-preview:large">
-    <meta name="author" content="Prof. Dr. Sebastian V. Bodu">
-    <link rel="canonical" href="https://avocatbodu.ro/en.php">
-    <link rel="alternate" hreflang="en" href="https://avocatbodu.ro/en.php">
-    <link rel="alternate" hreflang="ro" href="https://avocatbodu.ro/">
-    <link rel="alternate" hreflang="x-default" href="https://avocatbodu.ro/">
-    <!-- Open Graph -->
-    <meta property="og:title" content="Corporate Law Attorney and CCIR Arbitrator Bucharest | Prof. Dr. Sebastian V. Bodu">
-    <meta property="og:description" content="Expert in business law and arbitrator at the CCIR Court of International Commercial Arbitration. Individual practice, Bucharest.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://avocatbodu.ro/en.php">
-    <meta property="og:image" content="https://avocatbodu.ro/sebastianbodu.jpg">
-    <meta property="og:image:alt" content="Prof. Dr. Sebastian V. Bodu">
-    <meta property="og:locale" content="en_US">
-    <meta property="og:site_name" content="Attorney Sebastian Bodu">
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Corporate & Commercial Law Attorney and CCIR Arbitrator | Sebastian V. Bodu">
-    <meta name="twitter:description" content="Business law attorney and CCIR arbitrator in Bucharest.">
-    <meta name="twitter:image" content="https://avocatbodu.ro/sebastianbodu.jpg">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: { serif: ['Cinzel', 'serif'], sans: ['Inter', 'sans-serif'] },
-                    colors: { gold: '#D4AF37', pureBlack: '#000000' },
-                    animation: { 'shimmer': 'shimmer 5s infinite linear' },
-                    keyframes: { shimmer: { '0%': { backgroundPosition: '-200% 0' }, '100%': { backgroundPosition: '200% 0' } } }
-                }
-            }
-        }
-    </script>
-    <style>
-        body { background-color: #000; color: #fff; overflow-x: hidden; }
-        #particles-js { position: fixed; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
-        .logo-shine { background: linear-gradient(90deg, #D4AF37 0%, #fff 50%, #D4AF37 100%); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: shimmer 5s infinite linear; }
-        .glass-card { background: rgba(15, 15, 15, 0.75); backdrop-filter: blur(12px); border: 1px solid rgba(212, 175, 55, 0.15); transition: all 0.4s ease; }
-        .glass-card:hover { border-color: rgba(212, 175, 55, 0.6); transform: translateY(-5px); }
-        .profile-frame-small { padding: 1px; background: linear-gradient(to bottom, #D4AF37, #111); max-width: 280px; }
-        
-        .hero-section {
-            background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)), url('<?php echo $randomBg; ?>');
-            background-size: cover; background-position: center; background-attachment: fixed;
-        }
-        nav { z-index: 100 !important; }
-        ::-webkit-scrollbar { width: 5px; }
-        ::-webkit-scrollbar-thumb { background: #D4AF37; }
-    </style>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "Attorney",
-          "@id": "https://avocatbodu.ro/en.php#attorney",
-          "name": "Sebastian V. Bodu",
-          "honorificPrefix": "Prof. Dr.",
-          "jobTitle": "Attorney at Law, University Professor",
-          "description": "Definitive member of the Bucharest Bar since 1996, specialized in corporate, commercial, tax, banking law and arbitration. Arbitrator at the CCIR Court of International Commercial Arbitration. Professor at Bucharest University of Economic Studies.",
-          "url": "https://avocatbodu.ro/en.php",
-          "image": "https://avocatbodu.ro/sebastianbodu.jpg",
-          "telephone": "+40722509759",
-          "email": "bodu.sebastian@gmail.com",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Str. Sfântul Spiridon, Nr. 10",
-            "addressLocality": "Bucharest",
-            "addressRegion": "Sector 2",
-            "addressCountry": "RO"
-          },
-          "knowsAbout": ["Corporate Law", "Commercial Law", "Tax Law", "Banking Law", "Commercial Arbitration", "White-collar Crime", "CCIR Arbitrator"],
-          "memberOf": {
-            "@type": "Organization",
-            "name": "Bucharest Bar"
-          }
-        },
-        {
-          "@type": "LegalService",
-          "@id": "https://avocatbodu.ro/en.php#legalservice",
-          "name": "Law Office of Prof. Dr. Sebastian V. Bodu",
-          "url": "https://avocatbodu.ro/en.php",
-          "description": "Business law practice specialized in corporate and commercial matters in Bucharest.",
-          "telephone": "+40722509759",
-          "email": "bodu.sebastian@gmail.com",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Str. Sfântul Spiridon, Nr. 10",
-            "addressLocality": "Bucharest",
-            "addressRegion": "Sector 2",
-            "addressCountry": "RO"
-          },
-          "areaServed": "Bucharest, Romania",
-          "serviceType": ["Corporate Law", "Commercial Law", "Tax Law", "Arbitration"]
-        }
-      ]
-    }
-    </script>
+    <title><?= htmlspecialchars($seo['title'], ENT_QUOTES, 'UTF-8') ?></title>
+    <?php renderSeoHead('en'); ?>
+    <?php renderHeadAssets(); ?>
+    <?php renderSeoJsonLd('en'); ?>
 </head>
-<body class="font-sans antialiased">
-    <div id="particles-js"></div>
-    <audio id="bgMusic" loop><source src="background-law.mp3" type="audio/mpeg"></audio>
+<body id="top">
+    <a href="#continut" class="skip-link">Skip to content</a>
 
-    <nav class="fixed w-full z-50 bg-black/90 border-b border-gold/20 backdrop-blur-md">
-        <div class="max-w-7xl mx-auto px-6 h-14 flex justify-between items-center">
-            <div class="font-serif text-sm tracking-widest logo-shine uppercase font-bold">Prof. Dr. Sebastian Bodu</div>
-            <div class="flex items-center">
-                <div class="hidden md:flex space-x-6 text-[10px] uppercase tracking-widest mr-6 border-r border-white/10 pr-6">
-                    <a href="#profil" class="hover:text-gold transition">Profile</a>
-                    <a href="#experienta" class="hover:text-gold transition">Experience</a>
-                    <a href="#carti" class="hover:text-gold transition">Books</a>
-                    <a href="#contact" class="bg-gold text-black px-4 py-1.5 font-bold hover:bg-white transition">Contact</a>
-                </div>
-                <div class="flex space-x-2 text-[10px] font-bold uppercase tracking-widest">
-                    <a href="index.php" class="text-gray-400 hover:text-gold transition">RO</a><span class="text-gray-600">|</span><a href="en.php" class="text-gold">EN</a>
+    <header class="site-header">
+        <div class="topbar">
+            <div class="wrap topbar__inner">
+                <p class="topbar__meta">Bucharest Bar · Business law · Since 1996</p>
+                <div class="lang">
+                    <a href="index.php">RO</a>
+                    <span aria-hidden="true">|</span>
+                    <span class="is-active">EN</span>
                 </div>
             </div>
         </div>
-    </nav>
-    <div class="hidden md:block fixed top-20 right-6 z-40 w-80">
-        <div class="glass-card p-5 text-left">
-            <p class="text-gold text-[10px] uppercase tracking-[0.25em] mb-2 font-semibold">Advanced Legal Monitor</p>
-            <p class="text-gray-300 text-xs leading-relaxed mb-4 font-light">Quick access to the advanced legal monitoring section: relevant updates, structured analysis, and practical tools for legal work.</p>
-            <a href="https://avocatbodu.ro/monitor" target="_blank" rel="noopener noreferrer" class="inline-block border border-gold/60 text-gold px-5 py-2 text-[10px] uppercase tracking-widest font-bold hover:bg-gold hover:text-black transition">Open Monitor</a>
-        </div>
-    </div>
-    <section class="min-h-screen flex flex-col justify-center items-center text-center px-6 hero-section">
-        <div data-aos="zoom-out" data-aos-duration="2000" class="relative z-10">
-            <p class="text-gold text-[10px] tracking-[0.5em] uppercase mb-4 opacity-80">Legal Rigor • Excellence • Doctrine</p>
-            <h1 class="font-serif text-4xl md:text-6xl font-bold mb-4 tracking-tight leading-tight">Prof. Dr. <span class="logo-shine">Sebastian V. Bodu</span></h1>
-            <h2 class="text-xs md:text-lg text-gray-400 mb-10 tracking-[0.2em] font-light uppercase">Attorney at Law • CCIR Arbitrator • MBA • PhD • Habil. | Corporate & Commercial Law Bucharest</h2>
-            <a href="#contact" class="inline-block border border-gold text-gold py-3 px-10 transition-all hover:bg-gold hover:text-black uppercase tracking-widest text-[10px] font-bold">Elite Consultation</a>
-        </div>
-    </section>
-
-    <section id="profil" class="py-20 px-6 max-w-7xl mx-auto border-t border-white/5">
-        <div class="flex flex-col md:flex-row gap-12 items-center">
-            <div class="w-full md:w-2/3 space-y-6" data-aos="fade-right">
-                <h2 class="font-serif text-3xl text-gold uppercase tracking-widest border-b border-gold/10 pb-4">Academic & Professional Profile</h2>
-                <div class="text-gray-300 leading-relaxed text-justify space-y-4 text-base md:text-lg font-light">
-                    <p><strong>Prof. Dr. Sebastian V. Bodu</strong> has been a definitive member of the Bucharest Bar since 1996, amassing extensive <strong>experience</strong> in business law, coupled with a prestigious academic career.</p>
-                    <p>He currently serves as a <strong>Full Professor</strong> at the Bucharest University of Economic Studies (ASE), leading courses in <em>Corporate</em> and <em>Commercial Law</em>. He is also a <strong>PhD Supervisor</strong> (Habilitated) in Law.</p>
-                    <p>He is an <strong>arbitrator</strong> at the <strong>Court of International Commercial Arbitration attached to the Chamber of Commerce and Industry of Romania (CCIR)</strong>, handling complex commercial disputes.</p>
-                </div>
-            </div>
-            <div class="w-full md:w-1/3 flex justify-center" data-aos="fade-left">
-                <div class="profile-frame-small shadow-2xl"><img src="sebastianbodu.jpg" alt="Prof. Dr. Sebastian V. Bodu, Bucharest Bar attorney, corporate and commercial law specialist" class="w-full grayscale hover:grayscale-0 transition duration-1000"></div>
-            </div>
-        </div>
-    </section>
-
-    <section id="experienta" class="py-20 px-6 bg-[#030303]">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
-            <?php 
-            $exp = [
-                ['Corporate Law', 'Governance, mergers and commercial litigation.'],
-                ['Commercial Law', 'International contracts and complex transactions.'],
-                ['Tax Law', 'Strategic consultancy and tax litigation.'],
-                ['Economic Offenses', 'Specialized defense in white-collar crime.'],
-                ['Banking & Capital', 'Regulation, compliance and capital markets.'],
-                ['Arbitration', 'Complex patrimonial and business disputes.']
-            ]; 
-            foreach($exp as $i => $item): ?>
-            <div class="glass-card p-8" data-aos="fade-up" data-aos-delay="<?= $i*50 ?>">
-                <h3 class="font-serif text-gold text-sm uppercase mb-3 tracking-widest"><?= $item[0] ?></h3>
-                <p class="text-gray-400 text-xs leading-relaxed font-light"><?= $item[1] ?></p>
-            </div>
-            <?php endforeach; ?>
-        </div>
-    </section>
-
-    <section id="carti" class="py-20 px-6">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="font-serif text-3xl text-gold uppercase tracking-widest text-center mb-12">Publications & Treatises</h2>
-            <div class="max-w-4xl mx-auto glass-card p-10 mb-12 border-l-4 border-gold" data-aos="fade-up">
-                <p class="text-gold text-lg md:text-xl font-serif italic mb-6">"Treatises and books represent an indispensable tool for practitioners, judges, prosecutors, and lawyers."</p>
-                <p class="text-gray-400 text-sm font-light">Core reference works in business criminal law co-authored with <strong>Ciprian Bodu</strong> (Prosecutor, NIM Graduate).</p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <a href="https://www.emag.ro/tratat-de-drept-societar-sebastian-bodu-rosetti-ed-2025-ros978-606-025-137-8/pd/DZDBPJ3BM/" target="_blank" class="glass-card p-8 group text-center">
-                    <p class="text-gold text-[9px] uppercase tracking-widest mb-3">eMAG.ro</p>
-                    <h3 class="font-serif text-lg mb-3 group-hover:text-gold transition">Treatise on Corporate Law (2025)</h3>
-                    <span class="text-[9px] font-bold text-gold uppercase tracking-widest">Order &rarr;</span>
+        <nav class="nav" aria-label="Main navigation">
+            <div class="wrap nav__inner">
+                <a href="#" class="brand">
+                    <span class="brand__rule" aria-hidden="true"></span>
+                    <span class="brand__text">
+                        <span class="brand__mark">Bodu</span>
+                        <span class="brand__sub">Law Office</span>
+                    </span>
                 </a>
-                <a href="https://www.ujmag.ro/drept/drept-comercial/tratat-de-drept-societar-editia-2025" target="_blank" class="glass-card p-8 group text-center">
-                    <p class="text-gold text-[9px] uppercase tracking-widest mb-3">UJMag.ro</p>
-                    <h3 class="font-serif text-lg mb-3 group-hover:text-gold transition">Universul Juridic</h3>
-                    <span class="text-[9px] font-bold text-gold uppercase tracking-widest">Order &rarr;</span>
+                <div class="nav__links">
+                    <a href="#profil">The firm</a>
+                    <a href="#experienta">Practice</a>
+                    <a href="#carti">Publications</a>
+                    <a href="#contact" class="btn btn-gold">Consultation</a>
+                </div>
+                <button id="menuToggle" class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobileMenu" data-breakpoint="900" aria-label="Menu">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <dialog id="mobileMenu" class="mobile-menu" aria-label="Main navigation">
+        <button id="menuClose" class="menu-close" aria-label="Close">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+        <a href="#profil" class="mobile-nav">The firm</a>
+        <a href="#experienta" class="mobile-nav">Practice</a>
+        <a href="#carti" class="mobile-nav">Publications</a>
+        <a href="#contact" class="mobile-nav">Consultation</a>
+        <div class="lang">
+            <a href="index.php">RO</a>
+            <span aria-hidden="true">|</span>
+            <span class="is-active">EN</span>
+        </div>
+    </dialog>
+
+    <main id="continut" tabindex="-1">
+    <section class="hero">
+        <div class="wrap" >
+            <p class="kicker">Corporate &amp; commercial law</p>
+            <h1><span class="hero__title">Prof. Dr.</span>Sebastian V.<br><em>Bodu</em></h1>
+            <hr class="hero__rule">
+            <p class="hero__lead">A law office specialized in business law. Counsel and representation for companies, investors and complex commercial transactions.</p>
+            <div class="hero__actions">
+                <a href="#contact" class="btn btn-gold">Request consultation</a>
+                <a href="#experienta" class="btn btn-ghost">Practice areas</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="cred">
+        <div class="wrap">
+            <div class="cred__grid">
+                <div class="cred__item" data-aos="fade-up">
+                    <strong>1996</strong>
+                    <span>Bucharest Bar Member</span>
+                </div>
+                <div class="cred__item" data-aos="fade-up" data-aos-delay="50">
+                    <strong>MBA</strong>
+                    <span>Master in Business Administration</span>
+                </div>
+                <div class="cred__item" data-aos="fade-up" data-aos-delay="100">
+                    <strong>PhD</strong>
+                    <span>Doctor of Law</span>
+                </div>
+                <div class="cred__item" data-aos="fade-up" data-aos-delay="150">
+                    <strong>Habil.</strong>
+                    <span>PhD Supervisor</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="profil" class="section section-dark">
+        <div class="wrap">
+            <div class="profile">
+                <div data-aos="fade-right">
+                    <div class="section-head">
+                        <p class="kicker">The firm</p>
+                        <h2>Business law,<br>grounded in academia</h2>
+                        <div class="ornament" aria-hidden="true"><i></i><span></span><i></i></div>
+                    </div>
+                    <div class="prose">
+                        <p><strong>Prof. Dr. Sebastian V. Bodu</strong> has been a member of the Bucharest Bar since 1996, with a practice focused on business law: corporate, commercial, tax, banking, economic offences and arbitration.</p>
+                        <p>He is a <strong>full professor</strong> at the Bucharest University of Economic Studies, teaching <em>Corporate Law</em> and <em>Commercial Law</em>, and a <strong>PhD supervisor</strong> (habilitated) in law.</p>
+                        <p>The firm provides counsel and representation for corporate clients and investors, with emphasis on transaction structuring, governance and regulatory compliance.</p>
+                    </div>
+                    <dl class="facts">
+                        <div>
+                            <dt>Professional seat</dt>
+                            <dd>Bucharest Bar</dd>
+                        </div>
+                        <div>
+                            <dt>Clients</dt>
+                            <dd>Companies and investors</dd>
+                        </div>
+                        <div>
+                            <dt>Focus</dt>
+                            <dd>Business law</dd>
+                        </div>
+                        <div>
+                            <dt>Academic work</dt>
+                            <dd>ASE Bucharest</dd>
+                        </div>
+                    </dl>
+                </div>
+                <figure class="portrait" data-aos="fade-left">
+                    <div class="portrait__frame">
+                        <picture>
+                            <source srcset="assets/img/sebastianbodu.webp" type="image/webp">
+                            <img src="sebastianbodu.jpg" alt="Prof. Dr. Sebastian V. Bodu, corporate and commercial lawyer, Bucharest Bar" width="720" height="720" loading="lazy" decoding="async">
+                        </picture>
+                    </div>
+                    <figcaption>
+                        <strong>Sebastian V. Bodu</strong>
+                        <span>Attorney at Law · Bucharest Bar</span>
+                    </figcaption>
+                </figure>
+            </div>
+        </div>
+    </section>
+
+    <section id="experienta" class="section section-mid">
+        <div class="wrap">
+            <div class="section-head section-head--center" data-aos="fade-up">
+                <p class="kicker">Practice areas</p>
+                <h2>Counsel for business</h2>
+                <p class="deck">Legal assistance across the full commercial cycle — from structuring and contracts through to litigation and arbitration.</p>
+                <div class="ornament" aria-hidden="true"><i></i><span></span><i></i></div>
+            </div>
+            <div class="practice-list">
+                <?php $i = 0; foreach (practiceCatalog() as $slug => $item): ?>
+                <a class="practice-item" href="/<?= htmlspecialchars($item['en'], ENT_QUOTES, 'UTF-8') ?>" data-aos="fade-up" data-aos-delay="<?= $i * 50 ?>">
+                    <span class="practice-item__num"><?= htmlspecialchars($item['num'], ENT_QUOTES, 'UTF-8') ?></span>
+                    <div>
+                        <h3><?= htmlspecialchars($item['en_copy']['name'], ENT_QUOTES, 'UTF-8') ?></h3>
+                        <p><?= htmlspecialchars($item['en_copy']['short'], ENT_QUOTES, 'UTF-8') ?></p>
+                    </div>
                 </a>
-                <a href="https://www.editurarosetti.ro/?id_autor=65" target="_blank" class="glass-card p-8 group text-center">
-                    <p class="text-gold text-[9px] uppercase tracking-widest mb-3">Rosetti Publishing</p>
-                    <h3 class="font-serif text-lg mb-3 group-hover:text-gold transition">Full Collection</h3>
-                    <span class="text-[9px] font-bold text-gold uppercase tracking-widest">View All &rarr;</span>
+                <?php $i++; endforeach; ?>
+            </div>
+        </div>
+    </section>
+
+    <section id="carti" class="section section-ivory">
+        <div class="wrap">
+            <div class="section-head section-head--center" data-aos="fade-up">
+                <p class="kicker">Legal doctrine</p>
+                <h2>Publications &amp; treatises</h2>
+                <div class="ornament" aria-hidden="true"><i></i><span></span><i></i></div>
+            </div>
+            <blockquote class="quote" data-aos="fade-up">
+                <p>“Treatises and books are an indispensable tool for practitioners, judges, prosecutors and lawyers.”</p>
+                <cite>Reference works in business criminal law, co-authored with Ciprian Bodu (prosecutor, NIM graduate).</cite>
+            </blockquote>
+            <div class="pub-grid">
+                <a class="pub-card" href="https://www.emag.ro/tratat-de-drept-societar-sebastian-bodu-rosetti-ed-2025-ros978-606-025-137-8/pd/DZDBPJ3BM/" target="_blank" rel="noopener noreferrer" data-aos="fade-up">
+                    <small>eMAG · Rosetti Publishing</small>
+                    <h3>Treatise on Corporate Law</h3>
+                    <p>2025 Edition</p>
+                    <span class="more">Order →</span>
+                </a>
+                <a class="pub-card" href="https://www.ujmag.ro/drept/drept-comercial/tratat-de-drept-societar-editia-2025" target="_blank" rel="noopener noreferrer" data-aos="fade-up" data-aos-delay="60">
+                    <small>Universul Juridic</small>
+                    <h3>Treatise on Corporate Law</h3>
+                    <p>2025 Edition · UJMag.ro</p>
+                    <span class="more">Order →</span>
+                </a>
+                <a class="pub-card" href="https://www.editurarosetti.ro/?id_autor=65" target="_blank" rel="noopener noreferrer" data-aos="fade-up" data-aos-delay="120">
+                    <small>Rosetti Publishing</small>
+                    <h3>Full collection</h3>
+                    <p>All works by the author</p>
+                    <span class="more">View all →</span>
                 </a>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="py-20 px-6 bg-[#030303] border-t border-white/5">
-        <div class="max-w-3xl mx-auto glass-card p-10" data-aos="fade-up">
-            <h2 class="font-serif text-xl text-gold mb-8 text-center uppercase tracking-widest">Secure Contact</h2>
-            <form action="en.php#contact" method="POST" class="space-y-4">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <input type="text" name="nume" placeholder="Name" required class="w-full bg-black/50 border border-white/10 p-3 text-white text-xs outline-none focus:border-gold transition">
-                    <input type="email" name="email" placeholder="Email" required class="w-full bg-black/50 border border-white/10 p-3 text-white text-xs outline-none focus:border-gold transition">
+    <section id="faq" class="section section-mid">
+        <div class="wrap">
+            <div class="section-head section-head--center" data-aos="fade-up">
+                <p class="kicker">FAQ</p>
+                <h2>Business lawyer in Bucharest</h2>
+                <div class="ornament" aria-hidden="true"><i></i><span></span><i></i></div>
+            </div>
+            <div class="faq-list">
+                <?php foreach (faqItems('en') as $faq): ?>
+                <details class="faq-item">
+                    <summary><?= htmlspecialchars($faq['q'], ENT_QUOTES, 'UTF-8') ?></summary>
+                    <p><?= htmlspecialchars($faq['a'], ENT_QUOTES, 'UTF-8') ?></p>
+                </details>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section section-dark">
+        <div class="wrap">
+            <div class="contact-grid">
+                <div data-aos="fade-right">
+                    <div class="section-head">
+                        <p class="kicker">Contact</p>
+                        <h2>Request a consultation</h2>
+                        <div class="ornament" aria-hidden="true"><i></i><span></span><i></i></div>
+                        <p class="deck">Submit a request for legal consultation. You will be contacted as soon as possible.</p>
+                    </div>
+                    <div class="contact-meta">
+                        <div class="contact-row">
+                            <div class="contact-ico">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                            </div>
+                            <div>
+                                <small>Email</small>
+                                <a href="mailto:bodu.sebastian@gmail.com">bodu.sebastian@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-row">
+                            <div class="contact-ico">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9"/></svg>
+                            </div>
+                            <div>
+                                <small>Office</small>
+                                <a href="https://avocatbodu.ro">avocatbodu.ro</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <textarea name="mesaj" rows="3" placeholder="Brief case description" required class="w-full bg-black/50 border border-white/10 p-3 text-white text-xs outline-none focus:border-gold transition resize-none"></textarea>
-                <button type="submit" name="trimite_contact" class="w-full bg-gold text-black font-bold py-3 uppercase tracking-widest text-[9px] hover:bg-white transition">Submit Inquiry</button>
-            </form>
-            <div class="mt-8 text-center text-gold text-[10px] tracking-widest font-semibold uppercase">bodu.sebastian@gmail.com | +40 722 509 759</div>
-            <p class="text-center text-gray-500 text-xs mt-4">Str. Sfântul Spiridon, Nr. 10, Sector 2, Bucharest</p>
-        </div>
-    </section>
-    <div class="md:hidden px-6 pb-20 bg-[#030303]">
-        <div class="glass-card p-5 text-left max-w-xl mx-auto">
-            <p class="text-gold text-[10px] uppercase tracking-[0.25em] mb-2 font-semibold">Advanced Legal Monitor</p>
-            <p class="text-gray-300 text-xs leading-relaxed mb-4 font-light">Quick access to the advanced legal monitoring section: relevant updates, structured analysis, and practical tools for legal work.</p>
-            <a href="https://avocatbodu.ro/monitor" target="_blank" rel="noopener noreferrer" class="inline-block border border-gold/60 text-gold px-5 py-2 text-[10px] uppercase tracking-widest font-bold hover:bg-gold hover:text-black transition">Open Monitor</a>
-        </div>
-    </div>
-
-    
-    <section class="py-12 px-6 max-w-7xl mx-auto border-t border-white/5">
-        <h2 class="font-serif text-2xl text-gold uppercase tracking-widest text-center mb-4">Published Articles</h2>
-        <p class="text-center text-gray-400 text-sm mb-8"><a href="/articole/" class="gold hover:underline">View all articles →</a></p>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <a href="/articole/arbitraj-comercial-ccir.php" class="glass-card p-6 hover:border-gold/60 transition">
-                <h3 class="font-serif text-gold mb-2">Commercial Arbitration CCIR</h3>
-                <p class="text-gray-400 text-sm">Guide to arbitration at the CCIR Court.</p>
-            </a>
-            <a href="/articole/drept-societar-ghid.php" class="glass-card p-6 hover:border-gold/60 transition">
-                <h3 class="font-serif text-gold mb-2">Corporate Law</h3>
-                <p class="text-gray-400 text-sm">Practical guide for companies.</p>
-            </a>
-            <a href="/articole/intrebari-frecvente.php" class="glass-card p-6 hover:border-gold/60 transition">
-                <h3 class="font-serif text-gold mb-2">FAQ</h3>
-                <p class="text-gray-400 text-sm">Frequently asked questions.</p>
-            </a>
+                <div class="letter">
+                    <h3>Write to the practice</h3><p class="form-note">All fields are required.</p>
+                    <?php if ($statusMessage === "success"): ?>
+                    <div class="alert alert-ok" role="status">Your message was sent successfully. You will be contacted shortly.</div>
+                    <?php elseif ($statusMessage === "error"): ?>
+                    <div class="alert alert-err" role="alert">An error occurred while sending. Please try again or write to us by email.</div>
+                    <?php endif; ?>
+                    <form action="en.php#contact" method="POST">
+                        <div class="field">
+                            <label for="nume">Full name</label>
+                            <input type="text" id="nume" name="nume" required autocomplete="name" maxlength="160" value="<?= htmlspecialchars($statusMessage === 'error' ? ($formValues['nume'] ?? '') : '', ENT_QUOTES, 'UTF-8') ?>">
+                        </div>
+                        <div class="field">
+                            <label for="email">Email address</label>
+                            <input type="email" id="email" name="email" required autocomplete="email" maxlength="254" value="<?= htmlspecialchars($statusMessage === 'error' ? ($formValues['email'] ?? '') : '', ENT_QUOTES, 'UTF-8') ?>">
+                        </div>
+                        <div class="field">
+                            <label for="mesaj">Case description</label>
+                            <textarea id="mesaj" name="mesaj" rows="4" required maxlength="10000" placeholder="Briefly describe your legal situation..."><?= htmlspecialchars($statusMessage === 'error' ? ($formValues['mesaj'] ?? '') : '', ENT_QUOTES, 'UTF-8') ?></textarea>
+                        </div>
+                        <button type="submit" name="trimite_contact" class="btn btn-navy">Submit inquiry</button>
+                    </form>
+                </div>
+            </div>
         </div>
     </section>
 
-    <footer class="py-8 bg-black text-center text-[8px] text-gray-600 uppercase tracking-widest border-t border-gold/10">
-        &copy; <?php echo date("Y"); ?> Law Office of Prof. Dr. Sebastian V. Bodu. | avocatbodu.ro
+    </main>
+    <footer class="site-footer">
+        <div class="wrap footer__inner">
+            <div>
+                <p class="footer__brand">Bodu</p>
+                <p class="footer__sub">Law Office · Bucharest Bar</p>
+            </div>
+            <div>
+                <nav class="footer__links" aria-label="Practice areas">
+                    <?php foreach (practiceCatalog() as $item): ?>
+                    <a href="/<?= htmlspecialchars($item['en'], ENT_QUOTES, 'UTF-8') ?>"><?= htmlspecialchars($item['en_copy']['name'], ENT_QUOTES, 'UTF-8') ?></a>
+                    <?php endforeach; ?>
+                </nav>
+                <p>&copy; <?= date('Y') ?> avocatbodu.ro · All rights reserved</p>
+            </div>
+        </div>
     </footer>
 
-    <div class="fixed bottom-6 right-6 z-[60]">
-        <button onclick="toggleMusic()" id="musicBtn" class="bg-black/50 border border-gold/50 p-3 rounded-full hover:bg-gold hover:text-black transition-all shadow-lg">
-            <svg id="speakerIcon" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" /></svg>
-        </button>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script>
-        AOS.init({ once: true });
-        particlesJS('particles-js', {"particles": {"number": {"value": 50},"color": {"value": "#D4AF37"},"opacity": {"value": 0.1},"size": {"value": 1.2},"move": {"enable": true, "speed": 0.6, "direction": "top"}}});
-        const music = document.getElementById('bgMusic');
-        function toggleMusic() { if (music.paused) { music.play(); document.getElementById('musicBtn').classList.add('bg-gold', 'text-black'); } else { music.pause(); document.getElementById('musicBtn').classList.remove('bg-gold', 'text-black'); } }
-    </script>
 </body>
 </html>
