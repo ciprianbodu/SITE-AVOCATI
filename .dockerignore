@@ -1,0 +1,14 @@
+# secrets / credentials - never in the image
+config.php
+sftp.json
+**/sftp.json
+.vscode
+*.code-workspace
+# VCS and local junk
+.git
+.gitignore
+.dockerignore
+Dockerfile
+*.log
+.DS_Store
+Thumbs.db

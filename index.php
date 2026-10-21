@@ -30,6 +30,8 @@ if (!$validContact) {
     try {
         $mail->isSMTP();
         $mail->CharSet = PHPMailer::CHARSET_UTF8;
+        $mail->Timeout = 15;
+        $mail->getSMTPInstance()->Timelimit = 15;
         $mail->Host       = $cfg['smtp_host'];
         $mail->SMTPAuth   = true;
         $mail->Username   = $cfg['smtp_user'];
@@ -44,7 +46,7 @@ if (!$validContact) {
         $mail->Body    = "<h3>Mesaj nou de pe avocatbodu.ro</h3><p><strong>Nume:</strong> " . htmlspecialchars($nume, ENT_QUOTES, 'UTF-8') . "</p><p><strong>Email:</strong> " . htmlspecialchars($email_client, ENT_QUOTES, 'UTF-8') . "</p><p><strong>Mesaj:</strong><br>" . nl2br(htmlspecialchars($mesaj_client, ENT_QUOTES, 'UTF-8')) . "</p>";
         $mail->send();
         $statusMessage = "success";
-    } catch (Exception $e) { $statusMessage = "error"; }
+    } catch (Exception $e) { error_log('contact mail failed: ' . $mail->ErrorInfo); $statusMessage = "error"; }
 }
 }
 ?>

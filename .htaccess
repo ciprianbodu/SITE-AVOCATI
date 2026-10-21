@@ -4,13 +4,18 @@ Options -Indexes
     RewriteEngine On
     RewriteBase /
 
+    # Behind Cloudflare (Tunnel, or Flexible SSL) Apache sees plain HTTP even when the
+    # visitor used HTTPS. CF-Visitor carries the visitor's real scheme, so only redirect
+    # when the visitor really used http. Direct (non-Cloudflare) http still redirects.
     RewriteCond %{HTTPS} off
+    RewriteCond %{HTTP:CF-Visitor} !https [NC]
     RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
     RewriteCond %{HTTP_HOST} ^www\.avocatbodu\.ro$ [NC]
     RewriteRule ^ https://avocatbodu.ro%{REQUEST_URI} [L,R=301]
 
-    RewriteCond %{THE_REQUEST} \s/+index\.php[\s?] [NC]
+    # GET/HEAD only: the RO contact form POSTs to index.php; a 301 would turn it into GET /
+    RewriteCond %{THE_REQUEST} ^(GET|HEAD)\s/+index\.php[\s?] [NC]
     RewriteRule ^index\.php$ / [R=301,L]
 
     RewriteRule ^sitemap\.xml$ sitemap.php [L]

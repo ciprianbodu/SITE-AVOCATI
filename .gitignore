@@ -3,6 +3,7 @@ config.php
 
 # IDE / system
 .vscode/
+*.code-workspace
 *.log
 .DS_Store
 Thumbs.db
