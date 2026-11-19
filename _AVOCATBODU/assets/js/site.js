@@ -1,10 +1,10 @@
 (() => {
   'use strict';
-  document.documentElement.classList.remove('no-js');
   const toggle = document.getElementById('menuToggle');
   const close = document.getElementById('menuClose');
   const menu = document.getElementById('mobileMenu');
   if (toggle && close && menu && typeof menu.showModal === 'function') {
+    document.documentElement.classList.remove('no-js');
     let previousOverflow = '';
     const closeMenu = () => { if (menu.open) menu.close(); };
     toggle.addEventListener('click', () => {

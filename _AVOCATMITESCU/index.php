@@ -13,16 +13,15 @@ $seo = [
 ];
 
 $exp = [
-                    ['Drept Civil', 'Litigii civile, succesiuni și consultanță strategică.'],
-                    ['Optimizare Fiscală', 'Structuri legale pentru eficiență financiară maximă.'],
-                    ['Evaziune Fiscală', 'Apărare specializată în cauze penale economice.'],
-                    ['Infracțiuni de Serviciu', 'Asistență în cazuri de abuz sau neglijență în serviciu.'],
-                    ['Corupție', 'Expertiză în dosare de mare complexitate (DNA/DIICOT).'],
-                    ['Consultanță', 'Soluții juridice directe pentru prevenirea riscurilor.'],
-                ];
+    ['Drept civil', 'Consultanță în materie de succesiuni și reprezentare în litigii civile.'],
+    ['Optimizare fiscală', 'Consultanță privind implicațiile fiscale ale operațiunilor pe care le aveți în vedere.'],
+    ['Evaziune fiscală', 'Asistență și apărare în dosare penale privind evaziunea fiscală.'],
+    ['Infracțiuni de serviciu', 'Asistență în cauze privind abuzul în serviciu sau neglijența în serviciu.'],
+    ['Corupție', 'Asistență și reprezentare în cauze penale privind infracțiuni de corupție.'],
+    ['Consultanță juridică', 'Identificarea riscurilor juridice și analiza opțiunilor înainte de luarea unei decizii.'],
+];
 $profileCopy = <<<'HTML'
-<p><strong>Alina-Maria Mitescu</strong> este avocat titular al cabinetului MITESCU LEGAL, oferind consultanță și reprezentare juridică adaptată fiecărui caz în parte.</p>
-                        <p>Seriozitatea avocaților noștri asigură un răspuns prompt și adecvat la orice problemă neprevăzută. Abordarea profesională elimină erorile, confuziile și neclaritățile, oferă siguranță clientului și contribuie la celeritatea soluționării speței juridice.</p>
-                        <p>Reprezentăm interesele clienților noștri la nivel național, cu accent pe rezultate juridice maxime în favoarea clientului.</p>
+<p><strong>Alina-Maria Mitescu</strong> este avocatul titular al cabinetului MITESCU LEGAL. Practica sa cuprinde litigii civile, chestiuni fiscale și apărarea în cauze penale.</p>
+<p>În cadrul consultației puteți prezenta situația și înscrisurile de care dispuneți pentru a discuta opțiunile juridice și demersurile potrivite.</p>
 HTML;
 require __DIR__ . '/partials/site.php';

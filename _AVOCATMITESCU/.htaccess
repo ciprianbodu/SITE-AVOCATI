@@ -1,19 +1,34 @@
 
-# BEGIN WordPress
-# The directives (lines) between "BEGIN WordPress" and "END WordPress" are
-# dynamically generated, and should only be modified via WordPress filters.
-# Any changes to the directives between these markers will be overwritten.
+Options -Indexes
+
 <IfModule mod_rewrite.c>
 RewriteEngine On
-RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 RewriteBase /
-RewriteRule ^index\.php$ - [L]
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /index.php [L]
-</IfModule>
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 
-# END WordPress
+RewriteRule ^(?:\.git|\.vscode|\.claude|partials|PHPMailer)(?:/|$) - [R=404,L,NC]
+RewriteRule ^(?:mail-config\.php|sftp\.json|error_log)$ - [R=404,L,NC]
+
+RewriteCond %{HTTP_HOST} !^www\.mitescu\.ro$ [NC]
+RewriteRule ^ https://www.mitescu.ro%{REQUEST_URI} [R=301,L]
+
+RewriteCond %{HTTP:CF-Visitor} !^$
+RewriteCond %{HTTP:CF-Visitor} !https [NC]
+RewriteRule ^ https://www.mitescu.ro%{REQUEST_URI} [R=301,L]
+
+RewriteCond %{HTTP:CF-Visitor} ^$
+RewriteCond %{HTTP:X-Forwarded-Proto} !^$
+RewriteCond %{HTTP:X-Forwarded-Proto} !https [NC]
+RewriteRule ^ https://www.mitescu.ro%{REQUEST_URI} [R=301,L]
+
+RewriteCond %{HTTP:CF-Visitor} ^$
+RewriteCond %{HTTP:X-Forwarded-Proto} ^$
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://www.mitescu.ro%{REQUEST_URI} [R=301,L]
+
+RewriteCond %{THE_REQUEST} ^(GET|HEAD)\s/+index\.php[\s?] [NC]
+RewriteRule ^index\.php$ https://www.mitescu.ro/ [R=301,L]
+</IfModule>
 
 ###- Hosting Optimization -###
 ### Start
