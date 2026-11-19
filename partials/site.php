@@ -6,16 +6,14 @@ $t = $en ? [
     'skip' => 'Skip to content', 'nav' => 'Main navigation', 'menu' => 'Menu', 'close' => 'Close menu',
     'profile' => 'The practice', 'services' => 'Practice areas', 'contact' => 'Contact',
     'tag' => 'Civil, tax & criminal law', 'role' => 'Lead attorney',
-    'lead' => 'A clear understanding of your case. Legal advice and representation, with attention to every detail.',
+    'lead' => 'Legal advice and representation in civil, tax and criminal matters throughout Romania.',
     'cta' => 'Request a consultation', 'discover' => 'Explore practice areas',
     'phone' => 'Phone', 'national' => 'Nationwide', 'representation' => 'Legal representation',
-    'profile_label' => 'Professional profile', 'profile_title' => 'A personal approach.<br>A rigorous practice.',
-    'practice_label' => 'Areas of expertise', 'practice_title' => 'Legal support for<br>the decisions that matter.',
-    'practice_lead' => 'Advice, assistance and representation tailored to the circumstances of each case.',
-    'service_cta' => 'Discuss your case', 'contact_label' => 'Let’s talk',
-    'contact_title' => 'Every case starts<br>with a conversation.',
-    'contact_lead' => 'Tell us briefly about your legal matter or contact us directly. We will respond as soon as possible.',
+    'profile_title' => 'About the practice', 'practice_title' => 'Practice areas',
+    'contact_title' => 'Contact the practice',
+    'contact_lead' => 'Call, email or use the form to request a consultation.',
     'form_title' => 'Request a consultation', 'required' => 'All fields are required.',
+    'invalid' => 'Check your name, email address and message, then submit the form again.',
     'name' => 'Full name', 'email' => 'Email address', 'message' => 'Your legal matter',
     'placeholder' => 'Briefly describe the matter you need help with…', 'send' => 'Send your inquiry',
     'success' => 'Your message has been sent successfully. We will contact you shortly.',
@@ -25,23 +23,22 @@ $t = $en ? [
     'skip' => 'Salt la conținut', 'nav' => 'Navigare principală', 'menu' => 'Meniu', 'close' => 'Închide meniul',
     'profile' => 'Cabinet', 'services' => 'Arii de practică', 'contact' => 'Contact',
     'tag' => 'Drept civil, fiscal și penal', 'role' => 'Avocat titular',
-    'lead' => 'Înțelegerea clară a situației dumneavoastră. Consultanță și reprezentare juridică, cu atenție la fiecare detaliu.',
+    'lead' => 'Consultanță și reprezentare în cauze civile, fiscale și penale pe întreg teritoriul României.',
     'cta' => 'Solicitați o consultanță', 'discover' => 'Descoperiți ariile de practică',
     'phone' => 'Telefon', 'national' => 'La nivel național', 'representation' => 'Reprezentare juridică',
-    'profile_label' => 'Profil profesional', 'profile_title' => 'Atenție pentru fiecare caz.<br>Rigoare în fiecare demers.',
-    'practice_label' => 'Arii de practică', 'practice_title' => 'Sprijin juridic pentru<br>deciziile care contează.',
-    'practice_lead' => 'Consultanță, asistență și reprezentare adaptate împrejurărilor fiecărei spețe.',
-    'service_cta' => 'Discutați speța', 'contact_label' => 'Contact direct',
-    'contact_title' => 'Fiecare caz începe<br>cu o discuție.',
-    'contact_lead' => 'Descrieți pe scurt situația juridică sau contactați-ne direct. Vă vom răspunde în cel mai scurt timp.',
+    'profile_title' => 'Despre cabinet', 'practice_title' => 'Arii de practică',
+    'contact_title' => 'Contact',
+    'contact_lead' => 'Pentru o consultație, ne puteți suna, ne puteți scrie prin e-mail sau puteți folosi formularul.',
     'form_title' => 'Solicitați o consultanță', 'required' => 'Toate câmpurile sunt obligatorii.',
+    'invalid' => 'Verificați numele, adresa de e-mail și mesajul, apoi retrimiteți formularul.',
     'name' => 'Nume complet', 'email' => 'Adresă email', 'message' => 'Descrierea speței',
     'placeholder' => 'Descrieți pe scurt situația pentru care aveți nevoie de sprijin…', 'send' => 'Trimiteți solicitarea',
     'success' => 'Mesajul a fost transmis cu succes. Veți fi contactat în curând.',
     'error' => 'Mesajul nu a putut fi trimis. Încercați din nou sau contactați-ne la contact@mitescu.ro ori 0726.055.677.',
     'footer' => 'Cabinet de avocatură · Alina-Maria Mitescu', 'rights' => 'Toate drepturile rezervate', 'top' => 'Înapoi sus',
 ];
-$assetVersion = '20260913a';
+$showFormError = in_array($statusMessage, ['invalid', 'error'], true);
+$assetVersion = '20261119a';
 ?>
 <!DOCTYPE html>
 <html lang="<?= $seo['lang'] ?>" class="no-js">
@@ -65,13 +62,13 @@ $assetVersion = '20260913a';
             <div class="nav-links">
                 <a href="#profil"><?= $t['profile'] ?></a>
                 <a href="#experienta"><?= $t['services'] ?></a>
-                <a href="#contact" class="btn btn-gold"><?= $t['contact'] ?> <span aria-hidden="true">↗</span></a>
+                <a href="#contact" class="btn btn-gold"><?= $t['contact'] ?></a>
             </div>
             <div class="nav-tools">
                 <nav class="lang" aria-label="<?= $en ? 'Language' : 'Limbă' ?>">
-                    <a href="/" lang="ro" hreflang="ro"<?= !$en ? ' aria-current="page"' : '' ?>>RO</a>
+                    <a href="/" lang="ro" hreflang="ro" aria-label="Română"<?= !$en ? ' aria-current="page"' : '' ?>>RO</a>
                     <span aria-hidden="true">/</span>
-                    <a href="/en.php" lang="en" hreflang="en"<?= $en ? ' aria-current="page"' : '' ?>>EN</a>
+                    <a href="/en.php" lang="en" hreflang="en" aria-label="English"<?= $en ? ' aria-current="page"' : '' ?>>EN</a>
                 </nav>
                 <button id="menuToggle" class="menu-toggle" type="button" aria-label="<?= $t['menu'] ?>" aria-controls="mobileMenu" aria-expanded="false">
                     <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
@@ -85,7 +82,7 @@ $assetVersion = '20260913a';
         <nav class="mobile-menu__links" aria-label="<?= $t['nav'] ?>">
             <a href="#profil"><?= $t['profile'] ?></a>
             <a href="#experienta"><?= $t['services'] ?></a>
-            <a href="#contact"><?= $t['contact'] ?> <span aria-hidden="true">↗</span></a>
+            <a href="#contact"><?= $t['contact'] ?></a>
         </nav>
         <a class="mobile-phone" href="tel:+40726055677">0726.055.677</a>
     </dialog>
@@ -97,26 +94,24 @@ $assetVersion = '20260913a';
                 <h1 id="hero-title"><span class="hero-role"><?= $t['role'] ?></span>Alina-Maria<br><em>Mitescu</em></h1>
                 <p class="hero-lead"><?= $t['lead'] ?></p>
                 <div class="hero-actions">
-                    <a href="#contact" class="btn btn-gold"><?= $t['cta'] ?> <span aria-hidden="true">↗</span></a>
-                    <a href="#experienta" class="text-link"><?= $t['discover'] ?> <span aria-hidden="true">↓</span></a>
+                    <a href="#solicitare" class="btn btn-gold"><?= $t['cta'] ?></a>
+                    <a href="#experienta" class="text-link"><?= $t['discover'] ?></a>
                 </div>
             </div>
-            <div class="hero-caption" aria-hidden="true">MITESCU LEGAL · <?= $en ? 'ADVICE & REPRESENTATION' : 'CONSULTANȚĂ ȘI REPREZENTARE' ?></div>
         </section>
         <div class="contact-strip">
             <div class="wrap contact-strip__grid">
-                <a href="tel:+40726055677"><small><?= $t['phone'] ?></small><strong>0726.055.677</strong><span aria-hidden="true">↗</span></a>
-                <a href="mailto:contact@mitescu.ro"><small>Email</small><strong>contact@mitescu.ro</strong><span aria-hidden="true">↗</span></a>
+                <a href="tel:+40726055677"><small><?= $t['phone'] ?></small><strong>0726.055.677</strong></a>
+                <a href="mailto:contact@mitescu.ro"><small>Email</small><strong>contact@mitescu.ro</strong></a>
                 <div><small><?= $t['representation'] ?></small><strong><?= $t['national'] ?></strong></div>
             </div>
         </div>
         <section id="profil" class="section profile-section">
             <div class="wrap profile">
                 <div class="profile-copy">
-                    <p class="eyebrow"><?= $t['profile_label'] ?></p>
                     <h2><?= $t['profile_title'] ?></h2>
                     <div class="prose"><?= $profileCopy ?></div>
-                    <a href="#contact" class="text-link"><?= $t['cta'] ?> <span aria-hidden="true">↗</span></a>
+                    <a href="#solicitare" class="text-link"><?= $t['cta'] ?></a>
                 </div>
                 <figure class="portrait">
                     <div class="portrait-frame">
@@ -131,45 +126,40 @@ $assetVersion = '20260913a';
         </section>
         <section id="experienta" class="section practice-section">
             <div class="wrap">
-                <div class="section-heading">
-                    <div><p class="eyebrow"><?= $t['practice_label'] ?></p><h2><?= $t['practice_title'] ?></h2></div>
-                    <p><?= $t['practice_lead'] ?></p>
-                </div>
-                <div class="practice-grid">
-                    <?php foreach ($exp as $i => $item): ?>
-                    <a href="#contact" class="practice-card">
-                        <span class="practice-number" aria-hidden="true"><?= str_pad((string)($i + 1), 2, '0', STR_PAD_LEFT) ?></span>
+                <h2><?= $t['practice_title'] ?></h2>
+                <ul class="practice-grid">
+                    <?php foreach ($exp as $item): ?>
+                    <li class="practice-card">
                         <h3><?= $esc($item[0]) ?></h3>
                         <p><?= $esc($item[1]) ?></p>
-                        <span class="practice-more"><?= $t['service_cta'] ?> <span aria-hidden="true">↗</span></span>
-                    </a>
+                    </li>
                     <?php endforeach; ?>
-                </div>
+                </ul>
+                <a href="#solicitare" class="btn btn-dark"><?= $t['cta'] ?></a>
             </div>
         </section>
         <section id="contact" class="section contact-section">
             <div class="wrap contact-grid">
                 <div class="contact-copy">
-                    <p class="eyebrow"><?= $t['contact_label'] ?></p>
                     <h2><?= $t['contact_title'] ?></h2>
                     <p class="contact-lead"><?= $t['contact_lead'] ?></p>
                     <div class="contact-details">
-                        <a href="tel:+40726055677"><small><?= $t['phone'] ?></small><span>0726.055.677</span><b aria-hidden="true">↗</b></a>
-                        <a href="mailto:contact@mitescu.ro"><small>Email</small><span>contact@mitescu.ro</span><b aria-hidden="true">↗</b></a>
+                        <a href="tel:+40726055677"><small><?= $t['phone'] ?></small><span>0726.055.677</span></a>
+                        <a href="mailto:contact@mitescu.ro"><small>Email</small><span>contact@mitescu.ro</span></a>
                     </div>
                 </div>
-                <div class="letter">
+                <div id="solicitare" class="letter">
                     <h3><?= $t['form_title'] ?></h3><p class="form-note"><?= $t['required'] ?></p>
                     <?php if ($statusMessage === 'success'): ?>
                     <div class="alert alert-ok" role="status"><?= $t['success'] ?></div>
-                    <?php elseif ($statusMessage === 'error'): ?>
-                    <div class="alert alert-err" role="alert"><?= $t['error'] ?></div>
+                    <?php elseif ($showFormError): ?>
+                    <div class="alert alert-err" role="alert"><?= $t[$statusMessage] ?></div>
                     <?php endif; ?>
-                    <form action="<?= $home ?>#contact" method="POST">
-                        <div class="field"><label for="nume"><?= $t['name'] ?></label><input type="text" id="nume" name="nume" required autocomplete="name" maxlength="160" value="<?= $esc($statusMessage === 'error' ? ($formValues['nume'] ?? '') : '') ?>"></div>
-                        <div class="field"><label for="email"><?= $t['email'] ?></label><input type="email" id="email" name="email" required autocomplete="email" maxlength="254" value="<?= $esc($statusMessage === 'error' ? ($formValues['email'] ?? '') : '') ?>"></div>
-                        <div class="field"><label for="mesaj"><?= $t['message'] ?></label><textarea id="mesaj" name="mesaj" rows="4" required maxlength="10000" placeholder="<?= $t['placeholder'] ?>"><?= $esc($statusMessage === 'error' ? ($formValues['mesaj'] ?? '') : '') ?></textarea></div>
-                        <button type="submit" name="trimite_contact" class="btn btn-dark"><?= $t['send'] ?> <span aria-hidden="true">↗</span></button>
+                    <form action="<?= $home ?>#solicitare" method="POST">
+                        <div class="field"><label for="nume"><?= $t['name'] ?></label><input type="text" id="nume" name="nume" required autocomplete="name" maxlength="160" value="<?= $esc($showFormError ? ($formValues['nume'] ?? '') : '') ?>"></div>
+                        <div class="field"><label for="email"><?= $t['email'] ?></label><input type="email" id="email" name="email" required autocomplete="email" maxlength="254" value="<?= $esc($showFormError ? ($formValues['email'] ?? '') : '') ?>"></div>
+                        <div class="field"><label for="mesaj"><?= $t['message'] ?></label><textarea id="mesaj" name="mesaj" rows="4" required maxlength="10000" placeholder="<?= $t['placeholder'] ?>"><?= $esc($showFormError ? ($formValues['mesaj'] ?? '') : '') ?></textarea></div>
+                        <button type="submit" name="trimite_contact" class="btn btn-dark"><?= $t['send'] ?></button>
                     </form>
                 </div>
             </div>
@@ -180,7 +170,7 @@ $assetVersion = '20260913a';
             <div><?php $brandHref = $home; $brandVariant = 'brand-logo--footer'; include __DIR__ . '/brand.php'; ?><p><?= $t['footer'] ?></p></div>
             <nav aria-label="<?= $en ? 'Footer navigation' : 'Navigare subsol' ?>"><a href="#profil"><?= $t['profile'] ?></a><a href="#experienta"><?= $t['services'] ?></a><a href="#contact"><?= $t['contact'] ?></a></nav>
         </div>
-        <div class="wrap footer-bottom"><p>&copy; <?= date('Y') ?> MITESCU LEGAL · <?= $t['rights'] ?></p><a href="#top"><?= $t['top'] ?> <span aria-hidden="true">↑</span></a></div>
+        <div class="wrap footer-bottom"><p>&copy; <?= date('Y') ?> MITESCU LEGAL · <?= $t['rights'] ?></p><a href="#top"><?= $t['top'] ?></a></div>
     </footer>
 </body>
 </html>

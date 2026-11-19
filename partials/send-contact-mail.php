@@ -1,7 +1,4 @@
 <?php
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception as MailException;
-
 $statusMessage = '';
 if ($_SERVER['REQUEST_METHOD'] !== 'POST' || !isset($_POST['trimite_contact'])) {
     return;
@@ -11,32 +8,37 @@ $formValues = [];
 foreach (['nume', 'email', 'mesaj'] as $field) {
     $formValues[$field] = is_string($_POST[$field] ?? null) ? trim($_POST[$field]) : '';
 }
-$validContact = $formValues['nume'] !== '' && strlen($formValues['nume']) <= 640
-    && !preg_match('/[\r\n]/', $formValues['nume'])
-    && strlen($formValues['email']) <= 254 && filter_var($formValues['email'], FILTER_VALIDATE_EMAIL)
-    && $formValues['mesaj'] !== '' && strlen($formValues['mesaj']) <= 40000;
-if (!$validContact) {
-    $statusMessage = 'error';
-    return;
-}
-
-$mailerDir = dirname(__DIR__) . '/PHPMailer';
-require $mailerDir . '/Exception.php';
-require $mailerDir . '/PHPMailer.php';
-require $mailerDir . '/SMTP.php';
-
-$config = require dirname(__DIR__) . '/mail-config.php';
-$locale = $mailLocale ?? 'ro';
-
-$nume = strip_tags($formValues['nume']);
+// HTML maxlength counts UTF-16 code units and the textarea DOM uses LF newlines.
+$fitsField = static function (string $value, int $limit): bool {
+    if ($value === '' || strlen($value) > 3 * $limit) {
+        return false;
+    }
+    $characters = preg_match_all('/./us', $value);
+    if ($characters === false || $characters > $limit) {
+        return false;
+    }
+    $supplementary = preg_match_all('/[\x{10000}-\x{10FFFF}]/u', $value);
+    return $characters + $supplementary <= $limit;
+};
+$nume = $formValues['nume'];
 $email_client = $formValues['email'];
-$mesaj_client = strip_tags($formValues['mesaj']);
+$mesaj_client = str_replace(["\r\n", "\r"], "\n", $formValues['mesaj']);
+if (!$fitsField($nume, 160) || strpbrk($nume, "\r\n") !== false
+    || strlen($email_client) > 254 || !filter_var($email_client, FILTER_VALIDATE_EMAIL)
+    || !$fitsField($mesaj_client, 10000)) {
+    $statusMessage = 'invalid';
+    return;
+}
 
-if ($nume === '' || $email_client === '' || $mesaj_client === '') {
+// The deployment supplies this private file. An unavailable configuration uses the form's error state.
+$config = @include dirname(__DIR__) . '/mail-config.php';
+if (empty($config['from_email']) || empty($config['to_email'])
+    || empty($config['api_token']) || empty($config['account_id'])) {
     $statusMessage = 'error';
     return;
 }
 
+$locale = $mailLocale ?? 'ro';
 if ($locale === 'en') {
     $subject = "New inquiry: $nume";
     $body = "<h3>New message from mitescu.ro (EN)</h3>"
@@ -51,26 +53,32 @@ if ($locale === 'en') {
         . "<p><strong>Mesaj:</strong><br>" . nl2br(htmlspecialchars($mesaj_client, ENT_QUOTES, 'UTF-8')) . "</p>";
 }
 
-$mail = new PHPMailer(true);
+$payload = json_encode([
+    'from' => $config['from_email'],
+    'to' => $config['to_email'],
+    'subject' => $subject,
+    'html' => $body,
+    'text' => "$nume <$email_client>\n\n$mesaj_client",
+], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+
+$context = stream_context_create([
+    'http' => [
+        'method' => 'POST',
+        'header' => "Authorization: Bearer {$config['api_token']}\r\nContent-Type: application/json\r\n",
+        'content' => $payload,
+        'timeout' => 30,
+        'ignore_errors' => true,
+    ],
+]);
+
 try {
-    $mail->isSMTP();
-    $mail->Host       = $config['host'];
-    $mail->SMTPAuth   = true;
-    $mail->Username   = $config['username'];
-    $mail->Password   = $config['password'];
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-    $mail->Port       = $config['port'];
-    $mail->CharSet    = PHPMailer::CHARSET_UTF8;
-    $mail->setFrom($config['from_email'], $config['from_name']);
-    $mail->addAddress($config['to_email']);
-    $mail->addReplyTo($email_client, $nume);
-    $mail->isHTML(true);
-    $mail->Subject = $subject;
-    $mail->Body    = $body;
-    $mail->send();
-    $statusMessage = 'success';
-} catch (MailException $e) {
-    $statusMessage = 'error';
+    $response = @file_get_contents(
+        "https://api.cloudflare.com/client/v4/accounts/{$config['account_id']}/email/sending/send",
+        false,
+        $context
+    );
+    $result = json_decode($response ?: '', true);
+    $statusMessage = is_array($result) && ($result['success'] ?? false) ? 'success' : 'error';
 } catch (Throwable $e) {
     $statusMessage = 'error';
 }

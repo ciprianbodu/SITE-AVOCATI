@@ -1,0 +1,6 @@
+mail-config.php
+sftp.json
+.vscode/
+error_log
+.claude/
+.ftpquota

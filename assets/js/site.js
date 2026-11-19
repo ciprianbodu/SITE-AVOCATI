@@ -1,10 +1,10 @@
 (() => {
   'use strict';
-  document.documentElement.classList.remove('no-js');
   const toggle = document.getElementById('menuToggle');
   const close = document.getElementById('menuClose');
   const menu = document.getElementById('mobileMenu');
   if (toggle && close && menu && typeof menu.showModal === 'function') {
+    document.documentElement.classList.remove('no-js');
     let previousOverflow = '';
     const closeMenu = () => { if (menu.open) menu.close(); };
     toggle.addEventListener('click', () => {
@@ -41,18 +41,29 @@
     const desktop = window.matchMedia(`(min-width: ${toggle.dataset.breakpoint || '768'}px)`);
     desktop.addEventListener('change', event => { if (event.matches) closeMenu(); });
   }
-  // Content is visible without JavaScript; this only marks the current section.
   if ('IntersectionObserver' in window) {
-    const links = document.querySelectorAll('.nav__links a[href^="#"], .nav-links a[href^="#"]');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
+    const sections = [...document.querySelectorAll('main section[id]')];
+    const links = document.querySelectorAll('.nav-links a[href^="#"], .mobile-menu__links a[href^="#"]');
+    let observer;
+
+    const observeSections = () => {
+      if (observer) observer.disconnect();
+      const readingLine = Math.min(window.innerHeight - 1, Math.max(100, Math.round(window.innerHeight * .34)));
+      const bottomInset = window.innerHeight - readingLine - 1;
+      observer = new IntersectionObserver(() => {
+        const current = sections.find(section => {
+          const bounds = section.getBoundingClientRect();
+          return bounds.top < readingLine + 1 && bounds.bottom > readingLine;
+        });
         links.forEach(link => {
-          if (link.hash === `#${entry.target.id}`) link.setAttribute('aria-current', 'location');
+          if (current && link.hash === '#' + current.id) link.setAttribute('aria-current', 'location');
           else link.removeAttribute('aria-current');
         });
-      });
-    }, { rootMargin: '-15% 0px -65% 0px', threshold: 0 });
-    document.querySelectorAll('section[id]').forEach(section => observer.observe(section));
+      }, { rootMargin: `-${readingLine}px 0px -${bottomInset}px 0px` });
+      sections.forEach(section => observer.observe(section));
+    };
+
+    observeSections();
+    window.addEventListener('resize', observeSections);
   }
 })();
