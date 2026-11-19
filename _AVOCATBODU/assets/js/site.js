@@ -9,6 +9,8 @@
     const closeMenu = () => { if (menu.open) menu.close(); };
     toggle.addEventListener('click', () => {
       previousOverflow = document.body.style.overflow;
+      // WebKit does not focus a button on pointer activation. Set the dialog's return target.
+      toggle.focus({ preventScroll: true });
       menu.showModal();
       document.body.style.overflow = 'hidden';
       toggle.setAttribute('aria-expanded', 'true');
