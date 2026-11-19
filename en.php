@@ -4,51 +4,9 @@ require __DIR__ . '/includes/head-assets.php';
 require_once __DIR__ . '/includes/practices.php';
 $seo = seoData('en');
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-$statusMessage = "";
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['trimite_contact'])) {
-$formValues = [];
-foreach (['nume', 'email', 'mesaj'] as $field) {
-    $formValues[$field] = is_string($_POST[$field] ?? null) ? trim($_POST[$field]) : '';
-}
-$validContact = $formValues['nume'] !== '' && strlen($formValues['nume']) <= 640
-    && !preg_match('/[\r\n]/', $formValues['nume'])
-    && strlen($formValues['email']) <= 254 && filter_var($formValues['email'], FILTER_VALIDATE_EMAIL)
-    && $formValues['mesaj'] !== '' && strlen($formValues['mesaj']) <= 40000;
-if (!$validContact) {
-    $statusMessage = 'error';
-} else {
-    require 'PHPmailer/Exception.php';
-    require 'PHPmailer/PHPMailer.php';
-    require 'PHPmailer/SMTP.php';
-    $nume = strip_tags($formValues['nume']);
-    $email_client = $formValues['email'];
-    $mesaj_client = strip_tags($formValues['mesaj']);
-    $cfg = require __DIR__ . '/config.php';
-    $mail = new PHPMailer(true);
-    try {
-        $mail->isSMTP();
-        $mail->CharSet = PHPMailer::CHARSET_UTF8;
-        $mail->Timeout = 15;
-        $mail->getSMTPInstance()->Timelimit = 15;
-        $mail->Host       = $cfg['smtp_host'];
-        $mail->SMTPAuth   = true;
-        $mail->Username   = $cfg['smtp_user'];
-        $mail->Password   = $cfg['smtp_pass'];
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-        $mail->Port       = $cfg['smtp_port'];
-        $mail->setFrom($cfg['from_email'], 'Law Office Bodu');
-        $mail->addAddress($cfg['to_email']);
-        $mail->addReplyTo($email_client, $nume);
-        $mail->isHTML(true);
-        $mail->Subject = "New Inquiry: $nume";
-        $mail->Body    = "<h3>New inquiry from avocatbodu.ro (EN)</h3><p><strong>Name:</strong> " . htmlspecialchars($nume, ENT_QUOTES, 'UTF-8') . "</p><p><strong>Email:</strong> " . htmlspecialchars($email_client, ENT_QUOTES, 'UTF-8') . "</p><p><strong>Message:</strong><br>" . nl2br(htmlspecialchars($mesaj_client, ENT_QUOTES, 'UTF-8')) . "</p>";
-        $mail->send();
-        $statusMessage = "success";
-    } catch (Exception $e) { error_log('contact mail failed: ' . $mail->ErrorInfo); $statusMessage = "error"; }
-}
-}
+$mailLocale = 'en';
+require __DIR__ . '/includes/send-contact-mail.php';
+$showFormError = in_array($statusMessage, ['invalid', 'error'], true);
 ?>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
@@ -114,14 +72,21 @@ if (!$validContact) {
     <main id="continut" tabindex="-1">
     <section class="hero">
         <div class="wrap" >
-            <p class="kicker">Corporate &amp; commercial law</p>
+            <p class="kicker">Business and criminal law</p>
             <h1><span class="hero__title">Prof. Dr.</span>Sebastian V.<br><em>Bodu</em></h1>
             <hr class="hero__rule">
-            <p class="hero__lead">A law office specialized in business law. Counsel and representation for companies, investors and complex commercial transactions.</p>
+            <p class="hero__lead">A law office specializing in business and criminal law. Counsel and representation for companies and investors in complex commercial transactions, as well as in cases involving tax evasion, corruption, money laundering and related offenses. Criminal risk prevention.</p>
             <div class="hero__actions">
                 <a href="#contact" class="btn btn-gold">Request consultation</a>
                 <a href="#experienta" class="btn btn-ghost">Practice areas</a>
             </div>
+            <aside class="hero-practice" aria-labelledby="hero-practice-title">
+                <p class="hero-practice__eyebrow">Legal expertise</p>
+                <h2 id="hero-practice-title">Practice areas</h2>
+                <a href="/corporate-law"><span>Corporate law</span><span aria-hidden="true">↗</span></a>
+                <a href="/commercial-law"><span>Commercial law</span><span aria-hidden="true">↗</span></a>
+                <a href="/economic-offences"><span>Business criminal law<small>Defence and criminal risk prevention</small></span><span aria-hidden="true">↗</span></a>
+            </aside>
         </div>
     </section>
 
@@ -184,8 +149,8 @@ if (!$validContact) {
                 <figure class="portrait" data-aos="fade-left">
                     <div class="portrait__frame">
                         <picture>
-                            <source srcset="assets/img/sebastianbodu.webp" type="image/webp">
-                            <img src="sebastianbodu.jpg" alt="Prof. Dr. Sebastian V. Bodu, corporate and commercial lawyer, Bucharest Bar" width="720" height="720" loading="lazy" decoding="async">
+                            <source type="image/webp" srcset="/assets/img/sebastianbodu.webp">
+                            <img src="/sebastianbodu.jpg" alt="Prof. Dr. Sebastian V. Bodu, corporate and commercial lawyer, Bucharest Bar" width="720" height="720" loading="lazy" decoding="async">
                         </picture>
                     </div>
                     <figcaption>
@@ -231,8 +196,8 @@ if (!$validContact) {
                 <cite>Reference works in business criminal law, co-authored with Ciprian Bodu (prosecutor, NIM graduate).</cite>
             </blockquote>
             <div class="pub-grid">
-                <a class="pub-card" href="https://www.emag.ro/tratat-de-drept-societar-sebastian-bodu-rosetti-ed-2025-ros978-606-025-137-8/pd/DZDBPJ3BM/" target="_blank" rel="noopener noreferrer" data-aos="fade-up">
-                    <small>eMAG · Rosetti Publishing</small>
+                <a class="pub-card" href="https://www.hamangiu.ro/tratat-de-drept-societar" target="_blank" rel="noopener noreferrer" data-aos="fade-up">
+                    <small>Hamangiu Bookshop</small>
                     <h3>Treatise on Corporate Law</h3>
                     <p>2025 Edition</p>
                     <span class="more">Order →</span>
@@ -317,25 +282,27 @@ if (!$validContact) {
                         </div>
                     </div>
                 </div>
-                <div class="letter">
+                <div class="letter" id="solicitare">
                     <h3>Write to the practice</h3><p class="form-note">All fields are required.</p>
                     <?php if ($statusMessage === "success"): ?>
                     <div class="alert alert-ok" role="status">Your message was sent successfully. You will be contacted shortly.</div>
-                    <?php elseif ($statusMessage === "error"): ?>
+                    <?php elseif ($statusMessage === 'invalid'): ?>
+                    <div class="alert alert-err" role="alert">Check your name, email address and message, then submit the form again.</div>
+                    <?php elseif ($statusMessage === 'error'): ?>
                     <div class="alert alert-err" role="alert">An error occurred while sending. Please try again or write to us by email.</div>
                     <?php endif; ?>
-                    <form action="en.php#contact" method="POST">
+                    <form action="/en.php#solicitare" method="POST">
                         <div class="field">
                             <label for="nume">Full name</label>
-                            <input type="text" id="nume" name="nume" required autocomplete="name" maxlength="160" value="<?= htmlspecialchars($statusMessage === 'error' ? ($formValues['nume'] ?? '') : '', ENT_QUOTES, 'UTF-8') ?>">
+                            <input type="text" id="nume" name="nume" required autocomplete="name" maxlength="160" value="<?= htmlspecialchars($showFormError ? ($formValues['nume'] ?? '') : '', ENT_QUOTES, 'UTF-8') ?>">
                         </div>
                         <div class="field">
                             <label for="email">Email address</label>
-                            <input type="email" id="email" name="email" required autocomplete="email" maxlength="254" value="<?= htmlspecialchars($statusMessage === 'error' ? ($formValues['email'] ?? '') : '', ENT_QUOTES, 'UTF-8') ?>">
+                            <input type="email" id="email" name="email" required autocomplete="email" maxlength="254" value="<?= htmlspecialchars($showFormError ? ($formValues['email'] ?? '') : '', ENT_QUOTES, 'UTF-8') ?>">
                         </div>
                         <div class="field">
                             <label for="mesaj">Case description</label>
-                            <textarea id="mesaj" name="mesaj" rows="4" required maxlength="10000" placeholder="Briefly describe your legal situation..."><?= htmlspecialchars($statusMessage === 'error' ? ($formValues['mesaj'] ?? '') : '', ENT_QUOTES, 'UTF-8') ?></textarea>
+                            <textarea id="mesaj" name="mesaj" rows="4" required maxlength="10000" placeholder="Briefly describe your legal situation..."><?= htmlspecialchars($showFormError ? ($formValues['mesaj'] ?? '') : '', ENT_QUOTES, 'UTF-8') ?></textarea>
                         </div>
                         <button type="submit" name="trimite_contact" class="btn btn-navy">Submit inquiry</button>
                     </form>

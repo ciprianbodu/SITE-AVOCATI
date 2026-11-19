@@ -1,5 +1,6 @@
 # secrets / credentials - never in the image
 config.php
+mail-config.php
 sftp.json
 **/sftp.json
 .vscode

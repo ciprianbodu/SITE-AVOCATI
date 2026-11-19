@@ -50,22 +50,21 @@ $t = innerChromeCopy('ro');
     ]); ?>
 </head>
 <body id="top">
-    <?php renderInnerHeader('ro'); ?>
+    <?php renderInnerHeader('ro', ['articles_current' => 'page']); ?>
     <main id="continut" class="page page--article" tabindex="-1">
         <div class="wrap">
-            <nav class="crumbs" aria-label="Breadcrumb">
+            <nav class="crumbs" aria-label="Ierarhia paginilor">
                 <a href="/"><?= $esc($t['crumb_home']) ?></a>
                 <span aria-hidden="true">/</span>
-                <span>Articole</span>
+                <span aria-current="page">Articole</span>
             </nav>
             <p class="kicker"><?= $esc($meta['kicker']) ?></p>
             <h1><?= $esc($meta['h1']) ?></h1>
             <hr class="hero__rule">
             <p class="page__lead"><?= $esc($meta['lead']) ?></p>
-            <div class="practice-list">
+            <div class="practice-list article-list">
                 <?php foreach (articleCatalog() as $item): ?>
                 <a class="practice-item" href="<?= $esc($item['path']) ?>">
-                    <span class="practice-item__num">→</span>
                     <div>
                         <h2><?= $esc($item['h1']) ?></h2>
                         <p><?= $esc($item['lead']) ?></p>
@@ -73,7 +72,6 @@ $t = innerChromeCopy('ro');
                 </a>
                 <?php endforeach; ?>
                 <a class="practice-item" href="https://www.juridice.ro/author/sebastian-bodu" target="_blank" rel="noopener noreferrer">
-                    <span class="practice-item__num">↗</span>
                     <div>
                         <h2>Articole pe JURIDICE.ro</h2>
                         <p>Studii de drept societar publicate de autor pe JURIDICE.ro — voința socială, titlurile de participare și alte teme de doctrină.</p>

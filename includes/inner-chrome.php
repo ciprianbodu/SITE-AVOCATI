@@ -61,9 +61,9 @@ function renderInnerHeader(string $lang, array $opts = []): void
                 <p class="topbar__meta"><?= $esc($t['top']) ?></p>
                 <div class="lang">
                     <?php if ($lang === 'ro'): ?>
-                    <span class="is-active">RO</span><span aria-hidden="true">|</span><a href="<?= $esc($langEn) ?>">EN</a>
+                    <span class="is-active">RO</span><span aria-hidden="true">|</span><a href="<?= $esc($langEn) ?>" hreflang="en" lang="en" aria-label="English">EN</a>
                     <?php else: ?>
-                    <a href="<?= $esc($langRo) ?>">RO</a><span aria-hidden="true">|</span><span class="is-active">EN</span>
+                    <a href="<?= $esc($langRo) ?>" hreflang="ro" lang="ro" aria-label="Română">RO</a><span aria-hidden="true">|</span><span class="is-active">EN</span>
                     <?php endif; ?>
                 </div>
             </div>
@@ -79,10 +79,10 @@ function renderInnerHeader(string $lang, array $opts = []): void
                 </a>
                 <div class="nav__links">
                     <a href="<?= $esc($home) ?>#profil"><?= $esc($t['nav_firm']) ?></a>
-                    <a href="<?= $esc($home) ?>#experienta"><?= $esc($t['nav_practice']) ?></a>
+                    <a href="<?= $esc($home) ?>#experienta"<?= ($opts['section'] ?? '') === 'practice' ? ' aria-current="location"' : '' ?>><?= $esc($t['nav_practice']) ?></a>
                     <a href="<?= $esc($home) ?>#carti"><?= $esc($t['nav_pub']) ?></a>
                     <?php if ($lang === 'ro'): ?>
-                    <a href="/articole/"><?= $esc($t['nav_notes']) ?></a>
+                    <a href="/articole/"<?= isset($opts['articles_current']) ? ' aria-current="' . $esc($opts['articles_current']) . '"' : '' ?>><?= $esc($t['nav_notes']) ?></a>
                     <?php endif; ?>
                     <a href="<?= $esc($contact) ?>" class="btn btn-gold"><?= $esc($t['nav_cta']) ?></a>
                 </div>
@@ -97,10 +97,10 @@ function renderInnerHeader(string $lang, array $opts = []): void
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"/></svg>
         </button>
         <a href="<?= $esc($home) ?>#profil" class="mobile-nav"><?= $esc($t['nav_firm']) ?></a>
-        <a href="<?= $esc($home) ?>#experienta" class="mobile-nav"><?= $esc($t['nav_practice']) ?></a>
+        <a href="<?= $esc($home) ?>#experienta" class="mobile-nav"<?= ($opts['section'] ?? '') === 'practice' ? ' aria-current="location"' : '' ?>><?= $esc($t['nav_practice']) ?></a>
         <a href="<?= $esc($home) ?>#carti" class="mobile-nav"><?= $esc($t['nav_pub']) ?></a>
         <?php if ($lang === 'ro'): ?>
-        <a href="/articole/" class="mobile-nav"><?= $esc($t['nav_notes']) ?></a>
+        <a href="/articole/" class="mobile-nav"<?= isset($opts['articles_current']) ? ' aria-current="' . $esc($opts['articles_current']) . '"' : '' ?>><?= $esc($t['nav_notes']) ?></a>
         <?php endif; ?>
         <a href="<?= $esc($contact) ?>" class="mobile-nav"><?= $esc($t['nav_cta']) ?></a>
     </dialog>

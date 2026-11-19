@@ -4,19 +4,27 @@ Options -Indexes
     RewriteEngine On
     RewriteBase /
 
-    # Behind Cloudflare (Tunnel, or Flexible SSL) Apache sees plain HTTP even when the
-    # visitor used HTTPS. CF-Visitor carries the visitor's real scheme, so only redirect
-    # when the visitor really used http. Direct (non-Cloudflare) http still redirects.
-    RewriteCond %{HTTPS} off
-    RewriteCond %{HTTP:CF-Visitor} !https [NC]
-    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+    RewriteCond %{HTTP_HOST} !^avocatbodu\.ro$ [NC]
+    RewriteRule ^ https://avocatbodu.ro%{REQUEST_URI} [L,R=301]
 
-    RewriteCond %{HTTP_HOST} ^www\.avocatbodu\.ro$ [NC]
+    # Use the visitor scheme reported by the proxy, not the proxy-to-origin scheme.
+    RewriteCond %{HTTP:CF-Visitor} !^$
+    RewriteCond %{HTTP:CF-Visitor} !https [NC]
+    RewriteRule ^ https://avocatbodu.ro%{REQUEST_URI} [L,R=301]
+
+    RewriteCond %{HTTP:CF-Visitor} ^$
+    RewriteCond %{HTTP:X-Forwarded-Proto} !^$
+    RewriteCond %{HTTP:X-Forwarded-Proto} !https [NC]
+    RewriteRule ^ https://avocatbodu.ro%{REQUEST_URI} [L,R=301]
+
+    RewriteCond %{HTTP:CF-Visitor} ^$
+    RewriteCond %{HTTP:X-Forwarded-Proto} ^$
+    RewriteCond %{HTTPS} off
     RewriteRule ^ https://avocatbodu.ro%{REQUEST_URI} [L,R=301]
 
     # GET/HEAD only: the RO contact form POSTs to index.php; a 301 would turn it into GET /
     RewriteCond %{THE_REQUEST} ^(GET|HEAD)\s/+index\.php[\s?] [NC]
-    RewriteRule ^index\.php$ / [R=301,L]
+    RewriteRule ^index\.php$ https://avocatbodu.ro/ [R=301,L]
 
     RewriteRule ^sitemap\.xml$ sitemap.php [L]
 
@@ -55,7 +63,7 @@ ErrorDocument 404 /404.php
     Header set X-Frame-Options "SAMEORIGIN"
 </IfModule>
 
-<FilesMatch "^(sftp\.json|config\.php|config\.example\.php|webmaster-config\.php)$">
+<FilesMatch "^(sftp\.json|config\.php|config\.example\.php|mail-config\.php|mail-config\.example\.php|webmaster-config\.php)$">
     <IfModule mod_authz_core.c>
         Require all denied
     </IfModule>

@@ -7,11 +7,17 @@ function practiceCatalog(): array
             'en' => 'corporate-law',
             'ro' => [
                 'name' => 'Drept societar',
-                'short' => 'Guvernanță corporativă, fuziuni și divizări, litigii societare complexe.',
+                'short' => 'Constituire și guvernanță, reorganizări și soluționarea litigiilor între asociați.',
                 'title' => 'Avocat drept societar București | Cabinet Bodu',
                 'description' => 'Avocat de drept societar în București — guvernanță, fuziuni, divizări și litigii societare. Cabinet Prof. univ. dr. Sebastian V. Bodu, Baroul București din 1996.',
                 'h1' => 'Avocat drept societar în București',
                 'lead' => 'Consultanță și reprezentare în dreptul societăților: de la constituire și guvernanță, până la reorganizări și litigii între asociați.',
+                'services' => [
+                    'Constituirea societăților și redactarea sau modificarea actelor constitutive.',
+                    'Guvernanță corporativă, hotărâri ale organelor sociale și răspunderea administratorilor.',
+                    'Fuziuni, divizări, transformări și transferuri de participații.',
+                    'Reprezentare în litigii între asociați și în alte litigii societare.',
+                ],
                 'body' => [
                     'Cabinetul oferă asistență juridică specializată în dreptul societar pentru societăți comerciale, acționari, administratori și investitori. Practica acoperă atât structurarea operațiunilor, cât și soluționarea conflictelor interne.',
                     'În materie de guvernanță corporativă, asistența include acte constitutive, hotărâri ale organelor sociale, delegări de competență, conflicte de interese și răspunderea administratorilor. La reorganizări, cabinetul interviene în fuziuni, divizări, transformări și transferuri de părți sociale sau acțiuni.',
@@ -25,6 +31,12 @@ function practiceCatalog(): array
                 'description' => 'Corporate law counsel in Bucharest — governance, mergers, divisions and shareholder disputes. Law office of Prof. Dr. Sebastian V. Bodu, Bucharest Bar since 1996.',
                 'h1' => 'Corporate lawyer in Bucharest',
                 'lead' => 'Counsel and representation in company law: from incorporation and governance through reorganisations and shareholder disputes.',
+                'services' => [
+                    'Company formation and constitutional documents.',
+                    'Corporate governance, resolutions and directors’ liability.',
+                    'Mergers, divisions, transformations and transfers of shares.',
+                    'Representation in shareholder and corporate disputes.',
+                ],
                 'body' => [
                     'The firm advises companies, shareholders, directors and investors on Romanian corporate law, covering both transactional structuring and internal disputes.',
                     'Governance work includes constitutional documents, board and shareholder resolutions, delegated authority, conflicts of interest and directors’ liability. Reorganisations include mergers, divisions, transformations and transfers of shares.',
@@ -37,15 +49,21 @@ function practiceCatalog(): array
             'en' => 'commercial-law',
             'ro' => [
                 'name' => 'Drept comercial',
-                'short' => 'Contracte internaționale, tranzacții comerciale și due diligence.',
+                'short' => 'Contracte, tranzacții comerciale și analiză juridică pentru investiții.',
                 'title' => 'Avocat drept comercial București | Cabinet Bodu',
                 'description' => 'Avocat de drept comercial în București — contracte, tranzacții, due diligence. Cabinet de avocatură de afaceri, Baroul București.',
                 'h1' => 'Avocat drept comercial în București',
                 'lead' => 'Negociere, redactare și executare de contracte comerciale, inclusiv în operațiuni cu element de extraneitate.',
+                'services' => [
+                    'Redactarea, analiza și negocierea contractelor comerciale.',
+                    'Asistență în structurarea și documentarea tranzacțiilor și investițiilor.',
+                    'Due diligence juridic și evaluarea riscurilor contractuale.',
+                    'Consiliere privind contractele internaționale și executarea obligațiilor.',
+                ],
                 'body' => [
                     'Dreptul comercial al cabinetului se concentrează pe contractele care susțin activitatea societăților: vânzare, distribuție, prestări servicii, asociere, confidențialitate, non-concurență și clauze de alocare a riscului.',
                     'În tranzacții, asistența include due diligence juridic, structurarea operațiunii, negocierea documentației și închiderea. Pentru contractele internaționale, analiza vizează legea aplicabilă, jurisdicția, executarea și compatibilitatea cu dreptul român.',
-                    'Cabinetul lucrează cu persoane juridice și investitori care au nevoie de un avocat de afaceri, nu de o abordare generică de drept civil.',
+                    'Asistența este adaptată obiectivelor comerciale ale clientului și riscurilor juridice ale fiecărei operațiuni.',
                 ],
             ],
             'en_copy' => [
@@ -55,6 +73,12 @@ function practiceCatalog(): array
                 'description' => 'Commercial law counsel in Bucharest — contracts, transactions and due diligence. Business law office, Bucharest Bar.',
                 'h1' => 'Commercial lawyer in Bucharest',
                 'lead' => 'Negotiation, drafting and performance of commercial contracts, including cross-border arrangements.',
+                'services' => [
+                    'Drafting, reviewing and negotiating commercial agreements.',
+                    'Advice on structuring and documenting transactions and investments.',
+                    'Legal due diligence and contractual risk assessment.',
+                    'Advice on international contracts and performance of obligations.',
+                ],
                 'body' => [
                     'The commercial practice focuses on the contracts that run a business: sale, distribution, services, joint venture, confidentiality, non-compete and risk allocation clauses.',
                     'On transactions, the firm assists with legal due diligence, deal structure, document negotiation and closing. International contracts are reviewed for governing law, jurisdiction, enforcement and compatibility with Romanian law.',
@@ -67,15 +91,21 @@ function practiceCatalog(): array
             'en' => 'tax-law',
             'ro' => [
                 'name' => 'Drept fiscal',
-                'short' => 'Consultanță fiscală strategică, planificare și contencios administrativ.',
+                'short' => 'Asistență în inspecții fiscale, contestații și litigii administrativ-fiscale.',
                 'title' => 'Avocat drept fiscal București | Cabinet Bodu',
                 'description' => 'Avocat de drept fiscal în București — planificare, inspecții și contencios administrativ-fiscal. Cabinet Bodu, Baroul București.',
                 'h1' => 'Avocat drept fiscal în București',
                 'lead' => 'Consultanță fiscală pentru societăți și contencios în fața organelor fiscale și a instanțelor de contencios administrativ.',
+                'services' => [
+                    'Analiza implicațiilor fiscale ale operațiunilor comerciale.',
+                    'Asistență și reprezentare în cadrul inspecțiilor fiscale.',
+                    'Pregătirea contestațiilor împotriva actelor administrative fiscale.',
+                    'Reprezentare în litigii de contencios administrativ-fiscal.',
+                ],
                 'body' => [
                     'Practica de drept fiscal susține operațiunile comerciale: încadrarea tranzacțiilor, riscurile de impunere, obligațiile declarative și relația cu organul fiscal.',
                     'Cabinetul acordă asistență la inspecții fiscale, contestații la titluri de creanță și acțiuni în contencios administrativ-fiscal. Accentul cade pe o strategie juridică corelată cu structura societară și comercială a clientului.',
-                    'Consultanța este destinată persoanelor juridice și investitorilor, nu consultanței fiscale de masă pentru persoane fizice.',
+                    'Consultanța se adresează societăților și investitorilor și urmărește identificarea din timp a riscurilor fiscale relevante pentru activitatea lor.',
                 ],
             ],
             'en_copy' => [
@@ -85,6 +115,12 @@ function practiceCatalog(): array
                 'description' => 'Tax law counsel in Bucharest — planning, tax audits and administrative-tax litigation. Bodu Law Office, Bucharest Bar.',
                 'h1' => 'Tax lawyer in Bucharest',
                 'lead' => 'Tax counsel for companies and litigation before tax authorities and administrative courts.',
+                'services' => [
+                    'Analysis of tax implications of commercial transactions.',
+                    'Assistance and representation during tax audits.',
+                    'Preparation of challenges to tax assessments.',
+                    'Representation in administrative tax litigation.',
+                ],
                 'body' => [
                     'The tax practice supports commercial operations: characterisation of transactions, assessment risk, reporting duties and dealings with the tax authority.',
                     'The firm assists in tax audits, challenges to tax assessments and administrative-tax court actions. Strategy is aligned with the client’s corporate and commercial structure.',
@@ -97,24 +133,36 @@ function practiceCatalog(): array
             'en' => 'economic-offences',
             'ro' => [
                 'name' => 'Criminalitate economică',
-                'short' => 'Apărare specializată în infracțiuni financiare și de serviciu.',
+                'short' => 'Prevenție penală și apărare în cauze de evaziune, corupție și alte infracțiuni economice.',
                 'title' => 'Avocat criminalitate economică București | Cabinet Bodu',
-                'description' => 'Avocat specializat în criminalitate economică și infracțiuni de serviciu, București. Apărare pentru persoane juridice și factori de decizie.',
+                'description' => 'Avocat în București pentru evaziune fiscală, corupție și spălare de bani. Asistență, apărare și prevenție penală pentru societăți și conducerea lor.',
                 'h1' => 'Avocat criminalitate economică în București',
-                'lead' => 'Apărare și asistență în cauze de infracțiuni financiare, de corupție și de serviciu, cu miză pentru societate și conducere.',
+                'lead' => 'Prevenție penală, apărare și asistență în cauze de infracțiuni financiare, de corupție și de serviciu, pentru societate și conducere.',
+                'services' => [
+                    'Identificarea și evaluarea riscurilor penale în activitatea societății.',
+                    'Asistență și apărare în cauze privind evaziunea fiscală, corupția, spălarea banilor și infracțiunile conexe.',
+                    'Reprezentare în cursul urmăririi penale și al judecății.',
+                    'Asistență privind măsurile preventive și măsurile asigurătorii.',
+                ],
                 'body' => [
                     'Criminalitatea economică intersectează dreptul penal cu dreptul societar, fiscal și bancar. Cabinetul intervine acolo unde o speță de afaceri capătă dimensiune penală: abuz de încredere, delapidare, evaziune, spălare de bani, infracțiuni de corupție sau de serviciu.',
                     'Asistența acoperă faza de urmărire penală și judecata, inclusiv măsuri preventive, sechestre și strategia de apărare a persoanelor juridice și a organelor de conducere.',
-                    'Doctrina titularului în dreptul penal al afacerilor — inclusiv lucrări în coautorat — fundamentează o abordare tehnică, nu doar retorică, a dosarului.',
+                    'În etapa de prevenție, cabinetul oferă consultanță pentru identificarea și evaluarea riscurilor penale asociate activității economice, în contextul operațiunilor și responsabilităților specifice fiecărui client.',
                 ],
             ],
             'en_copy' => [
                 'name' => 'Economic offences',
                 'short' => 'Specialized defense in financial and white-collar crime.',
                 'title' => 'White-collar crime lawyer in Bucharest | Bodu Law Office',
-                'description' => 'Counsel in economic and office-related offences in Bucharest. Defence for companies and decision-makers.',
+                'description' => 'Bucharest counsel for tax evasion, corruption and money laundering cases. Criminal risk prevention and defence for companies and decision-makers.',
                 'h1' => 'White-collar crime lawyer in Bucharest',
-                'lead' => 'Defence and assistance in financial, corruption and office-related offences where the company and its management are at stake.',
+                'lead' => 'Criminal risk prevention, defence and assistance in financial, corruption and office-related offences for companies and their management.',
+                'services' => [
+                    'Identification and assessment of criminal risks in business operations.',
+                    'Defence in cases involving tax evasion, corruption, money laundering and related offences.',
+                    'Representation during criminal investigations and trials.',
+                    'Assistance concerning preventive measures and asset freezes.',
+                ],
                 'body' => [
                     'Economic crime sits at the intersection of criminal, corporate, tax and banking law. The firm acts where a business matter takes on a criminal dimension: breach of trust, embezzlement, tax evasion, money laundering, corruption or office-related offences.',
                     'Assistance covers the investigation and trial stages, including preventive measures, asset freezes and defence strategy for companies and directors.',
@@ -127,11 +175,17 @@ function practiceCatalog(): array
             'en' => 'banking-law',
             'ro' => [
                 'name' => 'Drept bancar',
-                'short' => 'Reglementare bancară, conformitate și litigii financiare.',
+                'short' => 'Finanțări, garanții și litigii cu instituții de credit.',
                 'title' => 'Avocat drept bancar București | Cabinet Bodu',
                 'description' => 'Avocat de drept bancar și financiar în București — reglementare, conformitate și litigii. Cabinet de avocatură de afaceri Bodu.',
                 'h1' => 'Avocat drept bancar în București',
                 'lead' => 'Asistență în reglementare bancară, relații de credit și litigii financiare pentru societăți și instituții.',
+                'services' => [
+                    'Analiza și negocierea contractelor de credit și a documentației de finanțare.',
+                    'Consiliere privind garanțiile și obligațiile contractuale.',
+                    'Asistență în raporturile cu instituțiile de credit și instituțiile financiare nebancare.',
+                    'Reprezentare în litigii financiare și în proceduri de executare.',
+                ],
                 'body' => [
                     'Dreptul bancar al cabinetului privește contractele de credit, garanțiile, executarea silită, conformitatea și litigiile cu instituții de credit sau IFN-uri, din perspectiva clientului societate sau investitor.',
                     'Asistența poate include analiza clauzelor, negocierea documentației de finanțare și reprezentarea în litigii privind executarea obligațiilor sau contestarea măsurilor de executare.',
@@ -145,6 +199,12 @@ function practiceCatalog(): array
                 'description' => 'Banking and finance counsel in Bucharest — regulation, compliance and disputes. Bodu business law office.',
                 'h1' => 'Banking lawyer in Bucharest',
                 'lead' => 'Advice on banking regulation, credit relationships and financial disputes for companies and institutions.',
+                'services' => [
+                    'Review and negotiation of credit agreements and financing documents.',
+                    'Advice on security and contractual obligations.',
+                    'Assistance in dealings with credit institutions and non-bank financial institutions.',
+                    'Representation in financial disputes and enforcement proceedings.',
+                ],
                 'body' => [
                     'The banking practice covers credit agreements, security, enforcement, compliance and disputes with credit institutions or NBFIs, from the perspective of a corporate client or investor.',
                     'Work may include clause review, negotiation of financing documents and representation in disputes over performance or challenges to enforcement measures.',
@@ -157,15 +217,21 @@ function practiceCatalog(): array
             'en' => 'commercial-arbitration',
             'ro' => [
                 'name' => 'Arbitraj comercial',
-                'short' => 'Dispute comerciale internaționale și proceduri arbitrale.',
+                'short' => 'Clauze arbitrale, reprezentare în litigii și executarea hotărârilor arbitrale.',
                 'title' => 'Avocat arbitraj comercial București | Cabinet Bodu',
                 'description' => 'Avocat de arbitraj comercial în București — clauze arbitrale, proceduri și executarea hotărârilor. Cabinet Bodu.',
                 'h1' => 'Avocat arbitraj comercial în București',
                 'lead' => 'Asistență în clauze arbitrale, desfășurarea procedurii și executarea sentințelor în dispute comerciale.',
+                'services' => [
+                    'Redactarea și analiza clauzelor arbitrale.',
+                    'Consiliere privind alegerea sediului și a regulilor procedurale.',
+                    'Reprezentare în proceduri arbitrale instituționale și ad-hoc.',
+                    'Asistență pentru recunoașterea și executarea hotărârilor arbitrale.',
+                ],
                 'body' => [
-                    'Arbitrajul comercial este calea firească pentru multe dispute între societăți, mai ales când contractul are element de extraneitate. Cabinetul asistează la redactarea clauzei arbitrale, alegerea sediului și a regulamentului, precum și pe tot parcursul procedurii.',
+                    'Arbitrajul comercial poate oferi un cadru pentru soluționarea disputelor dintre societăți, inclusiv în contracte cu element de extraneitate. Cabinetul acordă asistență la redactarea clauzelor arbitrale, alegerea sediului și a regulamentului, precum și pe parcursul procedurii.',
                     'Reprezentarea poate viza atât arbitrajul ad-hoc, cât și instituțional. După pronunțare, asistența se poate extinde la recunoașterea și executarea hotărârii arbitrale.',
-                    'Abordarea este cea a unui avocat de afaceri: miza comercială a disputei rămâne în centru, nu doar tehnica procedurală.',
+                    'Strategia procedurală este analizată în raport cu obiectivele și interesele comerciale ale clientului.',
                 ],
             ],
             'en_copy' => [
@@ -175,6 +241,12 @@ function practiceCatalog(): array
                 'description' => 'Commercial arbitration counsel in Bucharest — arbitration clauses, proceedings and award enforcement. Bodu Law Office.',
                 'h1' => 'Commercial arbitration lawyer in Bucharest',
                 'lead' => 'Advice on arbitration clauses, the conduct of proceedings and the enforcement of awards in commercial disputes.',
+                'services' => [
+                    'Drafting and reviewing arbitration clauses.',
+                    'Advice on the choice of seat and procedural rules.',
+                    'Representation in institutional and ad hoc arbitration.',
+                    'Assistance with recognition and enforcement of arbitral awards.',
+                ],
                 'body' => [
                     'Commercial arbitration is the natural forum for many disputes between companies, especially where the contract has a cross-border element. The firm assists with drafting the arbitration clause, seat and rules, and throughout the proceedings.',
                     'Representation may cover both ad hoc and institutional arbitration. After the award, assistance may extend to recognition and enforcement.',

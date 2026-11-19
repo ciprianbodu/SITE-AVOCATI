@@ -34,10 +34,10 @@ function seoData(string $lang): array
             'locale'     => 'ro_RO',
             'canonical'  => SITE_URL . '/',
             'alternate'  => SITE_URL . '/en.php',
-            'title'      => 'Avocat drept societar București | Prof. Sebastian V. Bodu',
-            'description'=> 'Avocat definitiv Baroul București din 1996. Drept societar, comercial, fiscal, bancar și arbitraj. Consultanță pentru societăți și investitori.',
+            'title'      => 'Avocat dreptul afacerilor și penal București | Sebastian Bodu',
+            'description'=> 'Avocat în București pentru dreptul afacerilor și drept penal: consultanță, reprezentare și prevenție în cauze de evaziune fiscală, corupție și spălare de bani.',
             'keywords'   => 'avocat București, avocat drept societar, avocat drept comercial, avocat afaceri, Sebastian Bodu, drept fiscal, criminalitate economică, arbitraj comercial, Baroul București, cabinet avocat',
-            'og_title'   => 'Avocat drept societar și comercial București | Cabinet Bodu',
+            'og_title'   => 'Avocat dreptul afacerilor și penal București | Cabinet Bodu',
             'job_title'  => 'Avocat definitiv, Profesor universitar',
             'org_name'   => 'Cabinet de Avocat Prof. univ. dr. Sebastian V. Bodu',
         ],
@@ -46,10 +46,10 @@ function seoData(string $lang): array
             'locale'     => 'en_US',
             'canonical'  => SITE_URL . '/en.php',
             'alternate'  => SITE_URL . '/',
-            'title'      => 'Corporate lawyer in Bucharest | Prof. Sebastian V. Bodu',
-            'description'=> 'Corporate and commercial lawyer in Bucharest. Bucharest Bar since 1996. Tax, banking and arbitration. Counsel for companies and investors.',
+            'title'      => 'Business and criminal lawyer in Bucharest | Sebastian Bodu',
+            'description'=> 'Business and criminal law counsel in Bucharest. Advice, representation and criminal risk prevention in tax evasion, corruption and money laundering cases.',
             'keywords'   => 'lawyer Bucharest, corporate lawyer Romania, commercial lawyer, business attorney, Sebastian Bodu, tax law, white-collar crime, commercial arbitration, Bucharest Bar',
-            'og_title'   => 'Corporate & commercial lawyer in Bucharest | Bodu Law Office',
+            'og_title'   => 'Business and criminal lawyer in Bucharest | Bodu Law Office',
             'job_title'  => 'Attorney at Law, Full Professor',
             'org_name'   => 'Law Office of Prof. Dr. Sebastian V. Bodu',
         ],
@@ -139,25 +139,13 @@ function renderSeoJsonLd(string $lang, array $extra = []): void
         ];
     }
 
-    $faqs = [];
-    foreach (faqItems($lang) as $faq) {
-        $faqs[] = [
-            '@type' => 'Question',
-            'name' => $faq['q'],
-            'acceptedAnswer' => [
-                '@type' => 'Answer',
-                'text' => $faq['a'],
-            ],
-        ];
-    }
-
     $homeCrumbName = $lang === 'en' ? 'Home' : 'Acasă';
     $homeUrl = $lang === 'en' ? SITE_URL . '/en.php' : SITE_URL . '/';
     $canonical = $extra['canonical'] ?? $s['canonical'];
     $webpageType = $extra['webpage_type'] ?? 'WebPage';
     $knowsAbout = $lang === 'en'
-        ? ['Corporate law', 'Commercial law', 'Tax law', 'Banking law', 'Economic offences', 'Commercial arbitration']
-        : ['Drept societar', 'Drept comercial', 'Drept fiscal', 'Drept bancar', 'Criminalitate economică', 'Arbitraj comercial'];
+        ? ['Corporate law', 'Commercial law', 'Tax law', 'Banking law', 'Criminal law', 'Economic offences', 'Tax evasion', 'Corruption', 'Money laundering', 'Commercial arbitration']
+        : ['Drept societar', 'Drept comercial', 'Drept fiscal', 'Drept bancar', 'Drept penal', 'Criminalitate economică', 'Evaziune fiscală', 'Corupție', 'Spălare de bani', 'Arbitraj comercial'];
     $schema = [
         '@context' => 'https://schema.org',
         '@graph' => [
@@ -281,9 +269,20 @@ function renderSeoJsonLd(string $lang, array $extra = []): void
     ];
 
     if (empty($extra['skip_faq'])) {
+        $faqs = [];
+        foreach (faqItems($lang) as $faq) {
+            $faqs[] = [
+                '@type' => 'Question',
+                'name' => $faq['q'],
+                'acceptedAnswer' => [
+                    '@type' => 'Answer',
+                    'text' => $faq['a'],
+                ],
+            ];
+        }
         $schema['@graph'][] = [
             '@type' => 'FAQPage',
-            '@id' => SITE_URL . '/#faq',
+            '@id' => $homeUrl . ($lang === 'en' ? '#faq' : '#intrebari'),
             'mainEntity' => $faqs,
         ];
     }
@@ -332,7 +331,7 @@ function sitemapUrls(): array
             'priority' => '0.85',
             'hreflang_ro' => SITE_URL . '/' . $slug,
             'hreflang_en' => SITE_URL . '/' . $item['en'],
-            'hreflang_default' => SITE_URL . '/',
+            'hreflang_default' => SITE_URL . '/' . $slug,
         ];
         $urls[] = [
             'loc' => SITE_URL . '/' . $item['en'],
@@ -340,7 +339,7 @@ function sitemapUrls(): array
             'priority' => '0.8',
             'hreflang_ro' => SITE_URL . '/' . $slug,
             'hreflang_en' => SITE_URL . '/' . $item['en'],
-            'hreflang_default' => SITE_URL . '/',
+            'hreflang_default' => SITE_URL . '/' . $slug,
         ];
     }
 

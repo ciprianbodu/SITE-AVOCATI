@@ -48,10 +48,10 @@ RUN set -eux; \
 COPY --chown=root:root . /var/www/html/
 
 # Belt and braces: even if .dockerignore is bypassed, never ship secrets or build files.
-# config.php is supplied at runtime (Coolify file mount at /var/www/html/config.php).
+# mail-config.php is supplied at runtime (Coolify file mount at /var/www/html/mail-config.php).
 RUN set -eux; \
     cd /var/www/html; \
-    rm -rf config.php sftp.json .vscode .git .gitignore .dockerignore Dockerfile *.code-workspace; \
+    rm -rf config.php mail-config.php sftp.json .vscode .git .gitignore .dockerignore Dockerfile *.code-workspace; \
     chown root:root /var/www/html; \
     find . -type d -exec chmod 755 {} +; \
     find . -type f -exec chmod 644 {} +
