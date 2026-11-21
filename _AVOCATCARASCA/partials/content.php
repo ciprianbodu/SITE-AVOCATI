@@ -18,7 +18,7 @@ $site = [
 $copy = [
     'ro' => [
         'title' => 'Ionuț-Cosmin Carașca | Avocat în Baroul Constanța',
-        'description' => 'Ionuț-Cosmin Carașca, avocat definitiv în Baroul Constanța. Asistență în drept civil, penal, al familiei, al muncii și administrativ.',
+        'description' => 'Ionuț-Cosmin Carașca, avocat definitiv în Baroul Constanța. Asistență în drept civil, penal, al muncii și administrativ.',
         'role' => 'Avocat · Baroul Constanța',
         'cabinet' => 'Cabinet',
         'menu' => 'Deschide meniul',
@@ -55,7 +55,7 @@ $copy = [
     ],
     'en' => [
         'title' => 'Ionuț-Cosmin Carașca | Constanța Bar Lawyer',
-        'description' => 'Ionuț-Cosmin Carașca, lawyer and member of the Constanța Bar. Civil, criminal, family, employment and administrative law.',
+        'description' => 'Ionuț-Cosmin Carașca, lawyer and member of the Constanța Bar. Civil, criminal, employment and administrative law.',
         'role' => 'Lawyer · Constanța Bar',
         'cabinet' => 'Law office',
         'menu' => 'Open menu',
@@ -119,20 +119,6 @@ $practiceAreas = [
             'title' => 'Criminal law',
             'description' => 'Legal assistance in criminal proceedings, from investigation through trial and appeal.',
             'topics' => ['Assistance during questioning and investigation', 'Defence at trial and on appeal', 'Assistance for injured parties and related civil claims'],
-        ],
-    ],
-    'family' => [
-        'ro' => [
-            'path' => '/dreptul-familiei',
-            'title' => 'Dreptul familiei',
-            'description' => 'Consultanță și reprezentare în proceduri de divorț, în chestiuni privind copiii și în litigii patrimoniale între soți.',
-            'topics' => ['Divorț și efectele sale', 'Autoritate părintească, locuința copilului și legături personale', 'Pensia de întreținere și partajul bunurilor comune'],
-        ],
-        'en' => [
-            'path' => '/family-law',
-            'title' => 'Family law',
-            'description' => 'Advice and representation in divorce, disputes involving children and property disputes between spouses.',
-            'topics' => ['Divorce and its consequences', 'Parental responsibility, child residence and contact', 'Maintenance and division of jointly owned assets'],
         ],
     ],
     'employment' => [
