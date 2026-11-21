@@ -104,9 +104,11 @@
                 <div class="hero-copy">
                     <p class="intro"><?= esc($labels['heroIntro']) ?></p>
                     <div class="hero-media">
-                        <video class="hero-film" src="/assets/video/consultation-film.mp4"
-                            poster="/assets/img/consultation-film-poster.webp" width="760" height="330"
-                            preload="none" muted playsinline loop aria-label="<?= esc($labels['consultationFilm']) ?>"></video>
+                        <picture class="hero-film">
+                            <source media="(prefers-reduced-motion: reduce)" srcset="/assets/img/consultation-film-poster.webp">
+                            <img src="/assets/img/consultation-film-loop.webp" width="608" height="264" loading="lazy"
+                                decoding="async" alt="<?= esc($labels['consultationFilm']) ?>">
+                        </picture>
                         <button class="hero-sound" type="button" aria-controls="hero-soundtrack" aria-pressed="false" hidden>
                             <?= esc($labels['sound']) ?>
                             <span class="hero-sound-state" aria-hidden="true"
