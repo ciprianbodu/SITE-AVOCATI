@@ -37,15 +37,20 @@
 })();
 
 const heroFilm = document.querySelector('.hero-film');
-if (heroFilm && 'IntersectionObserver' in window && matchMedia('(prefers-reduced-motion: no-preference)').matches) {
-  const filmObserver = new IntersectionObserver(([entry]) => {
-    if (entry.intersectionRatio < .6) return;
-    filmObserver.disconnect();
-    if (heroFilm.paused && heroFilm.currentTime === 0) {
-      heroFilm.play().catch(() => {});
-    }
-  }, { threshold: .6 });
-  filmObserver.observe(heroFilm);
+if (heroFilm && matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+  const playFilm = () => heroFilm.play().catch(() => {});
+  if ('IntersectionObserver' in window) {
+    const filmObserver = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) {
+        heroFilm.pause();
+      } else if (entry.intersectionRatio >= .6 && heroFilm.paused) {
+        playFilm();
+      }
+    }, { threshold: [0, .6] });
+    filmObserver.observe(heroFilm);
+  } else {
+    playFilm();
+  }
 }
 
 const soundtrack = document.getElementById('hero-soundtrack');

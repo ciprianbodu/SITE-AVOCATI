@@ -216,6 +216,7 @@ h3 { font-size: 1.8rem; }
   grid-template-areas:
     "team team"
     "lead member"
+    "rule rule"
     "intro practice";
   align-items: start;
   column-gap: clamp(.75rem, 5vw, 5rem);
@@ -243,7 +244,25 @@ h3 { font-size: 1.8rem; }
   overflow-wrap: anywhere;
 }
 .hero-name em { color: var(--gold-bright); font-weight: 400; }
-.hero-rule { width: 5rem; height: 1px; margin-top: 1.55rem; background: linear-gradient(90deg, var(--gold), transparent); }
+.hero-rule {
+  --rule-length: clamp(3rem, 13%, 7rem);
+  grid-area: rule;
+  height: 2px;
+  margin-top: clamp(.85rem, 2vw, 1.55rem);
+  overflow: hidden;
+}
+.hero-rule::before {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent) left / var(--rule-length) 100% no-repeat;
+  content: "";
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hero-rule::before { animation: hero-rule-slide 5s ease-in-out infinite alternate; }
+}
+@keyframes hero-rule-slide {
+  to { transform: translateX(calc(100% - var(--rule-length))); }
+}
 .intro { max-width: 34rem; margin-block: 1.2rem 1.6rem; color: var(--light-muted); font-size: 1.3rem; }
 .eyebrow {
   margin-bottom: 1.15rem;
@@ -268,6 +287,7 @@ h3 { font-size: 1.8rem; }
   border: 1px solid var(--line);
   background: var(--header);
 }
+.hero-film::-webkit-media-controls-start-playback-button { display: none; }
 .hero-sound:not([hidden]) { display: inline-flex; }
 .hero-sound {
   align-items: center;
@@ -420,6 +440,7 @@ h3 { font-size: 1.8rem; }
     grid-template-areas:
       "team team"
       "lead member"
+      "rule rule"
       "intro intro";
   }
   .hero-practice { display: none; }

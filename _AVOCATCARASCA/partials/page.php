@@ -100,13 +100,13 @@
                 <p class="hero-team-label"><?= esc($labels['teamHeading']) ?></p>
                 <h1 class="hero-name hero-lead-name"><?= esc($site['givenName']) ?><br><em><?= esc($site['surname']) ?></em></h1>
                 <h2 class="hero-name hero-team-name"><?= esc($site['teamGivenName']) ?><br><em><?= esc($site['teamSurname']) ?></em></h2>
+                <div class="hero-rule" aria-hidden="true"></div>
                 <div class="hero-copy">
-                    <div class="hero-rule" aria-hidden="true"></div>
                     <p class="intro"><?= esc($labels['heroIntro']) ?></p>
                     <div class="hero-media">
                         <video class="hero-film" src="/assets/video/consultation-film.mp4"
                             poster="/assets/img/consultation-film-poster.webp" width="760" height="330"
-                            preload="none" muted playsinline controls aria-label="<?= esc($labels['consultationFilm']) ?>"></video>
+                            preload="none" muted playsinline loop aria-label="<?= esc($labels['consultationFilm']) ?>"></video>
                         <button class="hero-sound" type="button" aria-controls="hero-soundtrack" aria-pressed="false" hidden>
                             <?= esc($labels['sound']) ?>
                             <span class="hero-sound-state" aria-hidden="true"

@@ -100,13 +100,13 @@ $practiceAreas = [
         'ro' => [
             'path' => '/drept-penal',
             'title' => 'Drept penal',
-            'description' => 'Asistență juridică în cauze penale, de la urmărirea penală până la judecată și căile de atac.',
+            'description' => 'Asistență juridică în cauze penale, inclusiv în dosare instrumentate de DNA și DIICOT, de la urmărirea penală până la judecată și căile de atac.',
             'topics' => ['Asistență la audieri și în cursul urmăririi penale', 'Apărare în fața instanței și în căile de atac', 'Asistența persoanei vătămate și formularea pretențiilor civile'],
         ],
         'en' => [
             'path' => '/criminal-law',
             'title' => 'Criminal law',
-            'description' => 'Legal assistance in criminal proceedings, from investigation through trial and appeal.',
+            'description' => 'Legal assistance in criminal proceedings from the investigation stage through trial and appeal, including in cases handled by DNA and DIICOT.',
             'topics' => ['Assistance during questioning and investigation', 'Defence at trial and on appeal', 'Assistance for injured parties and related civil claims'],
         ],
     ],
