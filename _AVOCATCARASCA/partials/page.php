@@ -44,6 +44,10 @@
                 <span class="brand-name"><?= esc($site['brandName']) ?></span>
                 <span class="brand-legal">LEGAL</span>
             </a>
+            <div class="brand-crest" aria-hidden="true">
+                <img src="/assets/img/crest.webp" width="160" height="160" alt="">
+                <span><?= esc($site['brandName']) ?> LEGAL</span>
+            </div>
             <div class="nav-links">
                 <?php foreach ($navLinks as $href => $label): ?>
                     <a href="<?= esc($href) ?>"><?= esc($label) ?></a>
