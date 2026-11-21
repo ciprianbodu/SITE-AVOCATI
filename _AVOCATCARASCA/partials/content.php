@@ -11,7 +11,6 @@ $site = [
     'teamSurname' => 'RAISCHI',
     'telephone' => '+40723041952',
     'telephoneDisplay' => '0723 041 952',
-    'region' => 'Constanța',
     'pressUrl' => 'https://www.ziuaconstanta.ro/stiri/interviu-online/interviu-online-cu-ionut-carasca-avocat-in-cadrul-baroului-constanta-modificarile-legii-darii-in-plata-aspecte-esentiale-741923.html',
 ];
 
@@ -33,9 +32,6 @@ $copy = [
         'phoneAction' => 'Sună pentru programare',
         'serviceArea' => 'Zonă de activitate',
         'county' => 'Județul Constanța',
-        'bar' => 'Barou',
-        'status' => 'Avocat definitiv',
-        'professionalStatus' => 'Statut profesional',
         'contact' => 'Contact',
         'press' => 'În presă',
         'pressDate' => '11 martie 2021',
@@ -65,9 +61,6 @@ $copy = [
         'phoneAction' => 'Call for an appointment',
         'serviceArea' => 'Area served',
         'county' => 'Constanța County',
-        'bar' => 'Bar association',
-        'status' => 'Fully admitted lawyer',
-        'professionalStatus' => 'Professional status',
         'contact' => 'Contact',
         'press' => 'In the press',
         'pressDate' => '11 March 2021',

@@ -42,13 +42,13 @@
         <div class="container header-inner">
             <a class="brand" href="<?= esc($homePath) ?>">
                 <span class="brand-name"><?= esc($site['brandName']) ?></span>
+                <span class="brand-crest" aria-hidden="true">
+                    <span>C</span>
+                    <img src="/assets/img/crest.webp" width="160" height="160" alt="">
+                    <span>L</span>
+                </span>
                 <span class="brand-legal">LEGAL</span>
             </a>
-            <div class="brand-crest" aria-hidden="true">
-                <span>C</span>
-                <img src="/assets/img/crest.webp" width="160" height="160" alt="">
-                <span>L</span>
-            </div>
             <div class="nav-links">
                 <?php foreach ($navLinks as $href => $label): ?>
                     <a href="<?= esc($href) ?>"><?= esc($label) ?></a>
@@ -134,12 +134,6 @@
                 ?>
             </div>
         </section>
-        <div class="credentials">
-            <dl class="container credentials-grid">
-                <div><dt><?= esc($labels['bar']) ?></dt><dd><?= esc($site['region']) ?></dd></div>
-                <div><dt><?= esc($labels['professionalStatus']) ?></dt><dd><?= esc($labels['status']) ?></dd></div>
-            </dl>
-        </div>
         <section id="presa" class="band">
             <article class="container press">
                 <h2 class="eyebrow"><?= esc($labels['press']) ?></h2>

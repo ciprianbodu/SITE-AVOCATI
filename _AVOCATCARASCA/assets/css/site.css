@@ -56,7 +56,6 @@
   --ink: #292a2e;
   --gold: #debb79;
   --gold-bright: #f1ce8d;
-  --bronze: #795727;
   --line: #debb7954;
   --serif: "Cormorant Garamond", Georgia, serif;
   --sans: "Source Sans 3", system-ui, sans-serif;
@@ -124,22 +123,24 @@ h3 { font-size: 1.8rem; }
 .header-nav { border-bottom: 1px solid var(--line); }
 .header-inner { min-height: 78px; }
 .brand {
-  display: grid;
-  gap: .14rem;
-  padding-left: .9rem;
-  border-left: 1px solid var(--gold);
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(.35rem, 1.25vw, 1rem);
   text-decoration: none;
+  white-space: nowrap;
 }
-.brand-name { font: 700 1.12rem / 1 var(--serif); letter-spacing: .15em; }
-.brand-legal { color: var(--gold); font: 700 clamp(2.1rem, 4vw, 2.5rem) / .95 var(--serif); letter-spacing: .08em; }
+.brand-name { font: 700 clamp(.75rem, 4.55vw, 1.8rem) / 1 var(--serif); letter-spacing: .08em; }
+.brand-legal { color: var(--gold); font: 700 clamp(1rem, 6.1vw, 2.55rem) / .95 var(--serif); letter-spacing: .06em; }
 .brand-crest {
   display: flex;
   align-items: center;
   flex: none;
   color: var(--gold);
-  font: 700 clamp(1.9rem, 5.7vw, 2.55rem) / 1 var(--serif);
+  font: 700 clamp(1.42rem, 7.2vw, 2.55rem) / 1 var(--serif);
 }
-.brand-crest img { display: block; width: 2.65rem; height: 2.65rem; margin-inline: -.14em; }
+.brand-crest img { display: block; width: clamp(2.2rem, 10vw, 2.65rem); height: auto; margin-inline: -.14em; }
 .brand-crest span:first-child { transform: rotate(-8deg); }
 .brand-crest span:last-child { transform: rotate(8deg); }
 
@@ -174,6 +175,7 @@ h3 { font-size: 1.8rem; }
   border: 1px solid var(--line);
   cursor: pointer;
 }
+.menu-toggle { flex: none; }
 .menu-toggle[hidden] { display: none; }
 .menu-bars { width: 19px; height: 13px; border-block: 1px solid currentColor; }
 .menu-bars::after { content: ""; display: block; border-top: 1px solid currentColor; margin-top: 5px; }
@@ -223,9 +225,9 @@ h3 { font-size: 1.8rem; }
   padding-block: clamp(3.5rem, 6vw, 6rem);
 }
 .hero-role { grid-area: role; }
-.hero-team-label { grid-area: team; }
+.hero-team-label { grid-area: team; text-align: right; }
 .hero-lead-name { grid-area: lead; }
-.hero-team-name { grid-area: member; }
+.hero-team-name { grid-area: member; text-align: right; }
 .hero-copy { grid-area: intro; }
 .hero-name, .page-heading h1 {
   font-weight: 500;
@@ -292,11 +294,6 @@ h3 { font-size: 1.8rem; }
 }
 .arrow-up { transform: rotate(-45deg); }
 .arrow-back { transform: rotate(180deg); }
-
-.credentials { color: var(--ink); background: var(--paper); border-top: 2px solid var(--gold); }
-.credentials-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.4rem; margin-block: 0; padding-block: 1.55rem; }
-.credentials dt { color: var(--bronze); font-size: .72rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
-.credentials dd { margin: .3rem 0 0; font: 600 clamp(1.55rem, 3vw, 2.15rem) / 1.1 var(--serif); }
 
 .band { padding-block: clamp(3rem, 7vw, 5.75rem); }
 .contact-inner, .practice-detail {
@@ -378,6 +375,7 @@ h3 { font-size: 1.8rem; }
 .footer-links a:hover { color: var(--gold-bright); }
 
 @media (max-width: 950px) {
+  .nav-links { gap: .9rem; }
   .hero-inner {
     grid-template-areas:
       "role team"
@@ -389,8 +387,8 @@ h3 { font-size: 1.8rem; }
 }
 
 @media (max-width: 780px) {
-  .header-inner { min-height: 70px; flex-wrap: wrap; padding-block: .6rem; }
-  .nav-links { flex-wrap: wrap; gap: .6rem 1rem; }
+  .header-inner { min-height: 70px; flex-wrap: wrap; gap: .6rem; padding-block: .6rem; }
+  .nav-links { flex-basis: 100%; flex-wrap: wrap; gap: .6rem 1rem; }
   .menu-enabled .nav-links { display: none; }
   .contact-inner, .practice-detail { grid-template-columns: minmax(0, 1fr); }
   .practice-detail h2 { margin-bottom: 0; }
@@ -408,8 +406,6 @@ h3 { font-size: 1.8rem; }
   .hero-inner > .eyebrow { margin-bottom: .65rem; letter-spacing: .08em; }
   .hero .intro { font-size: 1.1rem; }
   .hero-actions { flex-direction: column; align-items: stretch; }
-  .credentials-grid { gap: .9rem; }
-  .credentials dt { letter-spacing: .05em; }
   .footer-inner { align-items: start; flex-direction: column; }
   .footer-links { justify-content: start; }
 }
