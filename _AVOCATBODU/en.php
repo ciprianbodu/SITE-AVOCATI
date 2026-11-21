@@ -76,9 +76,11 @@ $showFormError = in_array($statusMessage, ['invalid', 'error'], true);
             <h1><span class="hero__title">Prof. Dr.</span>Sebastian V.<br><em>Bodu</em></h1>
             <hr class="hero__rule">
             <p class="hero__lead">The firm advises and represents clients in commercial and tax matters. Its criminal practice covers economic offences and cybercrime. It also provides legal advice on managing crypto wallets.</p>
-            <video class="hero-film" src="/assets/video/consultation-film.mp4"
-                poster="/assets/img/consultation-film-poster.webp" width="760" height="330"
-                preload="none" muted playsinline loop aria-label="A lawyer prepares documents, speaks in court and shakes hands with a client."></video>
+            <picture class="hero-film">
+                <source media="(prefers-reduced-motion: reduce)" srcset="/assets/img/consultation-film-poster.webp">
+                <img src="/assets/img/consultation-film-loop.webp" width="608" height="264" loading="lazy"
+                    decoding="async" alt="A lawyer prepares documents, speaks in court and shakes hands with a client.">
+            </picture>
             <div class="hero__actions">
                 <a href="#contact" class="btn btn-gold">Request consultation</a>
                 <a href="#experienta" class="btn btn-ghost">Practice areas</a>

@@ -1,6 +1,6 @@
 <?php
 if (!defined('ASSET_VER')) {
-    define('ASSET_VER', '20261121c');
+    define('ASSET_VER', '20261121d');
 }
 
 function renderHeadAssets(bool $preloadHero = true): void

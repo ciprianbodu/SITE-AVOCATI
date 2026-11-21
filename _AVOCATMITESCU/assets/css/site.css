@@ -113,7 +113,7 @@ a,button,input,textarea { -webkit-tap-highlight-color:transparent; }
   margin-bottom: 1.25rem;
   border: 1px solid var(--gold);
 }
-.hero-film::-webkit-media-controls-start-playback-button { display: none; }
+.hero-film img { display: block; width: 100%; height: auto; }
 .hero-actions { display:flex; align-items:center; gap:1.6rem; flex-wrap:wrap; }
 .hero .text-link { font-size:.9rem; color:#e0e6de; border-color:#7d8b7e; }
 .hero .text-link:hover { color:var(--gold); }

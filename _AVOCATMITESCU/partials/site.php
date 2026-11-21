@@ -40,7 +40,7 @@ $t = $en ? [
     'footer' => 'Cabinet de avocatură · Alina-Maria Mitescu', 'rights' => 'Toate drepturile rezervate', 'top' => 'Înapoi sus',
 ];
 $showFormError = in_array($statusMessage, ['invalid', 'error'], true);
-$assetVersion = '20261121a';
+$assetVersion = '20261121b';
 ?>
 <!DOCTYPE html>
 <html lang="<?= $seo['lang'] ?>" class="no-js">
@@ -95,9 +95,11 @@ $assetVersion = '20261121a';
                 <p class="eyebrow"><?= $t['tag'] ?></p>
                 <h1 id="hero-title"><span class="hero-role"><?= $t['role'] ?></span>Alina-Maria<br><em>Mitescu</em></h1>
                 <p class="hero-lead"><?= $t['lead'] ?></p>
-                <video class="hero-film" src="/assets/video/consultation-film.mp4"
-                    poster="/assets/img/consultation-film-poster.webp" width="760" height="330"
-                    preload="none" muted playsinline loop aria-label="<?= htmlspecialchars($t['consultation_film']) ?>"></video>
+                <picture class="hero-film">
+                    <source media="(prefers-reduced-motion: reduce)" srcset="/assets/img/consultation-film-poster.webp">
+                    <img src="/assets/img/consultation-film-loop.webp" width="608" height="264" loading="lazy"
+                        decoding="async" alt="<?= htmlspecialchars($t['consultation_film']) ?>">
+                </picture>
                 <div class="hero-actions">
                     <a href="#solicitare" class="btn btn-gold"><?= $t['cta'] ?></a>
                     <a href="#experienta" class="text-link"><?= $t['discover'] ?></a>

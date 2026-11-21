@@ -861,7 +861,7 @@ body { overflow-x:clip; }
   margin-bottom: 1.25rem;
   border: 1px solid var(--gold);
 }
-.hero-film::-webkit-media-controls-start-playback-button { display: none; }
+.hero-film img { display: block; width: 100%; height: auto; }
 .hero__actions { align-items:center; gap:1rem; }
 .hero-practice { display:none; }
 @media (min-width: 1200px) {
