@@ -77,7 +77,7 @@ p { margin: 0 0 1rem; }
 h1, h2, h3 { margin: 0; font-family: var(--serif); font-weight: 600; line-height: 1.04; }
 h2 { margin-bottom: 1.25rem; font-size: clamp(2.3rem, 4vw, 3.5rem); }
 h3 { font-size: 1.8rem; }
-[id="profil"], [id="practica"], [id="presa"], [id="contact"], #main-content { scroll-margin-top: 8rem; }
+[id="practica"], [id="presa"], [id="contact"], #main-content { scroll-margin-top: 8rem; }
 
 .container {
   width: min(100% - 3rem, 73rem);
@@ -217,7 +217,6 @@ h3 { font-size: 1.8rem; }
   grid-template-areas:
     "role team"
     "lead member"
-    "intro profile"
     "intro practice";
   align-items: start;
   column-gap: clamp(.75rem, 5vw, 5rem);
@@ -257,7 +256,6 @@ h3 { font-size: 1.8rem; }
   border: 1px solid var(--line);
   background: #333438ed;
 }
-.team-member-profile { grid-area: profile; max-width: 26rem; margin: .9rem 0 .5rem; color: var(--light-muted); }
 .hero-practice h2 { margin-bottom: .8rem; font-size: 1.95rem; }
 .hero-practice .practice-card { min-height: 0; padding: .7rem .6rem; }
 .hero-practice .practice-card h3 { font-size: 1.55rem; }
@@ -301,13 +299,12 @@ h3 { font-size: 1.8rem; }
 .credentials dd { margin: .3rem 0 0; font: 600 clamp(1.55rem, 3vw, 2.15rem) / 1.1 var(--serif); }
 
 .band { padding-block: clamp(3rem, 7vw, 5.75rem); }
-.profile-inner, .contact-inner, .practice-detail {
+.contact-inner, .practice-detail {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: clamp(1.6rem, 6vw, 5.5rem);
 }
-.profile-inner > div p { max-width: 32rem; color: var(--light-muted); }
-.press { padding: 1.35rem 1.5rem; border-top: 2px solid var(--gold); background: var(--mid); }
+.press { max-width: 45rem; padding: 1.35rem 1.5rem; border-top: 2px solid var(--gold); background: var(--mid); }
 .press .eyebrow { margin-bottom: .4rem; }
 .press time { display: block; margin-bottom: .4rem; color: var(--light-muted); font-size: .9rem; }
 .press-title { font: italic 400 2rem / 1.12 var(--serif); }
@@ -385,7 +382,7 @@ h3 { font-size: 1.8rem; }
     grid-template-areas:
       "role team"
       "lead member"
-      "intro profile";
+      "intro intro";
   }
   .hero-practice { display: none; }
   .hero-photo img { object-position: right 46%; }
@@ -395,7 +392,7 @@ h3 { font-size: 1.8rem; }
   .header-inner { min-height: 70px; flex-wrap: wrap; padding-block: .6rem; }
   .nav-links { flex-wrap: wrap; gap: .6rem 1rem; }
   .menu-enabled .nav-links { display: none; }
-  .profile-inner, .contact-inner, .practice-detail { grid-template-columns: minmax(0, 1fr); }
+  .contact-inner, .practice-detail { grid-template-columns: minmax(0, 1fr); }
   .practice-detail h2 { margin-bottom: 0; }
 }
 
@@ -405,11 +402,6 @@ h3 { font-size: 1.8rem; }
   .hero { min-height: 32rem; }
   .hero::after { background: linear-gradient(90deg, #303136f2, #303136c9); }
   .hero-inner {
-    grid-template-areas:
-      "role team"
-      "lead member"
-      "profile profile"
-      "intro intro";
     column-gap: .75rem;
     padding-block: 3.15rem;
   }
@@ -424,5 +416,5 @@ h3 { font-size: 1.8rem; }
 
 @media (max-height: 560px) {
   .site-header { position: static; }
-  [id="profil"], [id="practica"], [id="presa"], [id="contact"], #main-content { scroll-margin-top: 1rem; }
+  [id="practica"], [id="presa"], [id="contact"], #main-content { scroll-margin-top: 1rem; }
 }

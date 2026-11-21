@@ -76,7 +76,6 @@ $homePath = $home[$language];
 $contactPath = $notFound ? $homePath . '#contact' : '#contact';
 $navLinks = [
     $homePath . '#practica' => $labels['practice'],
-    $homePath . '#profil' => $labels['cabinet'],
     $homePath . '#presa' => $labels['press'],
 ];
 $telephoneHref = 'tel:' . $site['telephone'];

@@ -106,7 +106,6 @@
                 <p class="eyebrow hero-team-label"><?= esc($labels['teamHeading']) ?></p>
                 <h1 class="hero-name hero-lead-name"><?= esc($site['givenName']) ?><br><em><?= esc($site['surname']) ?></em></h1>
                 <h2 class="hero-name hero-team-name"><?= esc($site['teamGivenName']) ?><br><em><?= esc($site['teamSurname']) ?></em></h2>
-                <p class="team-member-profile"><?= esc($labels['teamMemberProfile']) ?></p>
                 <div class="hero-copy">
                     <div class="hero-rule" aria-hidden="true"></div>
                     <p class="intro"><?= esc($labels['heroIntro']) ?></p>
@@ -141,21 +140,14 @@
                 <div><dt><?= esc($labels['professionalStatus']) ?></dt><dd><?= esc($labels['status']) ?></dd></div>
             </dl>
         </div>
-        <section id="profil" class="band profile">
-            <div class="container profile-inner">
-                <div>
-                    <h2><?= esc($labels['profile']) ?></h2>
-                    <p><?= esc($labels['profileText']) ?></p>
-                    <a class="text-link" href="<?= esc($site['barUrl']) ?>" target="_blank" rel="noopener"><?= esc($labels['barLink']) ?> <span class="arrow arrow-up" aria-hidden="true"></span></a>
-                </div>
-                <article id="presa" class="press">
-                    <h3 class="eyebrow"><?= esc($labels['press']) ?></h3>
-                    <time datetime="2021-03-11"><?= esc($labels['pressDate']) ?></time>
-                    <p class="press-title"><?= esc($labels['pressTitle']) ?></p>
-                    <p><?= esc($labels['pressExcerpt']) ?></p>
-                    <a class="text-link" href="<?= esc($site['pressUrl']) ?>" target="_blank" rel="noopener"><?= esc($labels['pressLink']) ?> <span class="arrow arrow-up" aria-hidden="true"></span></a>
-                </article>
-            </div>
+        <section id="presa" class="band">
+            <article class="container press">
+                <h2 class="eyebrow"><?= esc($labels['press']) ?></h2>
+                <time datetime="2021-03-11"><?= esc($labels['pressDate']) ?></time>
+                <p class="press-title"><?= esc($labels['pressTitle']) ?></p>
+                <p><?= esc($labels['pressExcerpt']) ?></p>
+                <a class="text-link" href="<?= esc($site['pressUrl']) ?>" target="_blank" rel="noopener"><?= esc($labels['pressLink']) ?> <span class="arrow arrow-up" aria-hidden="true"></span></a>
+            </article>
         </section>
     <?php endif; ?>
     <?php if (!$notFound): ?>
