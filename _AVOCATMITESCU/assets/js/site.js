@@ -68,4 +68,21 @@
     observeSections();
     window.addEventListener('resize', observeSections);
   }
+
+  const heroFilm = document.querySelector('.hero-film');
+  if (heroFilm && matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+    const playFilm = () => heroFilm.play().catch(() => {});
+    if ('IntersectionObserver' in window) {
+      const filmObserver = new IntersectionObserver(([entry]) => {
+        if (!entry.isIntersecting) {
+          heroFilm.pause();
+        } else if (entry.intersectionRatio >= .6 && heroFilm.paused) {
+          playFilm();
+        }
+      }, { threshold: [0, .6] });
+      filmObserver.observe(heroFilm);
+    } else {
+      playFilm();
+    }
+  }
 })();

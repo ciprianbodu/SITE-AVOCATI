@@ -7,6 +7,7 @@ $t = $en ? [
     'profile' => 'The practice', 'services' => 'Practice areas', 'contact' => 'Contact',
     'tag' => 'Civil, tax & criminal law', 'role' => 'Lead attorney',
     'lead' => 'Legal advice and representation in civil, tax and criminal matters throughout Romania.',
+    'consultation_film' => 'A lawyer prepares documents, speaks in court and shakes hands with a client.',
     'cta' => 'Request a consultation', 'discover' => 'Explore practice areas',
     'phone' => 'Phone', 'national' => 'Nationwide', 'representation' => 'Legal representation',
     'profile_title' => 'About the practice', 'practice_title' => 'Practice areas',
@@ -24,6 +25,7 @@ $t = $en ? [
     'profile' => 'Cabinet', 'services' => 'Arii de practică', 'contact' => 'Contact',
     'tag' => 'Drept civil, fiscal și penal', 'role' => 'Avocat titular',
     'lead' => 'Consultanță și reprezentare în cauze civile, fiscale și penale pe întreg teritoriul României.',
+    'consultation_film' => 'Un avocat pregătește actele, pledează și dă mâna cu un client.',
     'cta' => 'Solicitați o consultanță', 'discover' => 'Descoperiți ariile de practică',
     'phone' => 'Telefon', 'national' => 'La nivel național', 'representation' => 'Reprezentare juridică',
     'profile_title' => 'Despre cabinet', 'practice_title' => 'Arii de practică',
@@ -38,7 +40,7 @@ $t = $en ? [
     'footer' => 'Cabinet de avocatură · Alina-Maria Mitescu', 'rights' => 'Toate drepturile rezervate', 'top' => 'Înapoi sus',
 ];
 $showFormError = in_array($statusMessage, ['invalid', 'error'], true);
-$assetVersion = '20261119a';
+$assetVersion = '20261121a';
 ?>
 <!DOCTYPE html>
 <html lang="<?= $seo['lang'] ?>" class="no-js">
@@ -93,6 +95,9 @@ $assetVersion = '20261119a';
                 <p class="eyebrow"><?= $t['tag'] ?></p>
                 <h1 id="hero-title"><span class="hero-role"><?= $t['role'] ?></span>Alina-Maria<br><em>Mitescu</em></h1>
                 <p class="hero-lead"><?= $t['lead'] ?></p>
+                <video class="hero-film" src="/assets/video/consultation-film.mp4"
+                    poster="/assets/img/consultation-film-poster.webp" width="760" height="330"
+                    preload="none" muted playsinline loop aria-label="<?= htmlspecialchars($t['consultation_film']) ?>"></video>
                 <div class="hero-actions">
                     <a href="#solicitare" class="btn btn-gold"><?= $t['cta'] ?></a>
                     <a href="#experienta" class="text-link"><?= $t['discover'] ?></a>

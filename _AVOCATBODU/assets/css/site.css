@@ -832,6 +832,14 @@ body { overflow-x:clip; }
 .nav { background:var(--navy-deep); backdrop-filter:none; }
 .nav__inner { height:84px; }
 .brand__mark { font-size:1.8rem; letter-spacing:.19em; }
+@media (prefers-reduced-motion: no-preference) {
+  .site-header .brand__mark { animation: brand-flicker 2s linear infinite; }
+}
+@keyframes brand-flicker {
+  0%, 22%, 49%, 66%, 88%, 100% { color: var(--ivory); text-shadow: none; }
+  8%, 35%, 75% { color: var(--gold-bright); text-shadow: 0 0 .5em var(--gold); }
+  14%, 53% { color: var(--gold); }
+}
 .brand__sub { font-size:.65rem; }
 .nav__links a:not(.btn) { font-size:.88rem; text-transform:none; letter-spacing:.02em; color:#ccd0d4; padding-block:12px; }
 .nav__links a:not(.btn)[aria-current], .mobile-menu>a[aria-current] { color:var(--gold); }
@@ -845,6 +853,15 @@ body { overflow-x:clip; }
 .hero h1 em { color:var(--gold-bright); font-weight:400; }
 .hero__lead { max-width:31rem; font-size:1.12rem; font-weight:400; color:#d1d5d8; }
 .hero__rule { margin:1.6rem 0; }
+.hero-film {
+  display: block;
+  width: min(100%, 26rem);
+  height: auto;
+  aspect-ratio: 76 / 33;
+  margin-bottom: 1.25rem;
+  border: 1px solid var(--gold);
+}
+.hero-film::-webkit-media-controls-start-playback-button { display: none; }
 .hero__actions { align-items:center; gap:1rem; }
 .hero-practice { display:none; }
 @media (min-width: 1200px) {
@@ -982,7 +999,7 @@ body { overflow-x:clip; }
 @media (max-width:479px) { .wrap { padding-inline:1.25rem; }.hero__actions { flex-direction:column; align-items:stretch; }.hero { min-height:590px; }.hero h1 .hero__title { font-size:.95rem; }.hero__actions .btn { width:100%; }.topbar__meta { max-width:235px; }.section-head h2 { font-size:2.15rem; }.facts { gap:1rem; }.portrait { max-width:260px; } }
 @media (prefers-reduced-motion:reduce) { *,*::before,*::after { transition:none!important; animation:none!important; } }
 @media print {
-  .site-header, .mobile-menu, .hero__actions, .hero-practice, .letter, .skip-link, .guide-contents, .page__cta, .page__more, .page__more + .practice-list, .footer__links { display:none !important; }
+  .site-header, .mobile-menu, .hero__actions, .hero-film, .hero-practice, .letter, .skip-link, .guide-contents, .page__cta, .page__more, .page__more + .practice-list, .footer__links { display:none !important; }
   body, .hero, .section, .page, .cred, .site-footer, .pub-card, .practice-item { color:black; background:white; }
   .page *, .section *, .hero *, .cred *, .site-footer * { color:black !important; }
   .page { min-height:0; padding:0; }

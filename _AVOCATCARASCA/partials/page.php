@@ -159,7 +159,7 @@
                 </div>
                 <div class="office-card">
                     <h3><?= esc($labels['serviceArea']) ?></h3>
-                    <p><?= esc($labels['county']) ?></p>
+                    <p><?= esc($labels['coverage']) ?></p>
                 </div>
             </div>
         </section>

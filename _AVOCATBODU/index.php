@@ -78,6 +78,9 @@ $showFormError = in_array($statusMessage, ['invalid', 'error'], true);
             <h1><span class="hero__title">Prof. univ. dr.</span>Sebastian V.<br><em>Bodu</em></h1>
             <hr class="hero__rule">
             <p class="hero__lead">Cabinetul oferă consultanță și reprezentare în drept comercial și fiscal. Practica penală cuprinde dosare de criminalitate economică și infracțiuni informatice. Oferim și consultanță juridică pentru gestionarea portofelelor cripto.</p>
+            <video class="hero-film" src="/assets/video/consultation-film.mp4"
+                poster="/assets/img/consultation-film-poster.webp" width="760" height="330"
+                preload="none" muted playsinline loop aria-label="Un avocat pregătește actele, pledează și dă mâna cu un client."></video>
             <div class="hero__actions">
                 <a href="#contact" class="btn btn-gold">Solicitați consultanță</a>
                 <a href="#experienta" class="btn btn-ghost">Domenii de practică</a>
