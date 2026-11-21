@@ -5,7 +5,7 @@ $requestedPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
 $requestedPath = is_string($requestedPath) ? $requestedPath : '';
 
 if (PHP_SAPI === 'cli-server') {
-    $assetPath = preg_match('~^/assets/(?:[\w-]+/)*[\w.-]+\.(?:css|js|webp|woff2)$~D', $requestedPath);
+    $assetPath = preg_match('~^/assets/(?:[\w-]+/)*[\w.-]+\.(?:css|js|webp|woff2|mp4|mp3)$~D', $requestedPath);
     if (($assetPath || $requestedPath === '/robots.txt') && is_file(__DIR__ . $requestedPath)) {
         return false;
     }

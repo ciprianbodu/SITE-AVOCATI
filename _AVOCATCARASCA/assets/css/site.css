@@ -244,7 +244,7 @@ h3 { font-size: 1.8rem; }
 }
 .hero-name em { color: var(--gold-bright); font-weight: 400; }
 .hero-rule { width: 5rem; height: 1px; margin-top: 1.55rem; background: linear-gradient(90deg, var(--gold), transparent); }
-.intro { max-width: 34rem; margin-block: 1.2rem 1.6rem; color: var(--light-muted); font-size: 1.19rem; }
+.intro { max-width: 34rem; margin-block: 1.2rem 1.6rem; color: var(--light-muted); font-size: 1.3rem; }
 .eyebrow {
   margin-bottom: 1.15rem;
   color: var(--gold);
@@ -252,6 +252,44 @@ h3 { font-size: 1.8rem; }
   letter-spacing: .16em;
   text-transform: uppercase;
 }
+.hero-media {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: end;
+  gap: .5rem;
+  max-width: 34rem;
+  margin-bottom: 1.25rem;
+}
+.hero-film {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 76 / 33;
+  border: 1px solid var(--line);
+  background: var(--header);
+}
+.hero-sound:not([hidden]) { display: inline-flex; }
+.hero-sound {
+  align-items: center;
+  gap: .65rem;
+  min-height: 44px;
+  padding: .3rem .7rem;
+  border: 1px solid var(--line);
+  background: var(--header);
+  color: var(--light);
+  font: 600 .875rem / 1.25 var(--sans);
+  cursor: pointer;
+}
+.hero-sound:hover { border-color: var(--gold); }
+.hero-sound-state {
+  padding: .24rem .48rem;
+  border-radius: 1rem;
+  background: var(--mid);
+  color: var(--light-muted);
+}
+.hero-sound-state::after { content: attr(data-off); }
+.hero-sound[aria-pressed="true"] .hero-sound-state { background: var(--gold); color: var(--ink); }
+.hero-sound[aria-pressed="true"] .hero-sound-state::after { content: attr(data-on); }
 .hero-actions { display: flex; flex-wrap: wrap; gap: .8rem; }
 .hero-practice {
   grid-area: practice;
@@ -409,7 +447,7 @@ h3 { font-size: 1.8rem; }
     column-gap: .75rem;
     padding-block: 3.15rem;
   }
-  .hero .intro { font-size: 1.1rem; }
+  .hero .intro { font-size: 1.2rem; }
   .hero-actions { flex-direction: column; align-items: stretch; }
   .footer-inner { align-items: start; flex-direction: column; }
   .footer-links { justify-content: start; }

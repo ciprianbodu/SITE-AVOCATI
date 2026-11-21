@@ -103,6 +103,17 @@
                 <div class="hero-copy">
                     <div class="hero-rule" aria-hidden="true"></div>
                     <p class="intro"><?= esc($labels['heroIntro']) ?></p>
+                    <div class="hero-media">
+                        <video class="hero-film" src="/assets/video/consultation-film.mp4"
+                            poster="/assets/img/consultation-film-poster.webp" width="760" height="330"
+                            preload="none" muted playsinline controls aria-label="<?= esc($labels['consultationFilm']) ?>"></video>
+                        <button class="hero-sound" type="button" aria-controls="hero-soundtrack" aria-pressed="false" hidden>
+                            <?= esc($labels['sound']) ?>
+                            <span class="hero-sound-state" aria-hidden="true"
+                                data-on="<?= esc($labels['soundOn']) ?>" data-off="<?= esc($labels['soundOff']) ?>"></span>
+                        </button>
+                        <audio id="hero-soundtrack" src="/assets/audio/consultation-soundtrack.mp3" preload="none" loop></audio>
+                    </div>
                     <div class="hero-actions">
                         <a class="button" href="#contact"><?= esc($labels['consultation']) ?></a>
                         <a class="button button-outline" href="#practica"><?= esc($labels['practice']) ?></a>

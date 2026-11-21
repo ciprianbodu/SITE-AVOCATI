@@ -36,6 +36,37 @@
   menu.addEventListener('close', () => toggle.setAttribute('aria-expanded', 'false'));
 })();
 
+const heroFilm = document.querySelector('.hero-film');
+if (heroFilm && 'IntersectionObserver' in window && matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+  const filmObserver = new IntersectionObserver(([entry]) => {
+    if (entry.intersectionRatio < .6) return;
+    filmObserver.disconnect();
+    if (heroFilm.paused && heroFilm.currentTime === 0) {
+      heroFilm.play().catch(() => {});
+    }
+  }, { threshold: .6 });
+  filmObserver.observe(heroFilm);
+}
+
+const soundtrack = document.getElementById('hero-soundtrack');
+const soundButton = document.querySelector('.hero-sound');
+if (soundtrack && soundButton) {
+  const updateSoundButton = () => {
+    soundButton.setAttribute('aria-pressed', String(!soundtrack.paused && !soundtrack.error));
+  };
+  soundtrack.addEventListener('playing', updateSoundButton);
+  soundtrack.addEventListener('pause', updateSoundButton);
+  soundtrack.addEventListener('error', updateSoundButton);
+  soundButton.addEventListener('click', () => {
+    if (soundtrack.paused) {
+      soundtrack.play().catch(updateSoundButton);
+    } else {
+      soundtrack.pause();
+    }
+  });
+  soundButton.hidden = false;
+}
+
 document.querySelectorAll('[data-practice-slider]').forEach((slider) => {
   const track = slider.querySelector('.practice-track');
   const cards = [...track.children];
