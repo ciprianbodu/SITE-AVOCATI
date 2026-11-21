@@ -109,10 +109,11 @@
                 </div>
                 <aside class="hero-practice" aria-labelledby="hero-practice-title">
                     <h2 id="hero-practice-title"><?= esc($labels['practice']) ?></h2>
-                    <?php foreach ($practiceAreas as $area): ?>
-                        <?php $translation = $area[$language]; ?>
-                        <a href="<?= esc($translation['path']) ?>"><?= esc($translation['title']) ?><span class="arrow arrow-up" aria-hidden="true"></span></a>
-                    <?php endforeach; ?>
+                    <?php
+                    $sliderId = 'hero-practice-track';
+                    $compactSlider = true;
+                    require __DIR__ . '/practice-slider.php';
+                    ?>
                 </aside>
             </div>
         </section>
@@ -142,16 +143,11 @@
         <section id="practica" class="band">
             <div class="container">
                 <h2><?= esc($labels['practice']) ?></h2>
-                <div class="practice-grid">
-                    <?php foreach ($practiceAreas as $area): ?>
-                        <?php $translation = $area[$language]; ?>
-                        <a class="practice-card" href="<?= esc($translation['path']) ?>">
-                            <h3><?= esc($translation['title']) ?></h3>
-                            <p><?= esc($translation['description']) ?></p>
-                            <span class="arrow arrow-up card-arrow" aria-hidden="true"></span>
-                        </a>
-                    <?php endforeach; ?>
-                </div>
+                <?php
+                $sliderId = 'practice-track';
+                $compactSlider = false;
+                require __DIR__ . '/practice-slider.php';
+                ?>
             </div>
         </section>
     <?php endif; ?>

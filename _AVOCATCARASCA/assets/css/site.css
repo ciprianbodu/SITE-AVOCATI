@@ -178,7 +178,7 @@ h3 { font-size: 1.8rem; }
 }
 .hero-photo, .hero::after { position: absolute; inset: 0; }
 .hero-photo { z-index: -2; }
-.hero-photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 46%; }
+.hero-photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 62%; }
 .hero::after {
   z-index: -1;
   content: "";
@@ -207,19 +207,16 @@ h3 { font-size: 1.8rem; }
   text-transform: uppercase;
 }
 .hero-actions { display: flex; flex-wrap: wrap; gap: .8rem; }
-.hero-practice { padding: 1.45rem 1.6rem .65rem; border: 1px solid var(--line); background: #333438ed; }
-.hero-practice h2 { margin-bottom: .8rem; font-size: 1.95rem; }
-.hero-practice a {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: .8rem;
-  padding-block: .65rem;
-  border-top: 1px solid var(--line);
-  text-decoration: none;
+.hero-practice {
+  align-self: end;
+  padding: 1.25rem 1.5rem 1rem;
+  border: 1px solid var(--line);
+  background: #333438ed;
 }
-.hero-practice a:hover { color: var(--gold-bright); }
-.hero-practice .arrow { color: var(--gold); }
+.hero-practice h2 { margin-bottom: .8rem; font-size: 1.95rem; }
+.hero-practice .practice-card { min-height: 0; padding: .7rem .6rem; }
+.hero-practice .practice-card h3 { font-size: 1.55rem; }
+.hero-practice .practice-navigation { margin-top: .5rem; }
 
 .button {
   display: inline-flex;
@@ -273,21 +270,49 @@ h3 { font-size: 1.8rem; }
 #practica, .practice-detail { color: var(--light); }
 #practica { background: var(--mid); }
 #practica h2 { text-align: center; margin-bottom: 2rem; }
-.practice-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
-.practice-card {
+.practice-slider { max-width: 45rem; margin-inline: auto; }
+.practice-track {
   position: relative;
   display: flex;
+  gap: .5rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+}
+.practice-card {
+  display: flex;
+  flex: 0 0 100%;
   flex-direction: column;
   gap: .65rem;
-  min-height: 10.5rem;
-  padding: 1.45rem 2.85rem 1.45rem 1.4rem;
+  justify-content: center;
+  min-height: 11rem;
+  padding: clamp(1.2rem, 4vw, 2.4rem);
   background: var(--charcoal);
   border: 1px solid var(--line);
   text-decoration: none;
+  scroll-snap-align: start;
 }
 .practice-card:hover { border-color: var(--gold); background: #3e3e40; }
+.practice-card:focus-visible { outline-offset: -4px; }
 .practice-card p { margin: 0; color: var(--light-muted); }
-.card-arrow { position: absolute; right: 1.2rem; top: 1.7rem; color: var(--gold); }
+.practice-navigation { display: flex; align-items: center; justify-content: center; gap: 1rem; margin-top: .95rem; }
+.practice-navigation[hidden] { display: none; }
+.practice-navigation button {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  color: var(--gold-bright);
+  background: transparent;
+  border: 1px solid var(--line);
+  cursor: pointer;
+}
+.practice-navigation button[aria-disabled="true"] { color: var(--light-muted); opacity: .55; cursor: default; }
+.practice-navigation button[aria-disabled="false"]:hover { border-color: var(--gold); }
+.practice-chevron { width: .65rem; height: .65rem; border: solid currentColor; border-width: 0 2px 2px 0; transform: rotate(-45deg); }
+[data-practice-step="-1"] .practice-chevron { transform: rotate(135deg); }
+.practice-position { min-width: 2.5rem; text-align: center; color: var(--light-muted); }
 
 .page-heading { padding-block: clamp(3rem, 7vw, 5.5rem); background: var(--mid); }
 .page-heading h1 { font-size: clamp(3rem, 6vw, 5rem); }
@@ -315,6 +340,7 @@ h3 { font-size: 1.8rem; }
 @media (max-width: 950px) {
   .hero-inner { grid-template-columns: minmax(0, 1fr); }
   .hero-practice { display: none; }
+  .hero-photo img { object-position: right 46%; }
 }
 
 @media (max-width: 780px) {
@@ -336,8 +362,6 @@ h3 { font-size: 1.8rem; }
   .hero-actions { flex-direction: column; align-items: stretch; }
   .credentials-grid { gap: .9rem; }
   .credentials dt { letter-spacing: .05em; }
-  .practice-grid { grid-template-columns: minmax(0, 1fr); }
-  .practice-card { min-height: 0; }
   .footer-inner { align-items: start; flex-direction: column; }
   .footer-links { justify-content: start; }
 }
