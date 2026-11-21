@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 $site = [
-    'url' => 'https://avocatcarasca.ro',
+    'url' => 'https://avocat-carasca.ro',
     'name' => 'Ionuț-Cosmin Carașca',
     'brandName' => 'CARAȘCA',
     'givenName' => 'Ionuț-Cosmin',

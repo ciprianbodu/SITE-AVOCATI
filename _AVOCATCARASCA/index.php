@@ -1,7 +1,9 @@
 <?php
 declare(strict_types=1);
 
-$requestedPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
+// IIS URL Rewrite păstrează aici adresa publică folosită de router.
+$requestUri = $_SERVER['UNENCODED_URL'] ?? $_SERVER['REQUEST_URI'] ?? '/';
+$requestedPath = parse_url($requestUri, PHP_URL_PATH);
 $requestedPath = is_string($requestedPath) ? $requestedPath : '';
 
 if (PHP_SAPI === 'cli-server') {
