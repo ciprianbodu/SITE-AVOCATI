@@ -72,10 +72,10 @@ $showFormError = in_array($statusMessage, ['invalid', 'error'], true);
     <main id="continut" tabindex="-1">
     <section class="hero">
         <div class="wrap" >
-            <p class="kicker">Business and criminal law</p>
+            <p class="kicker">Lawyer in Bucharest · Business and criminal law</p>
             <h1><span class="hero__title">Prof. Dr.</span>Sebastian V.<br><em>Bodu</em></h1>
             <hr class="hero__rule">
-            <p class="hero__lead">A law office specializing in business and criminal law. Counsel and representation for companies and investors in complex commercial transactions, as well as in cases involving tax evasion, corruption, money laundering and related offenses. Criminal risk prevention.</p>
+            <p class="hero__lead">The firm advises and represents clients in commercial and tax matters. Its criminal practice covers economic offences and cybercrime. It also provides legal advice on managing crypto wallets.</p>
             <div class="hero__actions">
                 <a href="#contact" class="btn btn-gold">Request consultation</a>
                 <a href="#experienta" class="btn btn-ghost">Practice areas</a>
@@ -85,6 +85,7 @@ $showFormError = in_array($statusMessage, ['invalid', 'error'], true);
                 <h2 id="hero-practice-title">Practice areas</h2>
                 <a href="/corporate-law"><span>Corporate law</span><span aria-hidden="true">↗</span></a>
                 <a href="/commercial-law"><span>Commercial law</span><span aria-hidden="true">↗</span></a>
+                <a href="/tax-law"><span>Tax law<small>ANAF audits and anti-fraud inspections</small></span><span aria-hidden="true">↗</span></a>
                 <a href="/economic-offences"><span>Business criminal law<small>Defence and criminal risk prevention</small></span><span aria-hidden="true">↗</span></a>
             </aside>
         </div>
@@ -166,8 +167,8 @@ $showFormError = in_array($statusMessage, ['invalid', 'error'], true);
         <div class="wrap">
             <div class="section-head section-head--center" data-aos="fade-up">
                 <p class="kicker">Practice areas</p>
-                <h2>Counsel for business</h2>
-                <p class="deck">Legal assistance across the full commercial cycle — from structuring and contracts through to litigation and arbitration.</p>
+                <h2>Business counsel and criminal defence in Bucharest</h2>
+                <p class="deck">Legal assistance with commercial contracts and disputes, Romanian tax audits, criminal cases and disputes involving crypto assets.</p>
                 <div class="ornament" aria-hidden="true"><i></i><span></span><i></i></div>
             </div>
             <div class="practice-list">
@@ -232,12 +233,7 @@ $showFormError = in_array($statusMessage, ['invalid', 'error'], true);
                 <div class="ornament" aria-hidden="true"><i></i><span></span><i></i></div>
             </div>
             <div class="faq-list">
-                <?php foreach (faqItems('en') as $faq): ?>
-                <details class="faq-item">
-                    <summary><?= htmlspecialchars($faq['q'], ENT_QUOTES, 'UTF-8') ?></summary>
-                    <p><?= htmlspecialchars($faq['a'], ENT_QUOTES, 'UTF-8') ?></p>
-                </details>
-                <?php endforeach; ?>
+                <?php renderFaqItems('en'); ?>
             </div>
         </div>
     </section>

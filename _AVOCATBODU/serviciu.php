@@ -4,7 +4,10 @@ require_once __DIR__ . '/includes/practices.php';
 require_once __DIR__ . '/includes/head-assets.php';
 require_once __DIR__ . '/includes/inner-chrome.php';
 
-$slug = preg_replace('/[^a-z-]/', '', (string)($_GET['d'] ?? ''));
+$slug = $_GET['d'] ?? '';
+if (!is_string($slug)) {
+    $slug = '';
+}
 $item = practiceBySlug($slug, 'ro');
 $lang = 'ro';
 if (!$item) {
@@ -20,6 +23,12 @@ $copy = $item['copy'];
 $roUrl = SITE_URL . '/' . $item['slug'];
 $enUrl = SITE_URL . '/' . $item['en'];
 $canonical = $lang === 'en' ? $enUrl : $roUrl;
+$requestPath = parse_url($_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH);
+if (in_array($_SERVER['REQUEST_METHOD'] ?? '', ['GET', 'HEAD'], true)
+    && in_array($requestPath, ['/serviciu.php', '/' . $slug . '/'], true)) {
+    header('Location: ' . $canonical, true, 301);
+    exit;
+}
 $home = $lang === 'en' ? '/en.php' : '/';
 $contact = $lang === 'en' ? '/en.php#contact' : '/#contact';
 $esc = fn($v) => htmlspecialchars((string)$v, ENT_QUOTES, 'UTF-8');
@@ -33,7 +42,6 @@ $override = [
     'hreflang_en' => $enUrl,
     'hreflang_default' => $roUrl,
     'locale' => $lang === 'en' ? 'en_US' : 'ro_RO',
-    'keywords' => $copy['name'] . ', avocat București, Sebastian Bodu, avocatură de afaceri',
 ];
 
 $breadcrumbs = [
@@ -67,6 +75,7 @@ $english = $lang === 'en';
         'description' => $copy['description'],
         'breadcrumbs' => $breadcrumbs,
         'service' => $serviceSchema,
+        'mainEntity' => ['@id' => $serviceSchema['@id']],
         'skip_faq' => true,
     ]); ?>
 </head>
@@ -88,7 +97,7 @@ $english = $lang === 'en';
             <hr class="hero__rule">
             <p class="page__lead"><?= $esc($copy['lead']) ?></p>
             <div class="prose page__body">
-                <h2><?= $english ? 'How we can assist' : 'Cum vă putem asista' ?></h2>
+                <h2><?= $esc($copy['services_heading'] ?? ($english ? 'How we can assist' : 'Cum vă putem asista')) ?></h2>
                 <ul>
                     <?php foreach ($copy['services'] as $service): ?>
                     <li><?= $esc($service) ?></li>

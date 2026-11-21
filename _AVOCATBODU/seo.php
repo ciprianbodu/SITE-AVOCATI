@@ -4,6 +4,7 @@ define('SITE_NAME', 'Cabinet de Avocat Prof. univ. dr. Sebastian V. Bodu');
 define('SITE_EMAIL', 'bodu.sebastian@gmail.com');
 define('SITE_PHONE', '+40722509759');
 define('SITE_PHONE_DISPLAY', '+40 722 509 759');
+define('HOME_AND_PRACTICE_LASTMOD', '2026-11-21');
 
 if (file_exists(__DIR__ . '/webmaster-config.php')) {
     require __DIR__ . '/webmaster-config.php';
@@ -34,10 +35,9 @@ function seoData(string $lang): array
             'locale'     => 'ro_RO',
             'canonical'  => SITE_URL . '/',
             'alternate'  => SITE_URL . '/en.php',
-            'title'      => 'Avocat dreptul afacerilor și penal București | Sebastian Bodu',
-            'description'=> 'Avocat în București pentru dreptul afacerilor și drept penal: consultanță, reprezentare și prevenție în cauze de evaziune fiscală, corupție și spălare de bani.',
-            'keywords'   => 'avocat București, avocat drept societar, avocat drept comercial, avocat afaceri, Sebastian Bodu, drept fiscal, criminalitate economică, arbitraj comercial, Baroul București, cabinet avocat',
-            'og_title'   => 'Avocat dreptul afacerilor și penal București | Cabinet Bodu',
+            'title'      => 'Avocat în București | Penal, fiscal, comercial | Sebastian Bodu',
+            'description'=> 'Cabinet de avocat în București. Apărare penală, ANAF și Antifraudă, drept comercial, infracțiuni informatice și consultanță pentru portofele cripto.',
+            'og_title'   => 'Avocat în București | Cabinet Sebastian Bodu',
             'job_title'  => 'Avocat definitiv, Profesor universitar',
             'org_name'   => 'Cabinet de Avocat Prof. univ. dr. Sebastian V. Bodu',
         ],
@@ -47,26 +47,13 @@ function seoData(string $lang): array
             'canonical'  => SITE_URL . '/en.php',
             'alternate'  => SITE_URL . '/',
             'title'      => 'Business and criminal lawyer in Bucharest | Sebastian Bodu',
-            'description'=> 'Business and criminal law counsel in Bucharest. Advice, representation and criminal risk prevention in tax evasion, corruption and money laundering cases.',
-            'keywords'   => 'lawyer Bucharest, corporate lawyer Romania, commercial lawyer, business attorney, Sebastian Bodu, tax law, white-collar crime, commercial arbitration, Bucharest Bar',
+            'description'=> 'Law office in Bucharest for commercial law, ANAF tax audits, criminal defence, cybercrime and legal advice on crypto wallets.',
             'og_title'   => 'Business and criminal lawyer in Bucharest | Bodu Law Office',
             'job_title'  => 'Attorney at Law, Full Professor',
             'org_name'   => 'Law Office of Prof. Dr. Sebastian V. Bodu',
         ],
     ];
     return $data[$lang] ?? $data['ro'];
-}
-
-function seoLastmod(string ...$files): string
-{
-    $max = 0;
-    foreach ($files as $file) {
-        $time = is_file($file) ? (int) filemtime($file) : 0;
-        if ($time > $max) {
-            $max = $time;
-        }
-    }
-    return $max ? date('Y-m-d', $max) : date('Y-m-d');
 }
 
 function renderSeoHead(string $lang, ?array $override = null): void
@@ -82,7 +69,6 @@ function renderSeoHead(string $lang, ?array $override = null): void
     ];
     ?>
     <meta name="description" content="<?= $esc($s['description']) ?>">
-    <meta name="keywords" content="<?= $esc($s['keywords'] ?? seoData($lang)['keywords']) ?>">
     <meta name="author" content="Prof. univ. dr. Sebastian V. Bodu">
     <meta name="robots" content="<?= $esc($robots) ?>">
     <meta name="googlebot" content="<?= $esc(str_contains($robots, 'noindex') ? 'noindex, follow' : 'index, follow') ?>">
@@ -125,13 +111,16 @@ function renderSeoJsonLd(string $lang, array $extra = []): void
     $s = seoData($lang);
     $image = SITE_URL . '/sebastianbodu.jpg';
     $practices = [];
+    $topics = [];
     foreach (practiceCatalog() as $slug => $item) {
         $copy = $lang === 'en' ? $item['en_copy'] : $item['ro'];
         $url = $lang === 'en' ? SITE_URL . '/' . $item['en'] : SITE_URL . '/' . $slug;
+        $topics[] = $copy['name'];
         $practices[] = [
             '@type' => 'Offer',
             'itemOffered' => [
                 '@type' => 'Service',
+                '@id' => $url . '#service',
                 'name' => $copy['name'],
                 'description' => $copy['short'],
                 'url' => $url,
@@ -143,9 +132,9 @@ function renderSeoJsonLd(string $lang, array $extra = []): void
     $homeUrl = $lang === 'en' ? SITE_URL . '/en.php' : SITE_URL . '/';
     $canonical = $extra['canonical'] ?? $s['canonical'];
     $webpageType = $extra['webpage_type'] ?? 'WebPage';
-    $knowsAbout = $lang === 'en'
-        ? ['Corporate law', 'Commercial law', 'Tax law', 'Banking law', 'Criminal law', 'Economic offences', 'Tax evasion', 'Corruption', 'Money laundering', 'Commercial arbitration']
-        : ['Drept societar', 'Drept comercial', 'Drept fiscal', 'Drept bancar', 'Drept penal', 'Criminalitate economică', 'Evaziune fiscală', 'Corupție', 'Spălare de bani', 'Arbitraj comercial'];
+    $knowsAbout = array_merge($topics, $lang === 'en'
+        ? ['Criminal law', 'Tax evasion', 'Corruption', 'Money laundering', 'ANAF tax audits', 'Anti-fraud inspections', 'Digital evidence', 'Crypto wallet management']
+        : ['Drept penal', 'Criminalitate economică', 'Evaziune fiscală', 'Corupție', 'Spălare de bani', 'Controale ANAF', 'Controale antifraudă', 'Probe digitale', 'Gestionarea portofelelor cripto']);
     $schema = [
         '@context' => 'https://schema.org',
         '@graph' => [
@@ -159,7 +148,7 @@ function renderSeoJsonLd(string $lang, array $extra = []): void
                 'publisher' => ['@id' => SITE_URL . '/#organization'],
             ],
             [
-                '@type' => ['LegalService', 'Attorney'],
+                '@type' => 'LegalService',
                 '@id' => SITE_URL . '/#organization',
                 'name' => $s['org_name'],
                 'url' => SITE_URL . '/',
@@ -254,7 +243,7 @@ function renderSeoJsonLd(string $lang, array $extra = []): void
                     '@type' => 'ImageObject',
                     'url' => $image,
                 ],
-                'dateModified' => $extra['dateModified'] ?? seoLastmod(__DIR__ . '/index.php', __DIR__ . '/en.php', __DIR__ . '/seo.php'),
+                'dateModified' => $extra['dateModified'] ?? HOME_AND_PRACTICE_LASTMOD,
                 'breadcrumb' => ['@id' => $canonical . '#breadcrumb'],
                 'mainEntity' => $extra['mainEntity'] ?? ['@id' => SITE_URL . '/#organization'],
             ],
@@ -296,20 +285,17 @@ function renderSeoJsonLd(string $lang, array $extra = []): void
         }
     }
 
-    echo '<script type="application/ld+json">' . json_encode($schema, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) . '</script>';
+    echo '<script type="application/ld+json">' . json_encode($schema, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_HEX_TAG) . '</script>';
 }
 
 function sitemapUrls(): array
 {
     require_once __DIR__ . '/includes/practices.php';
     require_once __DIR__ . '/includes/articles.php';
-    $homeMod = seoLastmod(__DIR__ . '/index.php', __DIR__ . '/seo.php', __DIR__ . '/includes/practices.php');
-    $enMod = seoLastmod(__DIR__ . '/en.php', __DIR__ . '/seo.php', __DIR__ . '/includes/practices.php');
-    $practiceMod = seoLastmod(__DIR__ . '/serviciu.php', __DIR__ . '/includes/practices.php');
     $urls = [
         [
             'loc' => SITE_URL . '/',
-            'lastmod' => $homeMod,
+            'lastmod' => HOME_AND_PRACTICE_LASTMOD,
             'priority' => '1.0',
             'hreflang_ro' => SITE_URL . '/',
             'hreflang_en' => SITE_URL . '/en.php',
@@ -317,7 +303,7 @@ function sitemapUrls(): array
         ],
         [
             'loc' => SITE_URL . '/en.php',
-            'lastmod' => $enMod,
+            'lastmod' => HOME_AND_PRACTICE_LASTMOD,
             'priority' => '0.9',
             'hreflang_ro' => SITE_URL . '/',
             'hreflang_en' => SITE_URL . '/en.php',
@@ -327,7 +313,7 @@ function sitemapUrls(): array
     foreach (practiceCatalog() as $slug => $item) {
         $urls[] = [
             'loc' => SITE_URL . '/' . $slug,
-            'lastmod' => $practiceMod,
+            'lastmod' => HOME_AND_PRACTICE_LASTMOD,
             'priority' => '0.85',
             'hreflang_ro' => SITE_URL . '/' . $slug,
             'hreflang_en' => SITE_URL . '/' . $item['en'],
@@ -335,7 +321,7 @@ function sitemapUrls(): array
         ];
         $urls[] = [
             'loc' => SITE_URL . '/' . $item['en'],
-            'lastmod' => $practiceMod,
+            'lastmod' => HOME_AND_PRACTICE_LASTMOD,
             'priority' => '0.8',
             'hreflang_ro' => SITE_URL . '/' . $slug,
             'hreflang_en' => SITE_URL . '/' . $item['en'],
@@ -346,7 +332,7 @@ function sitemapUrls(): array
     $indexMeta = articleIndexMeta();
     $urls[] = [
         'loc' => $indexMeta['canonical'],
-        'lastmod' => seoLastmod($indexMeta['file_abs'], __DIR__ . '/includes/articles.php'),
+        'lastmod' => $indexMeta['dateModified'],
         'priority' => '0.75',
         'hreflang_ro' => $indexMeta['canonical'],
         'hreflang_default' => $indexMeta['canonical'],
@@ -355,7 +341,7 @@ function sitemapUrls(): array
         $canonical = SITE_URL . $item['path'];
         $urls[] = [
             'loc' => $canonical,
-            'lastmod' => seoLastmod(__DIR__ . '/articole/' . $item['file'], __DIR__ . '/includes/articles.php'),
+            'lastmod' => $item['dateModified'],
             'priority' => '0.7',
             'hreflang_ro' => $canonical,
             'hreflang_default' => $canonical,

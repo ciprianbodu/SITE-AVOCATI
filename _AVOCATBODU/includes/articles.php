@@ -4,14 +4,13 @@ function articleCatalog(): array
 {
     return [
         'arbitraj-comercial-ccir' => [
-            'file' => 'arbitraj-comercial-ccir.php',
             'path' => '/articole/arbitraj-comercial-ccir.php',
             'datePublished' => '2026-10-17',
+            'dateModified' => '2026-11-19',
             'kicker' => 'Ghid · Arbitraj',
             'title' => 'Arbitraj comercial la CCIR | Avocat Sebastian Bodu',
             'og_title' => 'Arbitraj comercial la Curtea de Arbitraj CCIR',
             'description' => 'Ghid practic de arbitraj comercial la CCIR: clauza arbitrală, procedură, executare și când merită față de instanță. Cabinet Bodu, Baroul București.',
-            'keywords' => 'arbitraj comercial, Curtea de Arbitraj CCIR, clauză arbitrală, avocat arbitraj București, executare hotărâre arbitrală',
             'h1' => 'Arbitraj comercial la Curtea de Arbitraj CCIR',
             'lead' => 'Arbitrajul comercial este o cale de soluționare a disputelor dintre societăți — de regulă mai discretă și mai adaptată contractului decât judecata de drept comun. Mai jos, cadrul util pentru clauză, procedură și executare, cu accent pe Curtea de Arbitraj Comercial Internațional de pe lângă CCIR.',
             'practice' => 'arbitraj-comercial',
@@ -42,14 +41,13 @@ function articleCatalog(): array
             ],
         ],
         'drept-societar-ghid' => [
-            'file' => 'drept-societar-ghid.php',
             'path' => '/articole/drept-societar-ghid.php',
             'datePublished' => '2026-10-17',
+            'dateModified' => '2026-11-19',
             'kicker' => 'Ghid · Drept societar',
             'title' => 'Ghid de drept societar | Avocat București | Cabinet Bodu',
             'og_title' => 'Drept societar: ghid pentru societăți și asociați',
             'description' => 'Ghid de drept societar: formă juridică, guvernanță, cesiuni, fuziuni, răspunderea administratorilor și litigii între asociați. Cabinet Bodu, București.',
-            'keywords' => 'drept societar, avocat drept societar București, guvernanță corporativă, fuziune divizare, litigii societare, răspunderea administratorilor',
             'h1' => 'Drept societar: ghid pentru societăți și asociați',
             'lead' => 'Ghidul explică cine ia deciziile într-o societate, ce majoritate este necesară, în ce condiții se poate retrage un asociat și când poate fi angajată răspunderea administratorilor.',
             'practice' => 'drept-societar',
@@ -90,7 +88,6 @@ function articleBySlug(string $slug): ?array
     $item = $all[$slug];
     $item['slug'] = $slug;
     $item['canonical'] = SITE_URL . $item['path'];
-    $item['file_abs'] = dirname(__DIR__) . '/articole/' . $item['file'];
     return $item;
 }
 
@@ -102,7 +99,6 @@ function articleSeoOverride(array $article): array
         'og_title' => $article['og_title'] ?? $article['title'],
         'og_type' => $article['og_type'] ?? 'article',
         'canonical' => $article['canonical'],
-        'keywords' => $article['keywords'],
         'locale' => 'ro_RO',
         'alternates' => [
             'ro' => $article['canonical'],
@@ -118,13 +114,12 @@ function articleIndexMeta(): array
         'path' => '/articole/',
         'canonical' => SITE_URL . '/articole/',
         'datePublished' => '2026-10-17',
+        'dateModified' => '2026-11-19',
         'kicker' => 'Doctrină aplicată',
         'title' => 'Articole de drept societar și arbitraj | Cabinet Bodu',
         'og_title' => 'Articole: drept societar și arbitraj comercial',
         'description' => 'Ghiduri de drept societar și arbitraj comercial la CCIR, redactate pentru societăți și asociați. Cabinet Prof. univ. dr. Sebastian V. Bodu, București.',
-        'keywords' => 'articole drept societar, ghid arbitraj CCIR, avocat București, Cabinet Bodu',
         'h1' => 'Articole și ghiduri',
         'lead' => 'Ghiduri pentru asociați, administratori și consilieri juridici despre organizarea societăților și soluționarea litigiilor comerciale prin arbitraj.',
-        'file_abs' => dirname(__DIR__) . '/articole/index.php',
     ];
 }

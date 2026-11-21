@@ -34,7 +34,7 @@ function renderArticleBody(array $blocks): void
 function articleJsonLdExtras(array $article, array $breadcrumbs, ?array $extraNode = null): array
 {
     $graph = [];
-    $modified = seoLastmod($article['file_abs'] ?? __FILE__, __FILE__, __DIR__ . '/articles.php');
+    $modified = $article['dateModified'];
     if ($extraNode) {
         $graph[] = $extraNode;
     } else {
