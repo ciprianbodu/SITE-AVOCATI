@@ -135,12 +135,13 @@ h3 { font-size: 1.8rem; }
 .brand-crest {
   display: flex;
   align-items: center;
-  gap: .35rem;
   flex: none;
   color: var(--gold);
-  font: 700 1.35rem / 1 var(--serif);
+  font: 700 clamp(1.9rem, 5.7vw, 2.55rem) / 1 var(--serif);
 }
-.brand-crest img { display: block; width: 2.65rem; height: 2.65rem; }
+.brand-crest img { display: block; width: 2.65rem; height: 2.65rem; margin-inline: -.14em; }
+.brand-crest span:first-child { transform: rotate(-8deg); }
+.brand-crest span:last-child { transform: rotate(8deg); }
 
 @media (prefers-reduced-motion: no-preference) {
   .brand-legal { animation: brand-flicker 2s linear infinite; }
@@ -213,16 +214,30 @@ h3 { font-size: 1.8rem; }
 .hero-inner {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-areas:
+    "role team"
+    "lead member"
+    "intro profile"
+    "intro practice";
   align-items: start;
-  gap: clamp(2rem, 5vw, 5rem);
+  column-gap: clamp(.75rem, 5vw, 5rem);
   padding-block: clamp(3.5rem, 6vw, 6rem);
 }
+.hero-role { grid-area: role; }
+.hero-team-label { grid-area: team; }
+.hero-lead-name { grid-area: lead; }
+.hero-team-name { grid-area: member; }
+.hero-copy { grid-area: intro; }
 .hero-name, .page-heading h1 {
-  font-size: clamp(3.4rem, 7vw, 6.25rem);
   font-weight: 500;
   letter-spacing: -.035em;
 }
-.hero-name { margin: 0; line-height: 1.04; }
+.page-heading h1 { font-size: clamp(3.4rem, 7vw, 6.25rem); }
+.hero-name {
+  margin: 0;
+  font-size: clamp(1.375rem, 7.5vw, 6.25rem);
+  overflow-wrap: anywhere;
+}
 .hero-name em { color: var(--gold-bright); font-weight: 400; }
 .hero-rule { width: 5rem; height: 1px; margin-top: 1.55rem; background: linear-gradient(90deg, var(--gold), transparent); }
 .intro { max-width: 34rem; margin-block: 1.2rem 1.6rem; color: var(--light-muted); font-size: 1.19rem; }
@@ -234,18 +249,15 @@ h3 { font-size: 1.8rem; }
   text-transform: uppercase;
 }
 .hero-actions { display: flex; flex-wrap: wrap; gap: .8rem; }
-.hero-side {
-  display: grid;
-  min-width: 0;
-  gap: .85rem;
-}
 .hero-practice {
+  grid-area: practice;
   width: min(100%, 24rem);
+  margin-top: .85rem;
   padding: 1.25rem 1.5rem 1rem;
   border: 1px solid var(--line);
   background: #333438ed;
 }
-.team-member-profile { max-width: 26rem; margin: .9rem 0 .5rem; color: var(--light-muted); }
+.team-member-profile { grid-area: profile; max-width: 26rem; margin: .9rem 0 .5rem; color: var(--light-muted); }
 .hero-practice h2 { margin-bottom: .8rem; font-size: 1.95rem; }
 .hero-practice .practice-card { min-height: 0; padding: .7rem .6rem; }
 .hero-practice .practice-card h3 { font-size: 1.55rem; }
@@ -369,8 +381,12 @@ h3 { font-size: 1.8rem; }
 .footer-links a:hover { color: var(--gold-bright); }
 
 @media (max-width: 950px) {
-  .hero-inner { grid-template-columns: minmax(0, 1fr); gap: 1.75rem; }
-  .hero-side { max-width: 34rem; }
+  .hero-inner {
+    grid-template-areas:
+      "role team"
+      "lead member"
+      "intro profile";
+  }
   .hero-practice { display: none; }
   .hero-photo img { object-position: right 46%; }
 }
@@ -388,8 +404,16 @@ h3 { font-size: 1.8rem; }
   .topbar-inner { gap: .5rem; letter-spacing: .08em; font-size: .64rem; }
   .hero { min-height: 32rem; }
   .hero::after { background: linear-gradient(90deg, #303136f2, #303136c9); }
-  .hero-inner { padding-block: 3.15rem; }
-  .hero-name { font-size: clamp(2.6rem, 10vw, 4.2rem); }
+  .hero-inner {
+    grid-template-areas:
+      "role team"
+      "lead member"
+      "profile profile"
+      "intro intro";
+    column-gap: .75rem;
+    padding-block: 3.15rem;
+  }
+  .hero-inner > .eyebrow { margin-bottom: .65rem; letter-spacing: .08em; }
   .hero .intro { font-size: 1.1rem; }
   .hero-actions { flex-direction: column; align-items: stretch; }
   .credentials-grid { gap: .9rem; }

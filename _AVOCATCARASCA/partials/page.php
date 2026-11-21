@@ -102,9 +102,12 @@
                 <img src="/assets/img/hero-books.webp" width="1536" height="1024" alt="" fetchpriority="high">
             </picture>
             <div class="container hero-inner">
+                <p class="eyebrow hero-role"><?= esc($labels['role']) ?></p>
+                <p class="eyebrow hero-team-label"><?= esc($labels['teamHeading']) ?></p>
+                <h1 class="hero-name hero-lead-name"><?= esc($site['givenName']) ?><br><em><?= esc($site['surname']) ?></em></h1>
+                <h2 class="hero-name hero-team-name"><?= esc($site['teamGivenName']) ?><br><em><?= esc($site['teamSurname']) ?></em></h2>
+                <p class="team-member-profile"><?= esc($labels['teamMemberProfile']) ?></p>
                 <div class="hero-copy">
-                    <p class="eyebrow"><?= esc($labels['role']) ?></p>
-                    <h1 class="hero-name"><?= esc($site['givenName']) ?><br><em><?= esc($site['surname']) ?></em></h1>
                     <div class="hero-rule" aria-hidden="true"></div>
                     <p class="intro"><?= esc($labels['heroIntro']) ?></p>
                     <div class="hero-actions">
@@ -112,21 +115,14 @@
                         <a class="button button-outline" href="#practica"><?= esc($labels['practice']) ?></a>
                     </div>
                 </div>
-                <div class="hero-side">
-                    <article class="team-member" aria-labelledby="team-member-name">
-                        <p class="eyebrow"><?= esc($labels['teamHeading']) ?></p>
-                        <h2 id="team-member-name" class="hero-name"><?= esc($site['teamGivenName']) ?><br><em><?= esc($site['teamSurname']) ?></em></h2>
-                        <p class="team-member-profile"><?= esc($labels['teamMemberProfile']) ?></p>
-                    </article>
-                    <aside class="hero-practice" aria-labelledby="hero-practice-title">
-                        <h2 id="hero-practice-title"><?= esc($labels['practice']) ?></h2>
-                        <?php
-                        $sliderId = 'hero-practice-track';
-                        $compactSlider = true;
-                        require __DIR__ . '/practice-slider.php';
-                        ?>
-                    </aside>
-                </div>
+                <aside class="hero-practice" aria-labelledby="hero-practice-title">
+                    <h2 id="hero-practice-title"><?= esc($labels['practice']) ?></h2>
+                    <?php
+                    $sliderId = 'hero-practice-track';
+                    $compactSlider = true;
+                    require __DIR__ . '/practice-slider.php';
+                    ?>
+                </aside>
             </div>
         </section>
         <section id="practica" class="band">
