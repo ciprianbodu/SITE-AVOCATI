@@ -130,23 +130,23 @@ h3 { font-size: 1.8rem; }
   border-left: 1px solid var(--gold);
   text-decoration: none;
 }
-.brand-name { font: 700 1.66rem / 1 var(--serif); letter-spacing: .08em; }
-.brand-role { color: var(--gold); font-size: .68rem; letter-spacing: .13em; text-transform: uppercase; }
+.brand-name { font: 700 1.12rem / 1 var(--serif); letter-spacing: .15em; }
+.brand-legal { color: var(--gold); font: 700 clamp(2.1rem, 4vw, 2.5rem) / .95 var(--serif); letter-spacing: .08em; }
 
 @media (prefers-reduced-motion: no-preference) {
-  .brand-name { animation: brand-flicker 2s linear 1; }
+  .brand-legal { animation: brand-flicker 2s linear 1; }
 }
 
 @keyframes brand-flicker {
   0%, 22%, 49%, 66%, 88%, 100% {
-    color: var(--light);
+    color: var(--gold);
     text-shadow: none;
   }
   8%, 35%, 75% {
-    color: var(--gold-bright);
+    color: var(--light);
     text-shadow: 0 0 .5em #f1ce8db3;
   }
-  14%, 53% { color: var(--gold); }
+  14%, 53% { color: #b99b68; text-shadow: none; }
 }
 
 .nav-links { display: flex; align-items: center; gap: clamp(.9rem, 2.7vw, 2.35rem); }

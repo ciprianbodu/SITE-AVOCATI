@@ -42,7 +42,7 @@
         <div class="container header-inner">
             <a class="brand" href="<?= esc($homePath) ?>">
                 <span class="brand-name"><?= esc($site['brandName']) ?></span>
-                <span class="brand-role"><?= esc($labels['brand']) ?></span>
+                <span class="brand-legal">LEGAL</span>
             </a>
             <div class="nav-links">
                 <?php foreach ($navLinks as $href => $label): ?>
@@ -117,6 +117,16 @@
                 </aside>
             </div>
         </section>
+        <section id="practica" class="band">
+            <div class="container">
+                <h2><?= esc($labels['practice']) ?></h2>
+                <?php
+                $sliderId = 'practice-track';
+                $compactSlider = false;
+                require __DIR__ . '/practice-slider.php';
+                ?>
+            </div>
+        </section>
         <div class="credentials">
             <dl class="container credentials-grid">
                 <div><dt><?= esc($labels['bar']) ?></dt><dd><?= esc($site['region']) ?></dd></div>
@@ -137,16 +147,6 @@
                     <p><?= esc($labels['pressExcerpt']) ?></p>
                     <a class="text-link" href="<?= esc($site['pressUrl']) ?>" target="_blank" rel="noopener"><?= esc($labels['pressLink']) ?> <span class="arrow arrow-up" aria-hidden="true"></span></a>
                 </article>
-            </div>
-        </section>
-        <section id="practica" class="band">
-            <div class="container">
-                <h2><?= esc($labels['practice']) ?></h2>
-                <?php
-                $sliderId = 'practice-track';
-                $compactSlider = false;
-                require __DIR__ . '/practice-slider.php';
-                ?>
             </div>
         </section>
     <?php endif; ?>
