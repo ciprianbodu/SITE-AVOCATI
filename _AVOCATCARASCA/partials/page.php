@@ -18,7 +18,7 @@
         <meta property="og:title" content="<?= esc($title) ?>">
         <meta property="og:description" content="<?= esc($description) ?>">
         <meta property="og:url" content="<?= esc($canonical) ?>">
-        <meta property="og:image" content="<?= esc($site['url']) ?>/assets/img/hero-books.webp">
+        <meta property="og:image" content="<?= esc($site['url']) ?>/assets/img/hero-books.webp?v=2">
         <meta property="og:locale" content="<?= $language === 'ro' ? 'ro_RO' : 'en_GB' ?>">
         <script type="application/ld+json"><?= json_encode($schema, JSON_THROW_ON_ERROR | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_HEX_TAG) ?></script>
     <?php endif; ?>
@@ -93,8 +93,8 @@
     <?php else: ?>
         <section class="hero">
             <picture class="hero-photo">
-                <source media="(max-width: 700px)" srcset="/assets/img/hero-books-sm.webp">
-                <img src="/assets/img/hero-books.webp" width="1536" height="1024" alt="" fetchpriority="high">
+                <source media="(max-width: 700px)" srcset="/assets/img/hero-books-sm.webp?v=2">
+                <img src="/assets/img/hero-books.webp?v=2" width="1536" height="1024" alt="" fetchpriority="high">
             </picture>
             <div class="container hero-inner">
                 <p class="hero-team-label"><?= esc($labels['teamHeading']) ?></p>
