@@ -208,21 +208,22 @@ h3 { font-size: 1.8rem; }
 .hero::after {
   z-index: -1;
   content: "";
-  background: linear-gradient(90deg, #303136 0%, #303136ed 33%, #30313687 72%, #30313659 100%);
+  background: linear-gradient(90deg, #303136 0%, #303136ed 33%, #303136b3 72%, #30313680 100%);
 }
 .hero-inner {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(16rem, 22rem);
-  align-items: center;
-  gap: clamp(2rem, 7vw, 7rem);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: clamp(2rem, 5vw, 5rem);
   padding-block: clamp(3.5rem, 6vw, 6rem);
 }
-.hero h1, .page-heading h1 {
+.hero-name, .page-heading h1 {
   font-size: clamp(3.4rem, 7vw, 6.25rem);
   font-weight: 500;
   letter-spacing: -.035em;
 }
-.hero h1 em { color: var(--gold-bright); font-weight: 400; }
+.hero-name { margin: 0; line-height: 1.04; }
+.hero-name em { color: var(--gold-bright); font-weight: 400; }
 .hero-rule { width: 5rem; height: 1px; margin-top: 1.55rem; background: linear-gradient(90deg, var(--gold), transparent); }
 .intro { max-width: 34rem; margin-block: 1.2rem 1.6rem; color: var(--light-muted); font-size: 1.19rem; }
 .eyebrow {
@@ -235,19 +236,16 @@ h3 { font-size: 1.8rem; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: .8rem; }
 .hero-side {
   display: grid;
-  align-self: end;
   min-width: 0;
   gap: .85rem;
 }
-.team-member, .hero-practice {
+.hero-practice {
+  width: min(100%, 24rem);
   padding: 1.25rem 1.5rem 1rem;
   border: 1px solid var(--line);
   background: #333438ed;
 }
-.team-member { border-top: 2px solid var(--gold); }
-.team-member .eyebrow { margin-bottom: .55rem; }
-.team-member h2 { margin-bottom: .55rem; font-size: clamp(1.85rem, 3vw, 2.45rem); }
-.team-member-profile { margin: 0; color: var(--light-muted); font-size: 1rem; }
+.team-member-profile { max-width: 26rem; margin: .9rem 0 .5rem; color: var(--light-muted); }
 .hero-practice h2 { margin-bottom: .8rem; font-size: 1.95rem; }
 .hero-practice .practice-card { min-height: 0; padding: .7rem .6rem; }
 .hero-practice .practice-card h3 { font-size: 1.55rem; }
@@ -391,7 +389,7 @@ h3 { font-size: 1.8rem; }
   .hero { min-height: 32rem; }
   .hero::after { background: linear-gradient(90deg, #303136f2, #303136c9); }
   .hero-inner { padding-block: 3.15rem; }
-  .hero h1 { font-size: clamp(3.05rem, 10vw, 4.2rem); }
+  .hero-name { font-size: clamp(2.6rem, 10vw, 4.2rem); }
   .hero .intro { font-size: 1.1rem; }
   .hero-actions { flex-direction: column; align-items: stretch; }
   .credentials-grid { gap: .9rem; }

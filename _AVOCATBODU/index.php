@@ -152,8 +152,8 @@ $showFormError = in_array($statusMessage, ['invalid', 'error'], true);
                 <figure class="portrait" data-aos="fade-left">
                     <div class="portrait__frame">
                         <picture>
-                            <source type="image/webp" srcset="/assets/img/sebastianbodu.webp">
-                            <img src="/sebastianbodu.jpg" alt="Prof. univ. dr. Sebastian V. Bodu, avocat drept societar și comercial, Baroul București" width="720" height="720" loading="lazy" decoding="async">
+                            <source media="(min-width: 900px)" type="image/webp" srcset="/assets/img/sebastianbodu.webp">
+                            <img src="/sebastianbodu.jpg?v=<?= ASSET_VER ?>" alt="Prof. univ. dr. Sebastian V. Bodu, avocat drept societar și comercial, Baroul București" width="720" height="720" decoding="async" fetchpriority="low">
                         </picture>
                     </div>
                     <figcaption>

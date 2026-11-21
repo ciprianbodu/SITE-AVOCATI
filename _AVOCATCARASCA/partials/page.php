@@ -104,7 +104,7 @@
             <div class="container hero-inner">
                 <div class="hero-copy">
                     <p class="eyebrow"><?= esc($labels['role']) ?></p>
-                    <h1><?= esc($site['givenName']) ?><br><em><?= esc($site['surname']) ?></em></h1>
+                    <h1 class="hero-name"><?= esc($site['givenName']) ?><br><em><?= esc($site['surname']) ?></em></h1>
                     <div class="hero-rule" aria-hidden="true"></div>
                     <p class="intro"><?= esc($labels['heroIntro']) ?></p>
                     <div class="hero-actions">
@@ -115,7 +115,7 @@
                 <div class="hero-side">
                     <article class="team-member" aria-labelledby="team-member-name">
                         <p class="eyebrow"><?= esc($labels['teamHeading']) ?></p>
-                        <h2 id="team-member-name"><?= esc($site['teamMember']) ?></h2>
+                        <h2 id="team-member-name" class="hero-name"><?= esc($site['teamGivenName']) ?><br><em><?= esc($site['teamSurname']) ?></em></h2>
                         <p class="team-member-profile"><?= esc($labels['teamMemberProfile']) ?></p>
                     </article>
                     <aside class="hero-practice" aria-labelledby="hero-practice-title">
