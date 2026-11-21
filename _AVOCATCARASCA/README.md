@@ -4,7 +4,11 @@ Site bilingv pentru cabinetul de avocat din județul Constanța. Conținutul și
 
 Pentru previzualizare locală, din acest folder, rulează `php -S 127.0.0.1:8080 index.php` cu PHP 8.2 sau mai nou și deschide `http://127.0.0.1:8080/`.
 
-Pentru activarea domeniului, configurează folderul drept rădăcină web pe Apache cu PHP, `mod_rewrite` și `AllowOverride All`, apoi activează HTTPS. Adresa canonică și harta site-ului folosesc `https://avocatcarasca.ro`. Verifică după publicare `/`, `/en/`, `/drept-penal`, `/robots.txt` și `/sitemap.xml`.
+Pe Nitro, site-ul IIS folosește acest folder ca rădăcină și servește PHP 8.2 sau mai nou prin FastCGI. `web.config` folosește modulul URL Rewrite pentru rutele PHP și redirecționează `www.avocat-carasca.ro` și cererile HTTP către `https://avocat-carasca.ro`. Configurează bindinguri IIS și un certificat HTTPS pentru ambele nume înainte de a direcționa Cloudflare către origine prin HTTPS.
+
+În zona Cloudflare dedicată domeniului, configurează `avocat-carasca.ro` și `www.avocat-carasca.ro` să ajungă la site-ul IIS de pe Nitro. Folosește în ROTLD nameserverele atribuite de Cloudflare acestei zone. Verifică după publicare `/`, `/en/`, `/drept-penal`, `/robots.txt` și `/sitemap.xml`.
+
+Pentru instalările Apache rămân disponibile regulile din `.htaccess`, cu `mod_rewrite` și `AllowOverride All`.
 
 ## Surse publice
 
