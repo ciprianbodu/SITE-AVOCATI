@@ -130,8 +130,25 @@ h3 { font-size: 1.8rem; }
   border-left: 1px solid var(--gold);
   text-decoration: none;
 }
-.brand-name { font: 700 1.66rem / 1 var(--serif); letter-spacing: .16em; text-transform: uppercase; }
+.brand-name { font: 700 1.66rem / 1 var(--serif); letter-spacing: .08em; }
 .brand-role { color: var(--gold); font-size: .68rem; letter-spacing: .13em; text-transform: uppercase; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .brand-name { animation: brand-flicker 2s linear 1; }
+}
+
+@keyframes brand-flicker {
+  0%, 22%, 49%, 66%, 88%, 100% {
+    color: var(--light);
+    text-shadow: none;
+  }
+  8%, 35%, 75% {
+    color: var(--gold-bright);
+    text-shadow: 0 0 .5em #f1ce8db3;
+  }
+  14%, 53% { color: var(--gold); }
+}
+
 .nav-links { display: flex; align-items: center; gap: clamp(.9rem, 2.7vw, 2.35rem); }
 .nav-links a:not(.button) { text-decoration: none; color: var(--light-muted); }
 .nav-links a:not(.button):hover { color: var(--gold-bright); text-decoration: underline; text-underline-offset: .35em; }
@@ -251,7 +268,7 @@ h3 { font-size: 1.8rem; }
 .arrow-back { transform: rotate(180deg); }
 
 .credentials { color: var(--ink); background: var(--paper); border-top: 2px solid var(--gold); }
-.credentials-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.4rem; margin-block: 0; padding-block: 1.55rem; }
+.credentials-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.4rem; margin-block: 0; padding-block: 1.55rem; }
 .credentials dt { color: var(--bronze); font-size: .72rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
 .credentials dd { margin: .3rem 0 0; font: 600 clamp(1.55rem, 3vw, 2.15rem) / 1.1 var(--serif); }
 
@@ -327,9 +344,7 @@ h3 { font-size: 1.8rem; }
 .contact-inner { align-items: center; }
 .phone { display: block; width: fit-content; margin-top: .8rem; text-underline-offset: .3em; }
 .office-card { padding: 1.5rem 1.75rem; color: var(--ink); background: var(--paper); border-top: 2px solid var(--gold); }
-.office-card address { margin-block: .55rem .85rem; font-style: normal; }
-.office-card .text-link { color: var(--bronze); }
-.office-card :focus-visible { outline-color: var(--bronze); }
+.office-card p { margin: .55rem 0 0; }
 .site-footer { padding-block: 2rem; color: var(--light-muted); background: var(--header); border-top: 1px solid var(--line); font-size: .93rem; }
 .site-footer p { margin: .35rem 0 0; }
 .footer-brand { color: var(--light); font: 600 1.7rem / 1.2 var(--serif); text-decoration: none; }

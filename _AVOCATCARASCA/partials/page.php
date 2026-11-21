@@ -30,7 +30,7 @@
 <header class="site-header">
     <div class="topbar">
         <div class="container topbar-inner">
-            <p><?= esc($labels['role']) ?> · <?= esc($site['locality']) ?></p>
+            <p><?= esc($labels['role']) ?></p>
             <div class="locale">
                 <span aria-current="true"><?= esc(strtoupper($language)) ?></span>
                 <span aria-hidden="true">|</span>
@@ -41,7 +41,7 @@
     <nav class="header-nav" aria-label="<?= esc($labels['navigation']) ?>">
         <div class="container header-inner">
             <a class="brand" href="<?= esc($homePath) ?>">
-                <span class="brand-name"><?= esc($site['surname']) ?></span>
+                <span class="brand-name"><?= esc($site['brandName']) ?></span>
                 <span class="brand-role"><?= esc($labels['brand']) ?></span>
             </a>
             <div class="nav-links">
@@ -121,7 +121,6 @@
             <dl class="container credentials-grid">
                 <div><dt><?= esc($labels['bar']) ?></dt><dd><?= esc($site['region']) ?></dd></div>
                 <div><dt><?= esc($labels['professionalStatus']) ?></dt><dd><?= esc($labels['status']) ?></dd></div>
-                <div><dt><?= esc($labels['office']) ?></dt><dd><?= esc($site['locality']) ?></dd></div>
             </dl>
         </div>
         <section id="profil" class="band profile">
@@ -160,9 +159,8 @@
                     <a class="phone" href="<?= esc($telephoneHref) ?>"><?= esc($site['telephoneDisplay']) ?></a>
                 </div>
                 <div class="office-card">
-                    <h3><?= esc($labels['office']) ?></h3>
-                    <address><?= esc($site['street']) ?><br><?= esc($site['locality'] . ', ' . $site['region']) ?></address>
-                    <a class="text-link" href="<?= esc('https://www.google.com/maps/search/?api=1&query=' . rawurlencode(implode(', ', [$site['street'], $site['locality'], $site['region'], 'România']))) ?>"><?= esc($labels['directions']) ?> <span class="arrow arrow-up" aria-hidden="true"></span></a>
+                    <h3><?= esc($labels['serviceArea']) ?></h3>
+                    <p><?= esc($labels['county']) ?></p>
                 </div>
             </div>
         </section>

@@ -1,6 +1,6 @@
 # Ionuț-Cosmin Carașca
 
-Site bilingv pentru cabinetul de avocat din Agigea, județul Constanța. Conținutul și datele de contact se editează în `partials/content.php`.
+Site bilingv pentru cabinetul de avocat din județul Constanța. Conținutul și datele de contact se editează în `partials/content.php`.
 
 Pentru previzualizare locală, din acest folder, rulează `php -S 127.0.0.1:8080 index.php` cu PHP 8.2 sau mai nou și deschide `http://127.0.0.1:8080/`.
 

@@ -89,13 +89,6 @@ $schema = [
             'name' => $site['name'] . ' – Cabinet de avocat',
             'url' => $site['url'] . '/',
             'telephone' => $site['telephone'],
-            'address' => [
-                '@type' => 'PostalAddress',
-                'streetAddress' => $site['street'],
-                'addressLocality' => $site['locality'],
-                'addressRegion' => $site['region'],
-                'addressCountry' => 'RO',
-            ],
             'areaServed' => ['@type' => 'AdministrativeArea', 'name' => 'Județul Constanța'],
         ],
         [
