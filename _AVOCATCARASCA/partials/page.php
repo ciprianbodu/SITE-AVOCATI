@@ -102,7 +102,11 @@
                 <h2 class="hero-name hero-team-name"><?= esc($site['teamGivenName']) ?><br><em><?= esc($site['teamSurname']) ?></em></h2>
                 <div class="hero-rule" aria-hidden="true"></div>
                 <div class="hero-copy">
-                    <p class="intro"><?= esc($labels['heroIntro']) ?></p>
+                    <div class="intro">
+                        <?php foreach ($labels['heroIntro'] as $paragraph): ?>
+                            <p><?= esc($paragraph) ?></p>
+                        <?php endforeach; ?>
+                    </div>
                     <div class="hero-media">
                         <picture class="hero-film">
                             <source media="(prefers-reduced-motion: reduce)" srcset="/assets/img/consultation-film-poster.webp">

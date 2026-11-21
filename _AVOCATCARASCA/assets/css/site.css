@@ -264,6 +264,8 @@ h3 { font-size: 1.8rem; }
   to { transform: translateX(calc(100% - var(--rule-length))); }
 }
 .intro { max-width: 34rem; margin-block: 1.2rem 1.6rem; color: var(--light-muted); font-size: 1.3rem; }
+.intro p { margin: 0; }
+.intro p + p { margin-top: .85em; }
 .eyebrow {
   margin-bottom: 1.15rem;
   color: var(--gold);
