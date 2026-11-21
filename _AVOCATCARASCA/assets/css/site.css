@@ -233,12 +233,21 @@ h3 { font-size: 1.8rem; }
   text-transform: uppercase;
 }
 .hero-actions { display: flex; flex-wrap: wrap; gap: .8rem; }
-.hero-practice {
+.hero-side {
+  display: grid;
   align-self: end;
+  min-width: 0;
+  gap: .85rem;
+}
+.team-member, .hero-practice {
   padding: 1.25rem 1.5rem 1rem;
   border: 1px solid var(--line);
   background: #333438ed;
 }
+.team-member { border-top: 2px solid var(--gold); }
+.team-member .eyebrow { margin-bottom: .55rem; }
+.team-member h2 { margin-bottom: .55rem; font-size: clamp(1.85rem, 3vw, 2.45rem); }
+.team-member-profile { margin: 0; color: var(--light-muted); font-size: 1rem; }
 .hero-practice h2 { margin-bottom: .8rem; font-size: 1.95rem; }
 .hero-practice .practice-card { min-height: 0; padding: .7rem .6rem; }
 .hero-practice .practice-card h3 { font-size: 1.55rem; }
@@ -362,7 +371,8 @@ h3 { font-size: 1.8rem; }
 .footer-links a:hover { color: var(--gold-bright); }
 
 @media (max-width: 950px) {
-  .hero-inner { grid-template-columns: minmax(0, 1fr); }
+  .hero-inner { grid-template-columns: minmax(0, 1fr); gap: 1.75rem; }
+  .hero-side { max-width: 34rem; }
   .hero-practice { display: none; }
   .hero-photo img { object-position: right 46%; }
 }

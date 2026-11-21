@@ -12,3 +12,4 @@ Pentru activarea domeniului, configurează folderul drept rădăcină web pe Apa
 - Denumirea cabinetului și adresa profesională. [Termene](https://termene.ro/firma/55515675-CARASCA-IONUT-COSMIN-CABINET-DE-AVOCAT)
 - Ariile de practică indicate în profil. [Avocatnet](https://www.avocatnet.ro/consultant/Ionut-Carasca.html*2535)
 - Interviul din 11 martie 2021 despre darea în plată. [Ziua de Constanța](https://www.ziuaconstanta.ro/stiri/interviu-online/interviu-online-cu-ionut-carasca-avocat-in-cadrul-baroului-constanta-modificarile-legii-darii-in-plata-aspecte-esentiale-741923.html)
+- Activitatea Dianei Raișchi în cauze penale. [Curtea de Apel Constanța](https://portal.just.ro/36/Documents/ANUNTURI_SEDINTE/PENAL/_lista_sedinte_2025/lista%20apeluri%2015.01.2025.pdf)

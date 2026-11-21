@@ -112,14 +112,21 @@
                         <a class="button button-outline" href="#practica"><?= esc($labels['practice']) ?></a>
                     </div>
                 </div>
-                <aside class="hero-practice" aria-labelledby="hero-practice-title">
-                    <h2 id="hero-practice-title"><?= esc($labels['practice']) ?></h2>
-                    <?php
-                    $sliderId = 'hero-practice-track';
-                    $compactSlider = true;
-                    require __DIR__ . '/practice-slider.php';
-                    ?>
-                </aside>
+                <div class="hero-side">
+                    <article class="team-member" aria-labelledby="team-member-name">
+                        <p class="eyebrow"><?= esc($labels['teamHeading']) ?></p>
+                        <h2 id="team-member-name"><?= esc($site['teamMember']) ?></h2>
+                        <p class="team-member-profile"><?= esc($labels['teamMemberProfile']) ?></p>
+                    </article>
+                    <aside class="hero-practice" aria-labelledby="hero-practice-title">
+                        <h2 id="hero-practice-title"><?= esc($labels['practice']) ?></h2>
+                        <?php
+                        $sliderId = 'hero-practice-track';
+                        $compactSlider = true;
+                        require __DIR__ . '/practice-slider.php';
+                        ?>
+                    </aside>
+                </div>
             </div>
         </section>
         <section id="practica" class="band">
