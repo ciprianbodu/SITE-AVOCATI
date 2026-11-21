@@ -41,11 +41,7 @@
         <div class="container header-inner">
             <a class="brand" href="<?= esc($homePath) ?>">
                 <span class="brand-name"><?= esc($site['brandName']) ?></span>
-                <span class="brand-crest" aria-hidden="true">
-                    <span>C</span>
-                    <img src="/assets/img/crest.webp" width="160" height="160" alt="">
-                    <span>L</span>
-                </span>
+                <img class="brand-crest" src="/assets/img/crest-cl.webp" width="216" height="216" alt="">
                 <span class="brand-legal">LEGAL</span>
             </a>
             <div class="nav-links">

@@ -128,21 +128,18 @@ h3 { font-size: 1.8rem; }
   align-items: center;
   justify-content: space-between;
   gap: clamp(.35rem, 1.25vw, 1rem);
+  font: 700 clamp(.85rem, min(6.1vw, calc(10vw - .875rem)), 2.55rem) / 1 var(--serif);
   text-decoration: none;
   white-space: nowrap;
 }
-.brand-name { font: 700 clamp(.75rem, 4.55vw, 1.8rem) / 1 var(--serif); letter-spacing: .08em; }
-.brand-legal { color: var(--gold); font: 700 clamp(1rem, 6.1vw, 2.55rem) / .95 var(--serif); letter-spacing: .06em; }
+.brand-name { letter-spacing: .08em; }
+.brand-legal { color: var(--gold); letter-spacing: .06em; }
 .brand-crest {
-  display: flex;
-  align-items: center;
+  display: block;
   flex: none;
-  color: var(--gold);
-  font: 700 clamp(1.42rem, 7.2vw, 2.55rem) / 1 var(--serif);
+  width: clamp(2.6rem, 12vw, 3.4rem);
+  height: auto;
 }
-.brand-crest img { display: block; width: clamp(2.2rem, 10vw, 2.65rem); height: auto; margin-inline: -.14em; }
-.brand-crest span:first-child { transform: rotate(-8deg); }
-.brand-crest span:last-child { transform: rotate(8deg); }
 
 @media (prefers-reduced-motion: no-preference) {
   .brand-legal { animation: brand-flicker 2s linear infinite; }
@@ -389,6 +386,10 @@ h3 { font-size: 1.8rem; }
   }
   .hero-practice { display: none; }
   .hero-photo img { object-position: right 46%; }
+}
+
+@media (width > 780px) and (width <= 950px) {
+  .brand { font-size: clamp(2.05rem, calc(5.25vw - .52rem), 2.55rem); }
 }
 
 @media (max-width: 780px) {
