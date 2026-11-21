@@ -110,13 +110,13 @@ h3 { font-size: 1.8rem; }
 }
 .topbar-inner {
   min-height: 36px;
+  justify-content: flex-end;
   color: var(--gold);
   font-size: .72rem;
   font-weight: 600;
   letter-spacing: .12em;
   text-transform: uppercase;
 }
-.topbar p { margin: 0; }
 .locale { display: flex; align-items: center; gap: .6rem; white-space: nowrap; }
 .language { padding-block: .48rem; color: var(--light-muted); text-decoration: none; }
 .language:hover { color: var(--gold-bright); text-decoration: underline; }
@@ -217,15 +217,21 @@ h3 { font-size: 1.8rem; }
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   grid-template-areas:
-    "role team"
+    "team team"
     "lead member"
     "intro practice";
   align-items: start;
   column-gap: clamp(.75rem, 5vw, 5rem);
   padding-block: clamp(3.5rem, 6vw, 6rem);
 }
-.hero-role { grid-area: role; }
-.hero-team-label { grid-area: team; text-align: right; }
+.hero-team-label {
+  grid-area: team;
+  margin-bottom: clamp(.85rem, 2.5vw, 1.5rem);
+  color: var(--gold);
+  font: 600 clamp(1.1rem, 3.5vw, 1.75rem) / 1.2 var(--serif);
+  letter-spacing: .08em;
+  text-align: center;
+}
 .hero-lead-name { grid-area: lead; }
 .hero-team-name { grid-area: member; text-align: right; }
 .hero-copy { grid-area: intro; }
@@ -368,7 +374,6 @@ h3 { font-size: 1.8rem; }
 .office-card { padding: 1.5rem 1.75rem; color: var(--ink); background: var(--paper); border-top: 2px solid var(--gold); }
 .office-card p { margin: .55rem 0 0; }
 .site-footer { padding-block: 2rem; color: var(--light-muted); background: var(--header); border-top: 1px solid var(--line); font-size: .93rem; }
-.site-footer p { margin: .35rem 0 0; }
 .footer-brand { color: var(--light); font: 600 1.7rem / 1.2 var(--serif); text-decoration: none; }
 .footer-links { display: flex; flex-wrap: wrap; justify-content: end; gap: .3rem 1.2rem; }
 .footer-links a { padding-block: .3rem; text-underline-offset: .2em; }
@@ -378,7 +383,7 @@ h3 { font-size: 1.8rem; }
   .nav-links { gap: .9rem; }
   .hero-inner {
     grid-template-areas:
-      "role team"
+      "team team"
       "lead member"
       "intro intro";
   }
@@ -403,7 +408,6 @@ h3 { font-size: 1.8rem; }
     column-gap: .75rem;
     padding-block: 3.15rem;
   }
-  .hero-inner > .eyebrow { margin-bottom: .65rem; letter-spacing: .08em; }
   .hero .intro { font-size: 1.1rem; }
   .hero-actions { flex-direction: column; align-items: stretch; }
   .footer-inner { align-items: start; flex-direction: column; }

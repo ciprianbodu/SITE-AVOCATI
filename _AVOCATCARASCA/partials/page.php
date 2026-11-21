@@ -30,7 +30,6 @@
 <header class="site-header">
     <div class="topbar">
         <div class="container topbar-inner">
-            <p><?= esc($labels['role']) ?></p>
             <div class="locale">
                 <span aria-current="true"><?= esc(strtoupper($language)) ?></span>
                 <span aria-hidden="true">|</span>
@@ -102,8 +101,7 @@
                 <img src="/assets/img/hero-books.webp" width="1536" height="1024" alt="" fetchpriority="high">
             </picture>
             <div class="container hero-inner">
-                <p class="eyebrow hero-role"><?= esc($labels['role']) ?></p>
-                <p class="eyebrow hero-team-label"><?= esc($labels['teamHeading']) ?></p>
+                <p class="hero-team-label"><?= esc($labels['teamHeading']) ?></p>
                 <h1 class="hero-name hero-lead-name"><?= esc($site['givenName']) ?><br><em><?= esc($site['surname']) ?></em></h1>
                 <h2 class="hero-name hero-team-name"><?= esc($site['teamGivenName']) ?><br><em><?= esc($site['teamSurname']) ?></em></h2>
                 <div class="hero-copy">
@@ -162,10 +160,7 @@
 </main>
 <footer class="site-footer">
     <div class="container footer-inner">
-        <div>
-            <a class="footer-brand" href="<?= esc($homePath) ?>"><?= esc($site['name']) ?></a>
-            <p><?= esc($labels['role']) ?></p>
-        </div>
+        <a class="footer-brand" href="<?= esc($homePath) ?>"><?= esc($site['name']) ?></a>
         <nav class="footer-links" aria-label="<?= esc($labels['practice']) ?>">
             <?php foreach ($practiceAreas as $area): ?>
                 <a href="<?= esc($area[$language]['path']) ?>"><?= esc($area[$language]['title']) ?></a>
