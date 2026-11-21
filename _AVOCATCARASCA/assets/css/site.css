@@ -134,7 +134,7 @@ h3 { font-size: 1.8rem; }
 .brand-legal { color: var(--gold); font: 700 clamp(2.1rem, 4vw, 2.5rem) / .95 var(--serif); letter-spacing: .08em; }
 
 @media (prefers-reduced-motion: no-preference) {
-  .brand-legal { animation: brand-flicker 2s linear 1; }
+  .brand-legal { animation: brand-flicker 2s linear infinite; }
 }
 
 @keyframes brand-flicker {
