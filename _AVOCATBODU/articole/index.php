@@ -40,7 +40,7 @@ $t = innerChromeCopy('ro');
         'skip_faq' => true,
         'webpage_type' => 'CollectionPage',
         'mainEntity' => ['@id' => $meta['canonical'] . '#list'],
-        'dateModified' => seoLastmod($meta['file_abs'], dirname(__DIR__) . '/includes/articles.php'),
+        'dateModified' => $meta['dateModified'],
         'graph' => [[
             '@type' => 'ItemList',
             '@id' => $meta['canonical'] . '#list',

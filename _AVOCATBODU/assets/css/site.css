@@ -759,8 +759,8 @@ section[id], #solicitare { scroll-margin-top: 120px; }
   color: rgba(230, 226, 216, 0.72);
 }
 .prose li + li { margin-top: 0.45rem; }
-.prose a { color: var(--gold); text-decoration:underline; text-underline-offset:0.18em; }
-.prose a:hover { color: #E6D3A1; }
+.prose a, .faq-item a { color: var(--gold); text-decoration:underline; text-underline-offset:0.18em; }
+.prose a:hover, .faq-item a:hover { color: #E6D3A1; }
 .practice-item h2 {
   font-family: var(--serif);
   font-size: 1.35rem;

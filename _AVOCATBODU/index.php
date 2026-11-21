@@ -74,10 +74,10 @@ $showFormError = in_array($statusMessage, ['invalid', 'error'], true);
     <main id="continut" tabindex="-1">
     <section class="hero">
         <div class="wrap" >
-            <p class="kicker">Dreptul afacerilor și drept penal</p>
+            <p class="kicker">Avocat în București · Dreptul afacerilor și drept penal</p>
             <h1><span class="hero__title">Prof. univ. dr.</span>Sebastian V.<br><em>Bodu</em></h1>
             <hr class="hero__rule">
-            <p class="hero__lead">Cabinet de avocat specializat în dreptul afacerilor și drept penal, oferind consultanță și reprezentare societăților și investitorilor în operațiuni comerciale complexe. În materie penală, asigurăm asistență și apărare în cauze privind evaziunea fiscală, corupția, spălarea banilor și infracțiunile conexe, precum și consultanță pentru prevenirea riscurilor penale.</p>
+            <p class="hero__lead">Cabinetul oferă consultanță și reprezentare în drept comercial și fiscal. Practica penală cuprinde dosare de criminalitate economică și infracțiuni informatice. Oferim și consultanță juridică pentru gestionarea portofelelor cripto.</p>
             <div class="hero__actions">
                 <a href="#contact" class="btn btn-gold">Solicitați consultanță</a>
                 <a href="#experienta" class="btn btn-ghost">Domenii de practică</a>
@@ -87,6 +87,7 @@ $showFormError = in_array($statusMessage, ['invalid', 'error'], true);
                 <h2 id="hero-practice-title">Domenii de practică</h2>
                 <a href="/drept-societar"><span>Drept societar</span><span aria-hidden="true">↗</span></a>
                 <a href="/drept-comercial"><span>Drept comercial</span><span aria-hidden="true">↗</span></a>
+                <a href="/drept-fiscal"><span>Drept fiscal<small>Controale ANAF și Antifraudă</small></span><span aria-hidden="true">↗</span></a>
                 <a href="/criminalitate-economica"><span>Drept penal al afacerilor<small>Apărare și prevenție penală</small></span><span aria-hidden="true">↗</span></a>
             </aside>
         </div>
@@ -168,8 +169,8 @@ $showFormError = in_array($statusMessage, ['invalid', 'error'], true);
         <div class="wrap">
             <div class="section-head section-head--center" data-aos="fade-up">
                 <p class="kicker">Domenii de practică</p>
-                <h2>Servicii juridice pentru afaceri</h2>
-                <p class="deck">Consultanță, reprezentare și apărare adaptate nevoilor societăților și investitorilor — de la structurarea operațiunilor și prevenirea riscurilor, până la soluționarea disputelor.</p>
+                <h2>Servicii juridice și apărare penală în București</h2>
+                <p class="deck">Asistență în contracte și litigii comerciale, controale ANAF și Antifraudă, dosare penale și dispute privind criptoactivele.</p>
                 <div class="ornament" aria-hidden="true"><i></i><span></span><i></i></div>
             </div>
             <div class="practice-list">
@@ -244,12 +245,7 @@ $showFormError = in_array($statusMessage, ['invalid', 'error'], true);
                 <div class="ornament" aria-hidden="true"><i></i><span></span><i></i></div>
             </div>
             <div class="faq-list">
-                <?php foreach (faqItems('ro') as $faq): ?>
-                <details class="faq-item">
-                    <summary><?= htmlspecialchars($faq['q'], ENT_QUOTES, 'UTF-8') ?></summary>
-                    <p><?= htmlspecialchars($faq['a'], ENT_QUOTES, 'UTF-8') ?></p>
-                </details>
-                <?php endforeach; ?>
+                <?php renderFaqItems('ro'); ?>
             </div>
         </div>
     </section>

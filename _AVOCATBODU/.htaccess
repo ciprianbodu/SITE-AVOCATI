@@ -30,8 +30,8 @@ Options -Indexes
 
     RewriteRule ^articole$ /articole/ [R=301,L]
 
-    RewriteRule ^(drept-societar|drept-comercial|drept-fiscal|criminalitate-economica|drept-bancar|arbitraj-comercial)/?$ serviciu.php?d=$1 [L,QSA]
-    RewriteRule ^(corporate-law|commercial-law|tax-law|economic-offences|banking-law|commercial-arbitration)/?$ serviciu.php?d=$1 [L,QSA]
+    RewriteRule ^(drept-societar|drept-comercial|drept-fiscal|criminalitate-economica|drept-bancar|arbitraj-comercial|infractiuni-informatice|portofele-cripto)/?$ serviciu.php?d=$1 [L]
+    RewriteRule ^(corporate-law|commercial-law|tax-law|economic-offences|banking-law|commercial-arbitration|cybercrime|crypto-wallets)/?$ serviciu.php?d=$1 [L]
 
     RewriteRule ^(includes|PHPmailer)/ - [F,L]
 </IfModule>

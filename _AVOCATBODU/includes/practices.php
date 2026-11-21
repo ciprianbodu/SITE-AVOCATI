@@ -8,9 +8,9 @@ function practiceCatalog(): array
             'ro' => [
                 'name' => 'Drept societar',
                 'short' => 'Constituire și guvernanță, reorganizări și soluționarea litigiilor între asociați.',
-                'title' => 'Avocat drept societar București | Cabinet Bodu',
-                'description' => 'Avocat de drept societar în București — guvernanță, fuziuni, divizări și litigii societare. Cabinet Prof. univ. dr. Sebastian V. Bodu, Baroul București din 1996.',
-                'h1' => 'Avocat drept societar în București',
+                'title' => 'Avocat drept societar în București | Cabinet Bodu',
+                'description' => 'Consultanță de drept societar în București pentru înființarea și reorganizarea societăților, guvernanță corporativă și litigii între asociați sau acționari.',
+                'h1' => 'Avocat de drept societar în București',
                 'lead' => 'Consultanță și reprezentare în dreptul societăților: de la constituire și guvernanță, până la reorganizări și litigii între asociați.',
                 'services' => [
                     'Constituirea societăților și redactarea sau modificarea actelor constitutive.',
@@ -49,16 +49,16 @@ function practiceCatalog(): array
             'en' => 'commercial-law',
             'ro' => [
                 'name' => 'Drept comercial',
-                'short' => 'Contracte, tranzacții comerciale și analiză juridică pentru investiții.',
-                'title' => 'Avocat drept comercial București | Cabinet Bodu',
-                'description' => 'Avocat de drept comercial în București — contracte, tranzacții, due diligence. Cabinet de avocatură de afaceri, Baroul București.',
-                'h1' => 'Avocat drept comercial în București',
-                'lead' => 'Negociere, redactare și executare de contracte comerciale, inclusiv în operațiuni cu element de extraneitate.',
+                'short' => 'Contracte, tranzacții și litigii comerciale. Analiză juridică pentru investiții.',
+                'title' => 'Avocat comercial în București | Cabinet Bodu',
+                'description' => 'Avocat de drept comercial în București pentru contracte, tranzacții, due diligence și litigii comerciale privind executarea obligațiilor.',
+                'h1' => 'Avocat de drept comercial în București',
+                'lead' => 'Negociem și redactăm contracte comerciale, inclusiv internaționale, și acordăm asistență în disputele privind executarea lor.',
                 'services' => [
                     'Redactarea, analiza și negocierea contractelor comerciale.',
                     'Asistență în structurarea și documentarea tranzacțiilor și investițiilor.',
                     'Due diligence juridic și evaluarea riscurilor contractuale.',
-                    'Consiliere privind contractele internaționale și executarea obligațiilor.',
+                    'Consiliere privind contractele internaționale și reprezentare în litigii privind executarea obligațiilor comerciale.',
                 ],
                 'body' => [
                     'Dreptul comercial al cabinetului se concentrează pe contractele care susțin activitatea societăților: vânzare, distribuție, prestări servicii, asociere, confidențialitate, non-concurență și clauze de alocare a riscului.',
@@ -91,33 +91,34 @@ function practiceCatalog(): array
             'en' => 'tax-law',
             'ro' => [
                 'name' => 'Drept fiscal',
-                'short' => 'Asistență în inspecții fiscale, contestații și litigii administrativ-fiscale.',
-                'title' => 'Avocat drept fiscal București | Cabinet Bodu',
-                'description' => 'Avocat de drept fiscal în București — planificare, inspecții și contencios administrativ-fiscal. Cabinet Bodu, Baroul București.',
-                'h1' => 'Avocat drept fiscal în București',
-                'lead' => 'Consultanță fiscală pentru societăți și contencios în fața organelor fiscale și a instanțelor de contencios administrativ.',
+                'short' => 'Controale ANAF și Antifraudă, contestații fiscale și litigii de contencios fiscal.',
+                'title' => 'Avocat fiscal în București | ANAF și Antifraudă',
+                'description' => 'Avocat fiscal în București pentru inspecții ANAF, controale Antifraudă, contestații la decizii de impunere și litigii de contencios fiscal.',
+                'h1' => 'Avocat de drept fiscal în București',
+                'lead' => 'Asistență juridică la inspecțiile ANAF și controalele Direcției Generale Antifraudă Fiscală, de la analiza documentelor până la reprezentarea în litigii fiscale.',
+                'services_heading' => 'Asistență la controale ANAF și Antifraudă',
                 'services' => [
                     'Analiza implicațiilor fiscale ale operațiunilor comerciale.',
-                    'Asistență și reprezentare în cadrul inspecțiilor fiscale.',
-                    'Pregătirea contestațiilor împotriva actelor administrative fiscale.',
+                    'Asistență în inspecții fiscale și controale antifraudă. Analiza documentelor, a solicitărilor și a constatărilor organului fiscal.',
+                    'Contestații împotriva deciziilor de impunere și a altor acte administrative fiscale, în funcție de actul emis.',
                     'Reprezentare în litigii de contencios administrativ-fiscal.',
                 ],
                 'body' => [
                     'Practica de drept fiscal susține operațiunile comerciale: încadrarea tranzacțiilor, riscurile de impunere, obligațiile declarative și relația cu organul fiscal.',
-                    'Cabinetul acordă asistență la inspecții fiscale, contestații la titluri de creanță și acțiuni în contencios administrativ-fiscal. Accentul cade pe o strategie juridică corelată cu structura societară și comercială a clientului.',
+                    'Într-un control ANAF sau Antifraudă, cabinetul analizează documentele cerute, constatările consemnate și efectele actului comunicat. Calea de contestare și termenul se stabilesc pentru fiecare act, inclusiv când controlul se încheie cu o decizie de impunere.',
                     'Consultanța se adresează societăților și investitorilor și urmărește identificarea din timp a riscurilor fiscale relevante pentru activitatea lor.',
                 ],
             ],
             'en_copy' => [
                 'name' => 'Tax law',
-                'short' => 'Strategic tax counsel, planning and administrative litigation.',
+                'short' => 'Romanian tax audits, anti-fraud inspections, tax appeals and litigation.',
                 'title' => 'Tax lawyer in Bucharest | Bodu Law Office',
-                'description' => 'Tax law counsel in Bucharest — planning, tax audits and administrative-tax litigation. Bodu Law Office, Bucharest Bar.',
+                'description' => 'Tax lawyer in Bucharest for Romanian tax authority (ANAF) audits, anti-fraud inspections, challenges to tax assessments and litigation.',
                 'h1' => 'Tax lawyer in Bucharest',
-                'lead' => 'Tax counsel for companies and litigation before tax authorities and administrative courts.',
+                'lead' => 'Legal assistance with Romanian tax authority (ANAF) audits, anti-fraud inspections, appeals and administrative tax litigation.',
                 'services' => [
                     'Analysis of tax implications of commercial transactions.',
-                    'Assistance and representation during tax audits.',
+                    'Assistance and representation during tax audits and anti-fraud inspections.',
                     'Preparation of challenges to tax assessments.',
                     'Representation in administrative tax litigation.',
                 ],
@@ -132,16 +133,17 @@ function practiceCatalog(): array
             'num' => '04',
             'en' => 'economic-offences',
             'ro' => [
-                'name' => 'Criminalitate economică',
-                'short' => 'Prevenție penală și apărare în cauze de evaziune, corupție și alte infracțiuni economice.',
-                'title' => 'Avocat criminalitate economică București | Cabinet Bodu',
-                'description' => 'Avocat în București pentru evaziune fiscală, corupție și spălare de bani. Asistență, apărare și prevenție penală pentru societăți și conducerea lor.',
-                'h1' => 'Avocat criminalitate economică în București',
-                'lead' => 'Prevenție penală, apărare și asistență în cauze de infracțiuni financiare, de corupție și de serviciu, pentru societate și conducere.',
+                'name' => 'Drept penal al afacerilor',
+                'short' => 'Apărare în dosare de evaziune fiscală, fraudă, corupție și alte infracțiuni economice.',
+                'title' => 'Avocat penal în București | Infracțiuni economice',
+                'description' => 'Avocat penal în București pentru evaziune fiscală, fraudă, corupție și spălarea banilor. Apărare la audieri, în urmărirea penală și în instanță.',
+                'h1' => 'Avocat penal în București pentru infracțiuni economice',
+                'lead' => 'Asistență și apărare pentru societăți și conducerea lor în dosare de evaziune fiscală, fraudă, corupție, spălare de bani și alte infracțiuni economice.',
+                'services_heading' => 'Asistență și apărare în dosare penale',
                 'services' => [
                     'Identificarea și evaluarea riscurilor penale în activitatea societății.',
                     'Asistență și apărare în cauze privind evaziunea fiscală, corupția, spălarea banilor și infracțiunile conexe.',
-                    'Reprezentare în cursul urmăririi penale și al judecății.',
+                    'Asistență la audieri și apărare în cursul urmăririi penale și al judecății.',
                     'Asistență privind măsurile preventive și măsurile asigurătorii.',
                 ],
                 'body' => [
@@ -176,9 +178,9 @@ function practiceCatalog(): array
             'ro' => [
                 'name' => 'Drept bancar',
                 'short' => 'Finanțări, garanții și litigii cu instituții de credit.',
-                'title' => 'Avocat drept bancar București | Cabinet Bodu',
+                'title' => 'Avocat drept bancar în București | Cabinet Bodu',
                 'description' => 'Avocat de drept bancar și financiar în București — reglementare, conformitate și litigii. Cabinet de avocatură de afaceri Bodu.',
-                'h1' => 'Avocat drept bancar în București',
+                'h1' => 'Avocat de drept bancar în București',
                 'lead' => 'Asistență în reglementare bancară, relații de credit și litigii financiare pentru societăți și instituții.',
                 'services' => [
                     'Analiza și negocierea contractelor de credit și a documentației de finanțare.',
@@ -218,9 +220,9 @@ function practiceCatalog(): array
             'ro' => [
                 'name' => 'Arbitraj comercial',
                 'short' => 'Clauze arbitrale, reprezentare în litigii și executarea hotărârilor arbitrale.',
-                'title' => 'Avocat arbitraj comercial București | Cabinet Bodu',
+                'title' => 'Avocat arbitraj comercial în București | Cabinet Bodu',
                 'description' => 'Avocat de arbitraj comercial în București — clauze arbitrale, proceduri și executarea hotărârilor. Cabinet Bodu.',
-                'h1' => 'Avocat arbitraj comercial în București',
+                'h1' => 'Avocat pentru arbitraj comercial în București',
                 'lead' => 'Asistență în clauze arbitrale, desfășurarea procedurii și executarea sentințelor în dispute comerciale.',
                 'services' => [
                     'Redactarea și analiza clauzelor arbitrale.',
@@ -254,6 +256,90 @@ function practiceCatalog(): array
                 ],
             ],
         ],
+        'infractiuni-informatice' => [
+            'num' => '07',
+            'en' => 'cybercrime',
+            'ro' => [
+                'name' => 'Infracțiuni informatice',
+                'short' => 'Apărare în dosare de fraudă informatică, acces ilegal și alte cauze cu probe digitale.',
+                'title' => 'Avocat infracțiuni informatice în București | Bodu',
+                'description' => 'Avocat în București pentru infracțiuni informatice, fraude online și probe digitale. Asistență la audieri, percheziții informatice și expertize.',
+                'h1' => 'Avocat pentru infracțiuni informatice în București',
+                'lead' => 'Cabinetul este specializat în apărarea în cauze de fraudă informatică, acces ilegal la sisteme informatice și alte infracțiuni în care sunt administrate probe digitale.',
+                'services_heading' => 'Apărare în dosare de criminalitate informatică',
+                'services' => [
+                    'Asistență la audieri, percheziții informatice și în cursul expertizelor.',
+                    'Apărare în cauze privind frauda informatică, accesul ilegal și modificarea ori ștergerea datelor.',
+                    'Analiza probelor digitale, inclusiv a mesajelor, datelor de acces și tranzacțiilor contestate.',
+                    'Reprezentare în cursul urmăririi penale și al judecății.',
+                ],
+                'body' => [
+                    'Într-un dosar de fraudă online, o tranzacție sau o autentificare poate ridica întrebări despre cine a avut acces la cont, ce operațiune a efectuat și ce date au fost păstrate. Cabinetul confruntă probele digitale cu documentele și declarațiile din dosar.',
+                    'Când cauza implică dispozitive ridicate la percheziție sau date extrase din sisteme informatice, apărarea examinează modul în care au fost obținute probele și ce poate stabili expertiza. În cauzele cu tranzacții cripto, analiza include documentele care leagă transferurile de persoanele și conturile din dosar.',
+                ],
+            ],
+            'en_copy' => [
+                'name' => 'Cybercrime',
+                'short' => 'Defence in computer fraud and unlawful access cases, including matters involving digital evidence.',
+                'title' => 'Cybercrime lawyer in Bucharest | Bodu Law Office',
+                'description' => 'Cybercrime lawyer in Bucharest for computer fraud, unlawful access and digital evidence. Counsel at interviews, computer searches and trial.',
+                'h1' => 'Cybercrime lawyer in Bucharest',
+                'lead' => 'The firm specialises in criminal defence in cases involving unlawful access to computer systems, computer fraud and other offences involving digital data.',
+                'services_heading' => 'Defence in cybercrime cases',
+                'services' => [
+                    'Legal assistance at interviews, during computer searches and in expert examinations.',
+                    'Defence in cases of computer fraud, unlawful access, and alteration or deletion of data.',
+                    'Review of digital evidence, including messages, access logs and disputed transactions.',
+                    'Representation during criminal investigations and trials.',
+                ],
+                'body' => [
+                    'A disputed transaction or login can raise questions about who had access to an account, which actions were taken and what records were retained. The firm reviews the digital evidence alongside the documents and statements in the case file.',
+                    'Where devices were seized or data was extracted from computer systems, the defence examines how the evidence was obtained and what the forensic examination can establish. In cases involving crypto transactions, the review includes records linking transfers to the people and accounts in the case.',
+                ],
+            ],
+        ],
+        'portofele-cripto' => [
+            'num' => '08',
+            'en' => 'crypto-wallets',
+            'ro' => [
+                'name' => 'Criptoactive și portofele cripto',
+                'short' => 'Consultanță juridică pentru gestionarea portofelelor cripto, custodie și transferuri de criptoactive.',
+                'title' => 'Avocat cripto în București | Portofele și transferuri',
+                'description' => 'Consultanță juridică în București pentru gestionarea portofelelor cripto, custodia criptomonedelor, transferuri și dispute cu platformele.',
+                'h1' => 'Consultanță juridică pentru portofele cripto în București',
+                'lead' => 'Cabinetul oferă asistență juridică specializată pentru gestionarea portofelelor cripto și documentarea operațiunilor cu criptomonede și alte criptoactive.',
+                'services_heading' => 'Gestionarea portofelelor cripto și documentarea tranzacțiilor',
+                'services' => [
+                    'Consultanță privind drepturile și răspunderea persoanelor care administrează portofele cripto.',
+                    'Analiza contractelor cu platformele de tranzacționare și furnizorii de custodie.',
+                    'Evaluarea documentelor privind proveniența criptoactivelor și transferurile între portofele.',
+                    'Asistență în dispute privind accesul la portofel, transferurile contestate și blocarea activelor.',
+                ],
+                'body' => [
+                    'Pentru o societate sau un investitor, gestionarea portofelului implică și decizii juridice despre cine poate autoriza operațiuni, ce obligații are custodele și cum se documentează fiecare transfer. Cabinetul analizează aceste aspecte în raport cu titularul activelor și cu serviciile folosite.',
+                    'Dacă un transfer este contestat sau o platformă blochează retragerea criptoactivelor, cabinetul examinează documentele contractuale și evidența tranzacțiilor. În spețele cu implicații fiscale sau penale, analiza se extinde la obligațiile și actele care fac obiectul dosarului.',
+                ],
+            ],
+            'en_copy' => [
+                'name' => 'Crypto assets and wallets',
+                'short' => 'Legal advice on managing crypto wallets, custody arrangements and asset transfers.',
+                'title' => 'Crypto asset lawyer in Bucharest | Wallets and transfers',
+                'description' => 'Legal advice in Bucharest on managing crypto wallets, cryptocurrency custody, transfers and disputes with trading platforms.',
+                'h1' => 'Legal advice on crypto wallets in Bucharest',
+                'lead' => 'The firm provides specialised legal advice on managing crypto wallets and documenting transactions involving cryptocurrency and other crypto assets.',
+                'services_heading' => 'Crypto wallet management and transaction records',
+                'services' => [
+                    'Advice on the rights and responsibilities of people managing crypto wallets.',
+                    'Review of agreements with trading platforms and custody providers.',
+                    'Assessment of records showing the source of crypto assets and transfers between wallets.',
+                    'Assistance in disputes over wallet access, contested transfers and frozen assets.',
+                ],
+                'body' => [
+                    'Managing a wallet for a company or an investor involves decisions about who may authorise transactions, what the custodian is responsible for and how to document each transfer. The firm reviews these matters in light of who owns the assets and which services are used.',
+                    'If a transfer is disputed or a platform blocks withdrawals, the firm reviews the relevant agreements and transaction records. In matters with tax or criminal implications, the review also covers the obligations and official notices at issue.',
+                ],
+            ],
+        ],
     ];
 }
 
@@ -280,7 +366,27 @@ function faqItems(string $lang): array
             ],
             [
                 'q' => 'What practice areas does the firm cover?',
-                'a' => 'Corporate law, commercial law, tax law, economic offences, banking law and commercial arbitration — the core of Romanian business law.',
+                'a' => 'The firm advises on corporate, commercial, tax and banking law and commercial arbitration. Its criminal practice covers economic offences and cybercrime. It also advises on crypto assets and wallets.',
+            ],
+            [
+                'q' => 'When can a criminal lawyer assist with a business matter?',
+                'a' => 'The firm assists at interviews, during investigations and at trial in cases involving tax evasion, corruption, money laundering and related economic offences.',
+                'practice' => 'criminalitate-economica',
+            ],
+            [
+                'q' => 'Can the firm assist with an ANAF audit or anti-fraud inspection?',
+                'a' => 'Yes. The firm reviews the documents requested and any assessment or other act issued. It advises on the applicable deadline and procedure for a challenge and represents clients in tax litigation.',
+                'practice' => 'drept-fiscal',
+            ],
+            [
+                'q' => 'Does the firm represent clients in cybercrime cases?',
+                'a' => 'Yes. Assistance covers computer fraud, unlawful access, computer searches and the review of digital evidence during the investigation and trial.',
+                'practice' => 'infractiuni-informatice',
+            ],
+            [
+                'q' => 'What does legal advice on managing crypto wallets cover?',
+                'a' => 'The firm reviews who can authorise transfers, the responsibilities of custodians and trading platforms, and the records needed when access or a transfer is disputed.',
+                'practice' => 'portofele-cripto',
             ],
             [
                 'q' => 'Who is Sebastian V. Bodu?',
@@ -299,7 +405,27 @@ function faqItems(string $lang): array
         ],
         [
             'q' => 'Ce domenii de practică acoperă cabinetul?',
-            'a' => 'Drept societar, drept comercial, drept fiscal, criminalitate economică, drept bancar și arbitraj comercial — nucleul avocaturii de afaceri în România.',
+            'a' => 'Cabinetul acordă asistență în drept societar, comercial, fiscal, bancar și în arbitraj. Practica penală cuprinde criminalitatea economică și infracțiunile informatice. Cabinetul oferă și consultanță juridică pentru portofele cripto.',
+        ],
+        [
+            'q' => 'Pentru ce probleme penale pot solicita asistență?',
+            'a' => 'Cabinetul oferă apărare în dosare de evaziune fiscală, fraudă, corupție, spălare de bani și alte infracțiuni economice. Asistența acoperă audierile, urmărirea penală și judecata.',
+            'practice' => 'criminalitate-economica',
+        ],
+        [
+            'q' => 'Cabinetul mă poate asista la un control ANAF sau Antifraudă?',
+            'a' => 'Da. Cabinetul analizează documentele cerute și actele comunicate în urma controlului. În funcție de act, stabilește calea și termenul de contestare și oferă reprezentare în litigii fiscale.',
+            'practice' => 'drept-fiscal',
+        ],
+        [
+            'q' => 'Ce asistență oferă cabinetul în dosare de infracțiuni informatice?',
+            'a' => 'Cabinetul acordă asistență și apărare în cauze de fraudă informatică și acces ilegal la sisteme, inclusiv la percheziții informatice și la examinarea probelor digitale.',
+            'practice' => 'infractiuni-informatice',
+        ],
+        [
+            'q' => 'Ce include consultanța juridică pentru gestionarea portofelelor cripto?',
+            'a' => 'Consultația poate privi dreptul de a autoriza transferuri, obligațiile custodelui ori ale platformei și documentele necesare într-o dispută privind accesul la portofel sau o tranzacție.',
+            'practice' => 'portofele-cripto',
         ],
         [
             'q' => 'Cine este Sebastian V. Bodu?',
@@ -310,4 +436,27 @@ function faqItems(string $lang): array
             'a' => 'Completați formularul de pe acest site sau scrieți la bodu.sebastian@gmail.com. Veți fi contactat în cel mai scurt timp.',
         ],
     ];
+}
+
+function renderFaqItems(string $lang): void
+{
+    $practices = practiceCatalog();
+    $esc = fn($v) => htmlspecialchars($v, ENT_QUOTES, 'UTF-8');
+    foreach (faqItems($lang) as $faq):
+        $slug = $faq['practice'] ?? '';
+    ?>
+    <details class="faq-item">
+        <summary><?= $esc($faq['q']) ?></summary>
+        <p><?= $esc($faq['a']) ?>
+        <?php if (isset($practices[$slug])):
+            $practice = $practices[$slug];
+            $href = $lang === 'en' ? $practice['en'] : $slug;
+            $copy = $lang === 'en' ? $practice['en_copy'] : $practice['ro'];
+        ?>
+            <a href="/<?= $esc($href) ?>"><?= $esc($copy['name']) ?></a>
+        <?php endif; ?>
+        </p>
+    </details>
+    <?php
+    endforeach;
 }
