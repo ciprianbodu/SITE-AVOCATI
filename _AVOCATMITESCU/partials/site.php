@@ -97,7 +97,7 @@ $assetVersion = '20261121b';
                 <p class="hero-lead"><?= $t['lead'] ?></p>
                 <picture class="hero-film">
                     <source media="(prefers-reduced-motion: reduce)" srcset="/assets/img/consultation-film-poster.webp">
-                    <img src="/assets/img/consultation-film-loop.webp" width="608" height="264" loading="lazy"
+                    <img src="/assets/img/consultation-film-loop.webp?v=2" width="608" height="264" loading="lazy"
                         decoding="async" alt="<?= htmlspecialchars($t['consultation_film']) ?>">
                 </picture>
                 <div class="hero-actions">

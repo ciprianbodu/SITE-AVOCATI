@@ -80,7 +80,7 @@ $showFormError = in_array($statusMessage, ['invalid', 'error'], true);
             <p class="hero__lead">Cabinetul oferă consultanță și reprezentare în drept comercial și fiscal. Practica penală cuprinde dosare de criminalitate economică și infracțiuni informatice. Oferim și consultanță juridică pentru gestionarea portofelelor cripto.</p>
             <picture class="hero-film">
                 <source media="(prefers-reduced-motion: reduce)" srcset="/assets/img/consultation-film-poster.webp">
-                <img src="/assets/img/consultation-film-loop.webp" width="608" height="264" loading="lazy"
+                <img src="/assets/img/consultation-film-loop.webp?v=2" width="608" height="264" loading="lazy"
                     decoding="async" alt="Un avocat pregătește actele, pledează și dă mâna cu un client.">
             </picture>
             <div class="hero__actions">

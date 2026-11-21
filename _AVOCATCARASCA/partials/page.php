@@ -106,7 +106,7 @@
                     <div class="hero-media">
                         <picture class="hero-film">
                             <source media="(prefers-reduced-motion: reduce)" srcset="/assets/img/consultation-film-poster.webp">
-                            <img src="/assets/img/consultation-film-loop.webp" width="608" height="264" loading="lazy"
+                            <img src="/assets/img/consultation-film-loop.webp?v=2" width="608" height="264" loading="lazy"
                                 decoding="async" alt="<?= esc($labels['consultationFilm']) ?>">
                         </picture>
                         <button class="hero-sound" type="button" aria-controls="hero-soundtrack" aria-pressed="false" hidden>

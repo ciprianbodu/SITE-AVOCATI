@@ -78,7 +78,7 @@ $showFormError = in_array($statusMessage, ['invalid', 'error'], true);
             <p class="hero__lead">The firm advises and represents clients in commercial and tax matters. Its criminal practice covers economic offences and cybercrime. It also provides legal advice on managing crypto wallets.</p>
             <picture class="hero-film">
                 <source media="(prefers-reduced-motion: reduce)" srcset="/assets/img/consultation-film-poster.webp">
-                <img src="/assets/img/consultation-film-loop.webp" width="608" height="264" loading="lazy"
+                <img src="/assets/img/consultation-film-loop.webp?v=2" width="608" height="264" loading="lazy"
                     decoding="async" alt="A lawyer prepares documents, speaks in court and shakes hands with a client.">
             </picture>
             <div class="hero__actions">
