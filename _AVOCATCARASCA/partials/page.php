@@ -45,8 +45,9 @@
                 <span class="brand-legal">LEGAL</span>
             </a>
             <div class="brand-crest" aria-hidden="true">
+                <span>C</span>
                 <img src="/assets/img/crest.webp" width="160" height="160" alt="">
-                <span><?= esc($site['brandName']) ?> LEGAL</span>
+                <span>L</span>
             </div>
             <div class="nav-links">
                 <?php foreach ($navLinks as $href => $label): ?>

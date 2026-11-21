@@ -133,14 +133,12 @@ h3 { font-size: 1.8rem; }
 .brand-name { font: 700 1.12rem / 1 var(--serif); letter-spacing: .15em; }
 .brand-legal { color: var(--gold); font: 700 clamp(2.1rem, 4vw, 2.5rem) / .95 var(--serif); letter-spacing: .08em; }
 .brand-crest {
-  display: grid;
-  justify-items: center;
-  gap: .15rem;
+  display: flex;
+  align-items: center;
+  gap: .35rem;
   flex: none;
   color: var(--gold);
-  font: 700 .75rem / 1 var(--serif);
-  letter-spacing: .06em;
-  white-space: nowrap;
+  font: 700 1.35rem / 1 var(--serif);
 }
 .brand-crest img { display: block; width: 2.65rem; height: 2.65rem; }
 
